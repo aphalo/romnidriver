@@ -1,0 +1,12 @@
+Package: rOO
+Type: Package
+Title: Omni Driver R wrapper 
+Version: 0.1
+Date: 2013-04-19
+Author: Pedro J. Aphalo
+Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
+Description: This package is a wrapper on the Omni Driver java driver for Ocean Optics spectrometers.
+License: GPL
+Depends: rJava
+Imports: rJava
+SystemRequirements: Java (>=1.6), Omni Driver (>=2.20)
