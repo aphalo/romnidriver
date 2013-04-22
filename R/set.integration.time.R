@@ -1,3 +1,3 @@
-set.integration.time <- function(jwrapper, time.usec=100, sr.index=0){
-  jwrapper$setIntegrationTime(sr.index, time.usec)
+set.integration.time <- function(jwrapper, time.usec=100L, sr.index=0L){
+  jwrapper$setIntegrationTime(as.integer(sr.index), as.integer(time.usec))
 }
