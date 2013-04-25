@@ -1,19 +1,25 @@
-\name{set.integration.time}
-\alias{set.scans.to.average}
-\alias{set.integration.time}
-\alias{set.boxcar.width}
-\alias{set.correct.for.detector.nonlinearity}
-\alias{set.correct.for.electrical.dark}
-\alias{set.timeout}
+\name{get.detector}
+\alias{get.detector}
+\alias{get.bench}
+\alias{get.boxcar.width}
+\alias{get.correct.for.detector.nonlinearity}
+\alias{get.correct.for.electrical.dark}
+\alias{get.correct.for.stray.light}
+\alias{get.feature.controller.board.temperature}
+\alias{get.feature.detector.temperature}
+\alias{get.feature.pixel.binning}
+\alias{is.feature.supported.controller.board.temperature}
+\alias{is.feature.supported.detector.temperature}
+\alias{is.feature.supported.pixel.binning}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Set integration time for each scan
+\title{Set number of scans to average
 %%  ~~function to do ... ~~
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-set.integration.time(jwrapper, time.usec, sr.index=0)
+set.scans.to.avg(jwrapper, n.scans=1, sr.index=0)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

@@ -1,14 +1,18 @@
-\name{set.scans.to.avg}
-\alias{set.scans.to.avg}
+\name{is.saturated}
+\alias{is.saturated}
+\alias{is.spectrum.valid}
+
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Set number of scans to average
+\title{
+Functions to test if last acquired spectrum is good.
 %%  ~~function to do ... ~~
 }
 \description{
+get.raw.spectrum should be called before using these functions.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-set.scans.to.avg(jwrapper, n.scans=1, sr.index=0)
+is.saturated(x)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
