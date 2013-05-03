@@ -1,61 +1,16 @@
 \name{is.saturated}
 \alias{is.saturated}
-\alias{is.spectrum.valid}
+\title{Checks whether the last spectrum acquired is saturated (= clipped).}
+\usage{
+  is.saturated(jwrapper, sr.index = 0L)
+}
+\arguments{
+  \item{jwrapper}{an open Wrapper object from Omnidriver}
 
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-Functions to test if last acquired spectrum is good.
-%%  ~~function to do ... ~~
+  \item{sr.index}{an index to address the spectrometer}
 }
 \description{
-get.raw.spectrum should be called before using these functions.
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
-\usage{
-is.saturated(x)
-}
-%- maybe also 'usage' for other objects documented here.
-\arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
-}
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+  Checks whether the last spectrum acquired is saturated (=
+  clipped).
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x) 
-{
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

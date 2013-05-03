@@ -1,62 +1,19 @@
 \name{set.integration.time}
-\alias{set.scans.to.average}
 \alias{set.integration.time}
-\alias{set.boxcar.width}
-\alias{set.correct.for.detector.nonlinearity}
-\alias{set.correct.for.electrical.dark}
-\alias{set.timeout}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{Set integration time for each scan
-%%  ~~function to do ... ~~
+\title{Set "integration time" for addressed spectrometer}
+\usage{
+  set.integration.time(jwrapper, time.usec = 100L,
+    sr.index = 0L)
+}
+\arguments{
+  \item{jwrapper}{an open Wrapper object from Omnidriver}
+
+  \item{time.usec}{integartion time in microseconds (an
+  integer)}
+
+  \item{sr.index}{an index to address the spectrometer}
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
-\usage{
-set.integration.time(jwrapper, time.usec, sr.index=0)
-}
-%- maybe also 'usage' for other objects documented here.
-\arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
-}
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+  Set "integration time" for addressed spectrometer
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x) 
-{
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

@@ -1,38 +1,31 @@
-\name{rOO-package}
-\alias{rOO-package}
-\alias{rOO}
 \docType{package}
-\title{
-Package to control OO spectrometer from within R.
-}
+\name{rOO-package}
+\alias{rOO}
+\alias{rOO-package}
+\title{Use Ocean Optics' Omnidriver from R}
 \description{
-Use the Omini Driver from Ocean Optics, written in Java, from R by means of rJava.
+  A package to use OmniDriver (a library from Ocean Optics)
 }
 \details{
-\tabular{ll}{
-Package: \tab rOO\cr
-Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2013-04-19\cr
-License: \tab What license is it under?\cr
-}
-~~ An overview of how to use the package, including the most important functions ~~
+  OmniDriver is a propietary library provided by Ocean
+  Optics to allow the control of the spectrometers they
+  sell through third party software.
+
+  Although this package is under GPL, Omnidriver is not, it
+  is copyrighted commercial software from Ocean Optics
+  \url{http://www.oceanoptics.com}
+
+  Ocean optics has authorized the redistribution of the
+  parts of OmniDriver needed for this package to work, free
+  of charge.
+
+  Ocean Optics will not provide support for the use of this
+  package, unless the user buys a licence for OmniDriver
+  SDP (spectroscopy development plattform). All support
+  requests about this package should be addressed to the
+  maintainer of the package or public R user forums.
 }
 \author{
-Who wrote it
+  Pedro J. Aphalo (pedro.aphalo
+}
 
-Maintainer: Who to complain to <yourfault@somewhere.net>
-~~ The author and/or maintainer of the package ~~
-}
-\references{
-~~ Literature or other references for background information ~~
-}
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
-\keyword{ package }
-\seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
-}
-\examples{
-##~~ simple examples of the most important functions ~~
-}

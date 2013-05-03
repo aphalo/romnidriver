@@ -1,58 +1,16 @@
 \name{number.srs}
 \alias{number.srs}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-Find out how many spectrometers are connected to the computer.
-%%  ~~function to do ... ~~
+\title{Returns the number of spectrometers attach to the computer
+It is the number of spectrometers that can be addressed}
+\usage{
+  number.srs(jwrapper)
+}
+\arguments{
+  \item{jwrapper}{an open Wrapper object from Omnidriver}
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
-\usage{
-number.srs(jwrapper)
-}
-%- maybe also 'usage' for other objects documented here.
-\arguments{
-  \item{jwrapper}{
-%%     ~~Describe \code{x} here~~
-}
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+  Returns the number of spectrometers attach to the
+  computer It is the number of spectrometers that can be
+  addressed
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
-\examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x) 
-{
-  }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
