@@ -5,6 +5,6 @@
 #' @param sr.index an index to address the spectrometer 
 #' @export
 #'
-set.boxcar.width <- function(jwrapper, half.width.px=1L, sr.index=0L){
+set.boxcar.width <- function(jwrapper, half.width.px=0L, sr.index=0L){
   jwrapper$setBoxcarWidth(as.integer(sr.index),as.integer(half.width.px))
 }
