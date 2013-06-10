@@ -2,7 +2,7 @@
 \alias{set.boxcar.width}
 \title{Set setting "boxcar width" (the number of pixels averaged)}
 \usage{
-  set.boxcar.width(jwrapper, half.width.px = 1L,
+  set.boxcar.width(jwrapper, half.width.px = 0L,
     sr.index = 0L)
 }
 \arguments{
