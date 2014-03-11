@@ -6,7 +6,14 @@ Date: 2013-06-10
 Author: Pedro J. Aphalo
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
 Description: This package is a wrapper of the OmniDriver java driver for Ocean Optics spectrometers.
-License: GPL
-Depends: rJava
+License: GPL (>=3)
+Depends: R (>= 3.0.0), rJava
 Imports: rJava
 SystemRequirements: Java (>=1.6), Omni Driver (>=2.20)
+Suggests: knitr  (>= 1.2)
+VignetteBuilder: knitr
+LazyLoad: yes
+LazyData: yes
+Encoding: UTF-8
+URL: http://r4photobiology.wordpress.com, https://bitbucket.org/aphalo/photobiology
+BugReports: https://bitbucket.org/aphalo/photobiology
