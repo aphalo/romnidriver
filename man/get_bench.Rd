@@ -1,15 +1,21 @@
-\name{get.bench}
-\alias{get.bench}
+\name{get_bench}
+\alias{get_bench}
 \title{Get optical properties of optical bench}
 \usage{
-  get.bench(jwrapper, sr.index = 0L)
+get_bench(jwrapper, sr.index=0L)
 }
 \arguments{
   \item{jwrapper}{an open Wrapper object from Omnidriver}
 
   \item{sr.index}{an index to address the spectrometer}
 }
-\description{
-  Get optical properties of optical bench
+\value{
+a value
 }
+\description{
+A function to query the characteristics of the optical
+bench from a spectrometer.
+}
+\keyword{manip}
+\keyword{misc}
 

@@ -1,9 +1,10 @@
 #' Get current setting of stray light correction
 #' 
+#' @usage get_correct_for_stray_light(jwrapper, sr.index=0L)
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
 #' @export
 #'
-get.correct.for.stray.light <- function(jwrapper, sr.index=0L){
+get_correct_for_stray_light <- function(jwrapper, sr.index=0L){
   jwrapper$getCorrectForStrayLight(as.integer(sr.index))
 }

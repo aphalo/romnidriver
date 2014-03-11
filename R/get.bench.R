@@ -1,9 +1,15 @@
 #' Get optical properties of optical bench
 #' 
+#' A function to query the characteristics of the optical bench
+#' from a spectrometer.
+#' 
+#' @usage get_bench(jwrapper, sr.index=0L)
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
+#' @keywords manip misc
+#' @return a value
 #' @export
 #'
-get.bench <- function(jwrapper, sr.index=0L){
+get_bench <- function(jwrapper, sr.index=0L){
   jwrapper$getBench(as.integer(sr.index))
 }

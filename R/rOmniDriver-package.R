@@ -16,12 +16,12 @@
 #' All support requests about this package should be addressed to the maintainer
 #' of the package or public R user forums.
 #' 
-#' @name rOO-package
-#' @aliases rOO
+#' @name rOmniDriver-package
+#' @aliases rOmniDriver
 #' @docType package
 #' @title Use Ocean Optics' Omnidriver from R
 #' @author Pedro J. Aphalo (pedro.aphalo@helsinki.fi)
 #' @reference \url{http://www.oceanoptics.com/Products/omnidriver.asp}
 #' @keyword package
 #' 
-NA
+NULL

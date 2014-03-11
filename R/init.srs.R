@@ -7,8 +7,11 @@
 #' You should call this function only once
 #' And cleanup by use of \code{close.srs} before exiting
 #' 
+#' @usage init_srs()
+#' @keywords manip misc
 #' @export
+#' @return a wrapper
 #'
-init.srs <- function(){
+init_srs <- function(){
   return(.jnew("com/oceanoptics/omnidriver/api/wrapper/Wrapper"))
 }

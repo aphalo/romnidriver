@@ -1,0 +1,23 @@
+\name{get_feature_detector_board_temperature}
+\alias{get_feature_detector_board_temperature}
+\title{Get feature "detector temperature"}
+\usage{
+get_feature_detector_board_temperature(jwrapper, sr.index=0L)
+}
+\arguments{
+  \item{jwrapper}{an open Wrapper object from Omnidriver}
+
+  \item{sr.index}{an index to address the spectrometer}
+}
+\value{
+a numeric value
+}
+\description{
+A function to retrieve the detector board temperature, if
+available. Before calling this function you first need to
+check that the feature is supported by the spectrometer in
+use.
+}
+\keyword{manip}
+\keyword{misc}
+

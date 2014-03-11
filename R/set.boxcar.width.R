@@ -1,10 +1,13 @@
 #' Set setting "boxcar width" (the number of pixels averaged)
 #' 
+#' @usage set_boxcar_width(jwrapper, half.width.px=0L, sr.index=0L)
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param half.width.px the number of pixels in one half of the bocar window (an integer number)
 #' @param sr.index an index to address the spectrometer 
+#' @keywords manip misc
 #' @export
+#' @return a numeric value
 #'
-set.boxcar.width <- function(jwrapper, half.width.px=0L, sr.index=0L){
+set_boxcar_width <- function(jwrapper, half.width.px=0L, sr.index=0L){
   jwrapper$setBoxcarWidth(as.integer(sr.index),as.integer(half.width.px))
 }

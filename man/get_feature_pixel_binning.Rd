@@ -1,0 +1,24 @@
+\name{get_feature_pixel_binning}
+\alias{get_feature_pixel_binning}
+\title{Get feature "pixel binning"
+Before calling this function you first need to check that the feature is supported
+by the spectrometer in use.}
+\usage{
+get_feature_pixel_binning(jwrapper, sr.index=0L)
+}
+\arguments{
+  \item{jwrapper}{an open Wrapper object from Omnidriver}
+
+  \item{sr.index}{an index to address the spectrometer}
+}
+\value{
+a numeric value
+}
+\description{
+Get feature "pixel binning" Before calling this function
+you first need to check that the feature is supported by
+the spectrometer in use.
+}
+\keyword{manip}
+\keyword{misc}
+

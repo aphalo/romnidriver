@@ -1,0 +1,20 @@
+\name{get_correct_for_electrical_dark}
+\alias{get_correct_for_electrical_dark}
+\title{Get current setting for electrical dark correction}
+\usage{
+get_correct_for_electrical_dark(jwrapper, sr.index=0L)
+}
+\arguments{
+  \item{jwrapper}{an open Wrapper object from Omnidriver}
+
+  \item{sr.index}{an index to address the spectrometer}
+}
+\value{
+a numeric value
+}
+\description{
+Get current setting for electrical dark correction
+}
+\keyword{manip}
+\keyword{misc}
+

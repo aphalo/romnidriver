@@ -1,0 +1,21 @@
+\name{get_correct_for_detector_nonlineary}
+\alias{get_correct_for_detector_nonlineary}
+\title{Get current setting of linearity correction (enabled or not)}
+\usage{
+get_correct_for_detector_nonlineary(jwrapper, sr.index=0L)
+}
+\arguments{
+  \item{jwrapper}{an open Wrapper object from Omnidriver}
+
+  \item{sr.index}{an index to address the spectrometer}
+}
+\value{
+a numeric value
+}
+\description{
+Get current setting of linearity correction (enabled or
+not)
+}
+\keyword{manip}
+\keyword{misc}
+
