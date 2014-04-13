@@ -26,6 +26,10 @@ about this package should be addressed to the maintainer of
 the package or public R user forums.
 }
 \author{
-Pedro J. Aphalo (pedro.aphalo
+Pedro J. Aphalo
 }
+\references{
+\url{http://www.oceanoptics.com/Products/omnidriver.asp}
+}
+\keyword{package}
 

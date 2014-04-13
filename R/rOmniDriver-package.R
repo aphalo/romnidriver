@@ -20,8 +20,8 @@
 #' @aliases rOmniDriver
 #' @docType package
 #' @title Use Ocean Optics' Omnidriver from R
-#' @author Pedro J. Aphalo (pedro.aphalo@helsinki.fi)
-#' @reference \url{http://www.oceanoptics.com/Products/omnidriver.asp}
-#' @keyword package
+#' @author Pedro J. Aphalo
+#' @references \url{http://www.oceanoptics.com/Products/omnidriver.asp}
+#' @keywords package
 #' 
 NULL
