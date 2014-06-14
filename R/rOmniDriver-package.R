@@ -23,5 +23,5 @@
 #' @author Pedro J. Aphalo
 #' @references \url{http://www.oceanoptics.com/Products/omnidriver.asp}
 #' @keywords package
-#' 
+#' @import rJava
 NULL

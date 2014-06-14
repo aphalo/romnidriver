@@ -1,3 +1,10 @@
+rOmniDriver 0.1.4
+=================
+
+Rebuilt with R 3.1.0
+No .jar files included with package. 
+At initialization reads the environment variable set during the OmniDriver runtime installation, sets the path for the Java class calls accordingly. This means that the package does not include any code from Ocean Optics.
+
 rOmniDriver 0.1.3
 =================
 
