@@ -1,8 +1,8 @@
 Package: rOmniDriver
 Type: Package
 Title: Omni Driver R wrapper 
-Version: 0.1.4
-Date: 2014-06-14
+Version: 0.1.5
+Date: 2014-06-15
 Author: Pedro J. Aphalo
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
 Description: This package is a wrapper of the OmniDriver java driver for Ocean Optics spectrometers.
