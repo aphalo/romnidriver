@@ -29,4 +29,10 @@ spc <- get_spectrum(w)
 is_saturated(w,0)
 is_spectrum_valid(w,0)
 spc
+
+test_args <- function(w) {
+  get_name(w)
+}
+
+test_args(w)
 srs_close(w)
