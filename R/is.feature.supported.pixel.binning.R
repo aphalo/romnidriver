@@ -1,7 +1,6 @@
 #' Checks whether feature "pixel binning" is available
 #' in the spectrometer addressed.
 #' 
-#' @usage is_feature_supported_pixel_binning(jwrapper, sr.index=0L)
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
 #' @keywords manip misc

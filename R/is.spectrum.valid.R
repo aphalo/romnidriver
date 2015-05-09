@@ -1,7 +1,6 @@
 #' Checks whether the last spectrum acquired is valid 
 #' (= no errors have occurred during acquisition).
 #' 
-#' @usage is_spectrum_valid(jwrapper, sr.index=0L)
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
 #' @keywords manip misc

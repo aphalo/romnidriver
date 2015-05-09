@@ -1,6 +1,0 @@
-The package rOmniDriver makes available in R the functions in OmniDriver SDP from Ocean Optics. OmniDriver allows to change settings and acquire spectra using Ocean Optics spectrometers. It has been tested with our Maya2000 Pro under windows, but should also work with any other modern spectrometer from Ocean Optics, and also under OS X, and Linux.
-
-For the package to function the free OmniDriver run-time driver, which can be downloaded from the Ocean Optics web site should also installed. There is no other set up needed, just plug your spectrometer to an USB port. The first time the operating system will install the drivers.
-
-This package does NOT require OceanView or SpectraSuite to be installed. It does not require the purchase of software from Ocean Optics, but it is not supported by Ocean Optics, unless you acquire a licence to the SDP.
-

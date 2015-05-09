@@ -1,6 +1,5 @@
 #' Flush the last spectrum acquired or currently being acquired
 #' 
-#' @usage spectrum_flush(jwrapper, sr.index=0L)
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
 #' @keywords manip misc

@@ -3,7 +3,6 @@
 #' A function to query the characteristics of the optical bench
 #' from a spectrometer.
 #' 
-#' @usage get_bench(jwrapper, sr.index=0L)
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
 #' @keywords manip misc

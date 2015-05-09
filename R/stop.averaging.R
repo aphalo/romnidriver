@@ -4,7 +4,6 @@
 #' application to be able to call it before get.spectrum
 #' returns.
 #' 
-#' @usage stop_averaging(jwrapper, sr.index=0L)
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
 #' for the time being not exported

@@ -1,6 +1,5 @@
 #' Get description of detector
 #' 
-#' @usage get_detector(jwrapper, sr.index=0L)
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
 #' @keywords manip misc
