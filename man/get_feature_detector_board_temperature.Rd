@@ -4,7 +4,7 @@
 \alias{get_feature_detector_board_temperature}
 \title{Get feature "detector temperature"}
 \usage{
-get_feature_detector_board_temperature(jwrapper, sr.index=0L)
+get_feature_detector_board_temperature(jwrapper, sr.index = 0L)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}

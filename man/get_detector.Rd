@@ -4,7 +4,7 @@
 \alias{get_detector}
 \title{Get description of detector}
 \usage{
-get_detector(jwrapper, sr.index=0L)
+get_detector(jwrapper, sr.index = 0L)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}

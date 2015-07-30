@@ -6,7 +6,7 @@
 Before calling this function you first need to check that the feature is supported
 by the spectrometer in use.}
 \usage{
-get_feature_pixel_binning(jwrapper, sr.index=0L)
+get_feature_pixel_binning(jwrapper, sr.index = 0L)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}

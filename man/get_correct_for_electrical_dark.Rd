@@ -4,7 +4,7 @@
 \alias{get_correct_for_electrical_dark}
 \title{Get current setting for electrical dark correction}
 \usage{
-get_correct_for_electrical_dark(jwrapper, sr.index=0L)
+get_correct_for_electrical_dark(jwrapper, sr.index = 0L)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}
