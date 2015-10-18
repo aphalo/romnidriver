@@ -5,6 +5,12 @@
 #' @export
 #' @return a numeric value
 #'
-srs_close <- function(jwrapper){
+close_all_spectrometers <- function(jwrapper){
   jwrapper$closeAllSpectrometers()
 }
+
+#' @export
+#' 
+#' @rdname close_all_spectrometers
+#'
+srs_close <- close_all_spectrometers

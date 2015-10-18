@@ -2,9 +2,11 @@
 #' 
 #' @param libname name of library (automatically supplied)
 #' @param pkgname name of the package (automatically supplied)
-#' @seealso see also \code{\link{rJava}}
-#' @keywords manip misc
+#' @seealso see also \code{\link[rJava]{jpackage}}.
+#' @keywords internal
 #' @return a numeric value
+#' 
+#' @name onLoad
 #'
 .onLoad <- function(libname, pkgname) {
   ooi_home <- Sys.getenv("OOI_HOME")
@@ -12,6 +14,6 @@
     warning("Path to OmniDriver runtime not found.\nMake sure that driver is installed and\nthat the environment variable OOI_HOME is set.")
   return()
   }
-  ooi_path <- paste(ooi_home,"\\OmniDriver.jar", sep="")
+  ooi_path <- paste(ooi_home,"\\OmniDriver.jar", sep = "")
   rJava::.jpackage(pkgname, lib.loc = c(libname, ooi_home), morePaths = ooi_path)
 }

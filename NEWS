@@ -1,3 +1,9 @@
+rOmniDriver 0.1.7
+=================
+
+Add several functions needed for more general use. Still many are not implemented
+including support for special "features" and triggers.
+
 rOmniDriver 0.1.6
 =================
 

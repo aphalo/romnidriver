@@ -14,7 +14,8 @@ get_feature_controller_board_temperature(jwrapper, sr.index = 0L)
 \item{sr.index}{an index to address the spectrometer}
 }
 \value{
-a numeric value
+an object which provides the desired interface, or null if this
+  feature is not available for this spectrometer.
 }
 \description{
 Get feature "controller board temperature"

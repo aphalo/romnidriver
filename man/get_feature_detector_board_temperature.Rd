@@ -12,12 +12,15 @@ get_feature_detector_board_temperature(jwrapper, sr.index = 0L)
 \item{sr.index}{an index to address the spectrometer}
 }
 \value{
-a numeric value
+an object which provides the desired interface, or null if this
+  feature is not available for this spectrometer.
 }
 \description{
-A function to retrieve the detector board temperature, if available.
-Before calling this function you first need to check that the feature is supported
-by the spectrometer in use.
+A function to retrieve an interface that allows to query board temperature.
+}
+\note{
+Before calling this function you first need to check that the feature
+  is supported by the spectrometer in use.
 }
 \keyword{manip}
 \keyword{misc}

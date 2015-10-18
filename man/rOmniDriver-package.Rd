@@ -17,8 +17,11 @@ Although this package is under GPL, Omnidriver is
 not, it is copyrighted commercial software from
 Ocean Optics \url{http://www.oceanoptics.com}
 
-Ocean optics has authorized the redistribution of the parts of OmniDriver
-needed for this package to work, free of charge.
+Ocean optics distributes the OmniDriver runtime free of charge. This
+can be downloaded from Ocean Optics web site. It can be used only
+with spectrometer sold by Ocean Optics. Ocean Optics has supported
+the development of this R package by providing a free licence to
+the OmniDriver SDP, which gave me access to documentation.
 
 Ocean Optics will not provide support for the use of this package, unless the
 user buys a licence for OmniDriver SDP (spectroscopy development plattform).

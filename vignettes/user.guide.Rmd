@@ -1,0 +1,207 @@
+---
+title: "rOmnidrive: User Guide"
+author: "Pedro J. Aphalo"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{User Guide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Introduction
+
+This package provides a wrapper on the OmniDriver from Ocean Optics. The 
+runtime can be downloaded and installed for free. Please, use the Java
+documentation provided by Ocean Optics. The names of all functions are
+preserved but change from camel case as in `getApiVersion()` to a style
+easier to read and more usual in R. For this example `get_api_version()`.
+
+## Using rOmniDriver
+
+The first step is to load the package, which automatically loads the 
+OminiDriver Java library if it is installed in the computer.
+We need then to initialize the API by creating a wrapper object in Java.
+Optionally we can query the API version. Updates to OmniDriver
+report an earlier API version if the interface has not changed.
+
+```{r}
+library(rOmniDriver)
+w <- init_api()
+get_api_version(w)
+```
+
+The next step is to open connections to all Ocean Optics spectrometers
+directly connected through USB to the local computer. This function does
+not 'see' spectrometers connected through a LAN. It returns the number of
+spectrometers found. The spectrometers are accessed through and index 
+(integer number) in the range 0 to $n - 1$ where $n$ is the number
+of connected spectrometers.
+
+```{r}
+n <- open_all_spectrometers(w)
+n
+```
+
+In what follows we will explicitly access the first spectrometer, with
+index equal 0. We use `0L` to indicate that we mean a _long integer_.
+
+```{r, eval=n>0}
+get_name(jwrapper = w, sr.index = 0L)
+get_serial_number(jwrapper = w, sr.index = 0L)
+```
+
+As the default for `sr.index` is `0L` and arguments can be recognized by
+position, the code in the next chunk is equivalent to the previous one.
+
+```{r, eval=n>0}
+get_name(w)
+get_serial_number(w)
+```
+
+We can query for a description of the optical bench. In this case after
+obtaining the object describing the `bench` we directly use the Java
+functions defined in OmniDriver Java code. We use `$` to mean 'call the
+Java method' of this name. As this are the Java methods, their names use
+camel case.
+
+```{r, eval=n>0}
+bench <- get_bench(jwrapper = w, sr.index = 0L)
+bench$getGrating()
+bench$getFilterWavelength()
+bench$getSlitSize()
+```
+
+We can also query about other characteristics of the spectrometer, including
+the limits of the range of accepted integration times.
+
+```{r, eval=n>0}
+get_detector(jwrapper = w, sr.index = 0L)
+get_maximum_integration_time(jwrapper = w, sr.index = 0L)
+get_minimum_integration_time(jwrapper = w, sr.index = 0L)
+get_maximum_intensity(jwrapper = w, sr.index = 0L)
+get_wavelengths(jwrapper = w, sr.index = 0L)
+get_firmware_model(jwrapper = w, sr.index = 0L)
+get_firmware_version(jwrapper = w, sr.index = 0L)
+get_number_of_pixels(jwrapper = w, sr.index = 0L)
+get_number_of_dark_pixels(jwrapper = w, sr.index = 0L)
+```
+
+Some _features_ are available only in some models of spectrometers. Before
+using these features it is necessary to check whether they are available or
+not.
+
+The first example is a temperature sensor on the controller board. In this
+case there is only one method available, which returns the board temperature
+in degrees centigrades.
+
+```{r, eval=n>0}
+if (is_feature_supported_controller_board_temperature(jwrapper = w, sr.index = 0L)) {
+  controller.board <- 
+    get_feature_controller_board_temperature(jwrapper = w, sr.index = 0L)
+  controller.board$getBoardTemperatureCelsius()
+} else {
+  print("feature not supported")
+}
+```
+
+
+The next example, is for a similar temperature sensor in the CCD detector
+board. 
+
+```{r, eval=n>0}
+if (is_feature_supported_detector_temperature(jwrapper = w, sr.index = 0L)) {
+  detector.board <- 
+    get_feature_detector_board_temperature(jwrapper = w, sr.index = 0L)
+  detector.board$getDetectorTemperatureCelsius()
+} else {
+  print("feature not supported")
+}
+```
+
+Another feature is switching between 'normal' and 'raw' spectral data. Again
+we have a single method, but in this case accepting an argument.
+
+```{r, eval=n>0}
+if (is_feature_supported_spectrum_type(jwrapper = w, sr.index = 0L)) {
+  spectrum.type <- get_feature_spectrum_type(jwrapper = w, sr.index = 0L)
+  spectrum.type$setSpectrumType(1L) # raw
+  spectrum.type$setSpectrumType(0L) # normal
+} else {
+  print("feature not supported")
+}
+```
+
+The integration is set in microseconds. At least in some spectrometer
+types, out-of-range values are silently ignored. Use the functions
+described above to find the valid range, or use `get_integration_time()`
+to confirm that the set method has succeeded.
+
+```{r, eval=n>0}
+set_integration_time(jwrapper = w, time.usec = 1e3, sr.index = 0L)
+get_integration_time(jwrapper = w, sr.index = 0L)
+```
+
+Boxcar smoothing is a running averaging along the pixels (wavelengths). It is
+possible to set the number of pixels as a half width. (Using boxcar smoothing
+reduces the noise reducing the effective wavelength resolution but maintains
+the temporal resolution.)
+
+```{r, eval=n>0}
+set_boxcar_width(w, half.width.px = 0L, sr.index = 0L)
+get_boxcar_width(jwrapper = w, sr.index = 0L)
+```
+
+Setting the number of scans to average to a number larger than one results
+in the pixel-by-pixel averaging of several scans. (Using scan averaging
+reduces the temporal resolution but maintains the maximum wavelength
+resolution.)
+
+```{r, eval=n>0}
+set_scans_to_avg(jwrapper = w, n.scans = 4L, sr.index = 0L)
+get_scans_to_avg(jwrapper = w, sr.index = 0L)
+```
+
+The correction for detector non-linearity can be applied in the spectrometer, 
+but this can also be disabled. (According to Ocean Optics' literature the
+in-spectrometer correction is applied based on the mean counts across the
+whole array, which seems an odd thing to do. This needs checking as it
+could distort the shape of the spectrum compared to applying the correction
+pixel by pixel.)
+
+```{r, eval=n>0}
+set_correct_for_detector_nonlinearity(jwrapper = w, correct = 0L, sr.index = 0L)
+get_correct_for_detector_nonlineary(jwrapper = w, sr.index = 0L)
+```
+
+This is another correction that can be applied in the spectrometer, based
+on the reading of a small set of array pixels which are always darkened.
+
+```{r, eval=n>0}
+set_correct_for_electrical_dark(jwrapper = w, enable = 0L, sr.index = 0L)
+get_correct_for_electrical_dark(jwrapper = w, sr.index = 0L)
+```
+
+The time out is needed only with external triggering, and is the maximum
+time to wait for a trigger before unblocking the communication with the
+computer (the spectrometer becoming responsive to new commands).
+
+```{r, eval=n>0}
+set_timeout(jwrapper = w, time.millisec = 1000L, sr.index = 0L)
+```
+
+Finally we acquire a spectrum! Subsequently we query whether it is valid,
+and whether it is saturated (the sensor is clipping the peaks).
+
+```{r, eval=n>0}
+raw.spctrum <- get_spectrum(jwrapper = w, sr.index = 0L)
+is_spectrum_valid(jwrapper = w, sr.index = 0L)
+is_saturated(jwrapper = w, sr.index = 0L)
+```
+
+The last step is always to close the connection to the spectrometers.
+
+```{r, eval=n>0}
+close_all_spectrometers(w)
+```
+

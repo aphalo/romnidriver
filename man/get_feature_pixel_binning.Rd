@@ -2,9 +2,7 @@
 % Please edit documentation in R/get.feature.pixel.binning.R
 \name{get_feature_pixel_binning}
 \alias{get_feature_pixel_binning}
-\title{Get feature "pixel binning"
-Before calling this function you first need to check that the feature is supported
-by the spectrometer in use.}
+\title{Get feature "pixel binning"}
 \usage{
 get_feature_pixel_binning(jwrapper, sr.index = 0L)
 }
@@ -14,12 +12,16 @@ get_feature_pixel_binning(jwrapper, sr.index = 0L)
 \item{sr.index}{an index to address the spectrometer}
 }
 \value{
-a numeric value
+an object which provides the desired interface, or null if this
+  feature is not available for this spectrometer.
 }
 \description{
-Get feature "pixel binning"
-Before calling this function you first need to check that the feature is supported
-by the spectrometer in use.
+Obtain an inferface to the "pixel binning" fucntion of a spectrometer if
+available.
+}
+\note{
+Before calling this function you first need to check that the feature
+  is supported by the spectrometer in use.
 }
 \keyword{manip}
 \keyword{misc}

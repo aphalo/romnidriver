@@ -6,8 +6,9 @@
 #' @param sr.index an index to address the spectrometer 
 #' @keywords manip misc
 #' @export
-#' @return a numeric value
-#'
+#' @return an object which provides the desired interface, or null if this
+#'   feature is not available for this spectrometer.
+#'   
 get_feature_controller_board_temperature <- function(jwrapper, sr.index=0L){
   jwrapper$getFeatureControllerBoardTemperature(as.integer(sr.index))
 }
