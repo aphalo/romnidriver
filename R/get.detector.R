@@ -1,11 +1,13 @@
 #' Get description of detector
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
-#' @param sr.index an index to address the spectrometer 
+#' @param sr.index an index to address the spectrometer
+#' @param ch.index an index to address a channel
 #' @keywords manip misc
 #' @export
 #' @return a numeric value
+#' @note This method is only of use for multichannel spectrometers.
 #'
-get_detector <- function(jwrapper, sr.index=0L){
+get_detector <- function(jwrapper, sr.index=0L, ch.index){
   jwrapper$getDetector(as.integer(sr.index))
 }

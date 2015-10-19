@@ -4,18 +4,23 @@
 \alias{get_detector}
 \title{Get description of detector}
 \usage{
-get_detector(jwrapper, sr.index = 0L)
+get_detector(jwrapper, sr.index = 0L, ch.index)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}
 
 \item{sr.index}{an index to address the spectrometer}
+
+\item{ch.index}{an index to address a channel}
 }
 \value{
 a numeric value
 }
 \description{
 Get description of detector
+}
+\note{
+This method is only of use for multichannel spectrometers.
 }
 \keyword{manip}
 \keyword{misc}

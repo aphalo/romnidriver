@@ -7,6 +7,6 @@
 #' @export
 #' @return a numeric value
 #'
-is_feature_supported_controller_board_temperature <- function(jwrapper, sr.index=0L){
-  jwrapper$isFeatureSupportedControllerBoardTemperature(as.integer(sr.index))
+is_feature_supported_board_temperature <- function(jwrapper, sr.index=0L){
+  jwrapper$isFeatureSupportedBoardTemperature(as.integer(sr.index))
 }
