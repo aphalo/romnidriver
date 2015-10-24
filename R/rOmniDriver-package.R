@@ -10,7 +10,7 @@
 #'  
 #' Ocean optics distributes the OmniDriver runtime free of charge. This
 #' can be downloaded from Ocean Optics web site. It can be used only
-#' with spectrometer sold by Ocean Optics. Ocean Optics has supported
+#' with spectrometers sold by Ocean Optics. Ocean Optics has supported
 #' the development of this R package by providing a free licence to
 #' the OmniDriver SDP, which gave me access to documentation.
 #' 
@@ -19,12 +19,31 @@
 #' All support requests about this package should be addressed to the maintainer
 #' of the package or public R user forums.
 #' 
+#' @note Many methods in OmniDriver are available in two versions, one for
+#'   multichannel spectrometers and one for single channels ones. In this
+#'   package each such pair of similar methods are wrapped into a single R
+#'   method. The Java methods are dispatched based on the value supplied as
+#'   argument for \code{ch.index} to the R methods. If it is \code{NULL}, the
+#'   default, the single channels version is used.
+#'   
+#' @section Warning!: 
+#'   We have access to only three spectrometers for testing, a
+#'   Maya2000Pro, a two-chennal Jaz and a Flame. So, the software is supplied
+#'   without any assurance that it will work with a particular model and
+#'   configuration of spectrometer. Please, do report to the maintainer any
+#'   problems and also if you encounter no problems when using this package.
+#'   Always supply detailed information about the spectrometer used when
+#'   contacting the maintainer of the package.
+#'   
 #' @name rOmniDriver-package
 #' @aliases rOmniDriver
 #' @docType package
-#' @title Use Ocean Optics' Omnidriver from R
+#' @title Use Ocean Optics' Omnidriver in R
 #' @author Pedro J. Aphalo
-#' @references \url{http://www.oceanoptics.com/Products/omnidriver.asp}
+#' @references 
+#' \url{http://www.oceanoptics.com/Products/omnidriver.asp}
+#' 
+#' \url{http://oceanoptics.com/api/omnidriver/overview-summary.html}
 #' @keywords package
 #' @import rJava
 NULL
