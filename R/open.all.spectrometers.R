@@ -1,4 +1,4 @@
-#' Opens connectiosn to all spectrometers attached to the computer
+#' Opens connections to all spectrometers
 #' 
 #' Opens connections to communicate with all Ocean Optics spectrometers
 #' connected through USB and returns the number of spectrometers that can be

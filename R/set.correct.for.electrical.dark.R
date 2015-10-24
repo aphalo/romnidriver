@@ -1,10 +1,10 @@
-#' Set setting "correct for electrical dark signal"
+#' Set "correct for electrical dark signal"
 #' 
 #' Set setting "correct for electrical dark signal"
 #' for the addressed spectrometer
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
-#' @param enable 0: no, 1: yes
+#' @param enable integer or logical; 0, FALSE: disable; 1, TRUE: enable.
 #' @param sr.index an index to address the spectrometer 
 #' @keywords manip misc
 #' @export

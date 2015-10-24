@@ -1,4 +1,4 @@
-#' Checks whether feature "spectrum type"
+#' Is feature "spectrum type" supported?
 #' 
 #' Checks whether feature "spectrum type" is available
 #' in the spectrometer addressed.

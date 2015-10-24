@@ -1,4 +1,7 @@
-#' Get "number of scans to average" for addressed spectrometer
+#' Get "number of scans to average" 
+#' 
+#' Get the setting "number of scans to average" currently in use by the
+#' addressed spectrometer.
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 

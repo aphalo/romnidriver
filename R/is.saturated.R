@@ -1,4 +1,4 @@
-#' Checks whether the last spectrum acquired is saturated
+#' Is the most recent spectrum acquired saturated?
 #' 
 #' Checks whether the most recently acquired spectrum is saturated (= signal
 #' clipping occured). 

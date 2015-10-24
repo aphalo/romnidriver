@@ -1,4 +1,4 @@
-#' Checks whether feature "controller board temperature"
+#' Is feature "controller board temperature" supported?
 #' 
 #' Checks whether feature "controller board temperature" is available
 #' in the spectrometer addressed.

@@ -16,12 +16,13 @@ an object which provides the desired interface, or null if this
   feature is not available for this spectrometer.
 }
 \description{
-Obtain an inferface to the "pixel binning" fucntion of a spectrometer if
+Obtain an inferface to the "pixel binning" function of a spectrometer if
 available.
 }
 \note{
 Before calling this function you first need to check that the feature
-  is supported by the spectrometer in use.
+  is supported by the spectrometer in use by calling
+  \code{\link{is_feature_supported_pixel_binning}}.
 }
 \keyword{manip}
 \keyword{misc}

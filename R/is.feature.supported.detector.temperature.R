@@ -1,4 +1,4 @@
-#' Checks whether feature "detector temperature"
+#' Is feature "detector temperature" supported?
 #' 
 #' Checks whether feature "detector temperature" is available
 #' in the spectrometer addressed.

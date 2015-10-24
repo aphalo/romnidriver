@@ -1,7 +1,7 @@
-#' Informs whether the last spectrum acquired is valid 
+#' Is the most recent spectrum acquired valid?
 #' 
-#' Informs whether the last spectrum acquired is valid 
-#' (= no errors have occurred during acquisition).
+#' Informs whether the most recently acquired spectrum is valid 
+#' (no communication or similar errors have occurred during acquisition).
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 

@@ -16,8 +16,13 @@ an object which provides the desired interface, or null if this
   feature is not available for this spectrometer.
 }
 \description{
-Before calling this function you first need to check that the feature is supported
-by the spectrometer in use.
+A function to retrieve an interface that allows to query controller board
+temperature.
+}
+\note{
+Before calling this function you first need to check that the feature
+  is supported by the spectrometer in use by calling
+  \code{\link{is_feature_supported_board_temperature}}.
 }
 \keyword{manip}
 \keyword{misc}
