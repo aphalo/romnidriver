@@ -4,23 +4,27 @@
 \alias{get_detector}
 \title{Get description of detector}
 \usage{
-get_detector(jwrapper, sr.index = 0L, ch.index)
+get_detector(jwrapper, sr.index = 0L, ch.index = 0L)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}
 
 \item{sr.index}{an index to address the spectrometer}
 
-\item{ch.index}{an index to address a channel}
+\item{ch.index}{an index to address the channel in a spectrometer with more
+than one channel.}
 }
 \value{
-a numeric value
+a Detector object (Java)
 }
 \description{
 Get description of detector
 }
 \note{
-This method is only of use for multichannel spectrometers.
+This method seems to be only of use for multichannel spectrometers. It
+  is not documented in the OmniDriver manual and the Java documentation is
+  extremely terse so it is difficult to know what it does and/or how to use
+  it.
 }
 \keyword{manip}
 \keyword{misc}

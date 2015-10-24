@@ -4,12 +4,15 @@
 \alias{get_bench}
 \title{Get optical properties of optical bench}
 \usage{
-get_bench(jwrapper, sr.index = 0L)
+get_bench(jwrapper, sr.index = 0L, ch.index = NULL)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}
 
 \item{sr.index}{an index to address the spectrometer}
+
+\item{ch.index}{an index to address the channel in a spectrometer with more
+than one channel.}
 }
 \value{
 a value
