@@ -1,10 +1,11 @@
 #' Get feature "pixel binning"
 #' 
-#' Obtain an inferface to the "pixel binning" fucntion of a spectrometer if
+#' Obtain an inferface to the "pixel binning" function of a spectrometer if
 #' available.
 #' 
 #' @note Before calling this function you first need to check that the feature
-#'   is supported by the spectrometer in use.
+#'   is supported by the spectrometer in use by calling 
+#'   \code{\link{is_feature_supported_pixel_binning}}.
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 

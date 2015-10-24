@@ -2,9 +2,7 @@
 % Please edit documentation in R/get.feature.controller.board.temperature.R
 \name{get_feature_controller_board_temperature}
 \alias{get_feature_controller_board_temperature}
-\title{Get feature "controller board temperature"
-Before calling this function you first need to check that the feature is supported
-by the spectrometer in use.}
+\title{Get feature "controller board temperature"}
 \usage{
 get_feature_controller_board_temperature(jwrapper, sr.index = 0L)
 }
@@ -18,7 +16,6 @@ an object which provides the desired interface, or null if this
   feature is not available for this spectrometer.
 }
 \description{
-Get feature "controller board temperature"
 Before calling this function you first need to check that the feature is supported
 by the spectrometer in use.
 }

@@ -3,7 +3,8 @@
 #' A function to retrieve an interface that allows to query board temperature.
 #' 
 #' @note Before calling this function you first need to check that the feature
-#'   is supported by the spectrometer in use.
+#'   is supported by the spectrometer in use#' by calling
+#'   \code{\link{is_feature_supported_detector_temperature}}.
 #'   
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer
