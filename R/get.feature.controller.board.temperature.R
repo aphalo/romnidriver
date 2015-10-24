@@ -1,4 +1,5 @@
 #' Get feature "controller board temperature"
+#' 
 #' Before calling this function you first need to check that the feature is supported
 #' by the spectrometer in use.
 #' 

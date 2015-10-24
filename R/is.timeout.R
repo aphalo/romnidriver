@@ -1,5 +1,7 @@
 #' Checks whether the last operation has timed out
-#' Usefull when using triggers
+#' 
+#' Checks whether the last operation has timed out. This is useful when working
+#' with triggers and signals used for triggering that may fail or be delayed.
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 

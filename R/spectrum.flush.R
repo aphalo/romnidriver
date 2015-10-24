@@ -1,4 +1,6 @@
-#' Flush the last spectrum acquired or currently being acquired
+#' Flush the most recent spectrum
+#' 
+#' Flush the most recent spectrum acquired or currently being acquired
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 

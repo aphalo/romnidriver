@@ -1,3 +1,5 @@
+#' Checks whether feature "controller board temperature"
+#' 
 #' Checks whether feature "controller board temperature" is available
 #' in the spectrometer addressed.
 #' 

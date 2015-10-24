@@ -1,4 +1,6 @@
-#' Set "integration time" for addressed spectrometer
+#' Set "integration time"
+#' 
+#' Set "integration time" for the addressed spectrometer
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param time.usec integartion time in microseconds (an integer)

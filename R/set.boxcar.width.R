@@ -1,4 +1,6 @@
-#' Set setting "boxcar width" (the number of pixels averaged)
+#' Set "boxcar width"
+#' 
+#' Set setting "boxcar width" (the number of adjacent pixels averaged)
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param half.width.px the number of pixels in one half of the bocar window (an

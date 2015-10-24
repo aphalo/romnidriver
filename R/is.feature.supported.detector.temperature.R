@@ -1,3 +1,5 @@
+#' Checks whether feature "detector temperature"
+#' 
 #' Checks whether feature "detector temperature" is available
 #' in the spectrometer addressed.
 #' 

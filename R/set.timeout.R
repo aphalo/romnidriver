@@ -1,4 +1,4 @@
-#' Set "timeout" for a spectrometer
+#' Set (trigger) "timeout"
 #' 
 #' Setting a "timeout" for the addressed spectrometer is useful when used
 #' together with triggers to avoid endless waiting in case the trigger input

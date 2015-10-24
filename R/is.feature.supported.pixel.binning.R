@@ -1,3 +1,5 @@
+#' Checks whether feature "pixel binning"
+#' 
 #' Checks whether feature "pixel binning" is available
 #' in the spectrometer addressed.
 #' 

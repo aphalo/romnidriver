@@ -1,3 +1,5 @@
+#' Set setting "correct for detector nonlinearity"
+#' 
 #' Set setting "correct for detector nonlinearity" (the number of pixels averaged)
 #' for addressed spectrometer
 #' 
