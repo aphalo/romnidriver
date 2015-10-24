@@ -2,10 +2,15 @@
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
-#' @keywords manip misc
+#' @param ch.index an index to address the channel in a spectrometer with more
+#'   than one channel.
 #' @export
 #' @return a numeric value
 #'
-get_correct_for_electrical_dark <- function(jwrapper, sr.index=0L){
-  jwrapper$getCorrectForElectricalDark(as.integer(sr.index))
+get_correct_for_electrical_dark <- function(jwrapper, sr.index=0L, ch.index=NULL){
+  if (is.null(ch.index)) {
+    jwrapper$getCorrectForElectricalDark(as.integer(sr.index))
+  } else {
+    jwrapper$getCorrectForElectricalDark(as.integer(sr.index), as.integer(ch.index))
+  }
 }

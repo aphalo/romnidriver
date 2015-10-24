@@ -5,10 +5,16 @@
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
+#' @param ch.index an index to address the channel in a spectrometer with more
+#'   than one channel.
 #' @keywords manip misc
 #' @return a value
 #' @export
 #'
-get_bench <- function(jwrapper, sr.index=0L){
-  jwrapper$getBench(as.integer(sr.index))
+get_bench <- function(jwrapper, sr.index=0L, ch.index=NULL){
+  if (is.null(ch.index)) {
+    jwrapper$getBench(as.integer(sr.index))
+  } else {
+    jwrapper$getBench(as.integer(sr.index), as.integer(ch.index))
+  }
 }
