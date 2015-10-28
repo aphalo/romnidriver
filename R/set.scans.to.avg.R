@@ -13,13 +13,15 @@
 #'   equivalent, so that as with other functions in the package indexes for
 #'   addressing spectrometer and channel can have default values.
 #'   
-set_scans_to_average <- function(jwrapper, n.scans=1L, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$setScansToAverage(as.integer(sr.index), as.integer(n.scans))
-  } else {
-    jwrapper$setScansToAverage(as.integer(sr.index), as.integer(ch.index), as.integer(n.scans))
+set_scans_to_average <-
+  function(jwrapper,
+           n.scans = 1L,
+           sr.index = 0L,
+           ch.index = 0L) {
+    jwrapper$setScansToAverage(as.integer(sr.index),
+                               as.integer(ch.index),
+                               as.integer(n.scans))
   }
-}
 #' @export
 #' @rdname set_scans_to_average
 set_scans_to_avg <- set_scans_to_average

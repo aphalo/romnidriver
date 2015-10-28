@@ -7,10 +7,10 @@
 #' @export
 #' @return a numeric value
 #'
-get_correct_for_electrical_dark <- function(jwrapper, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$getCorrectForElectricalDark(as.integer(sr.index))
-  } else {
-    jwrapper$getCorrectForElectricalDark(as.integer(sr.index), as.integer(ch.index))
+get_correct_for_electrical_dark <-
+  function(jwrapper,
+           sr.index = 0L,
+           ch.index = 0L) {
+    jwrapper$getCorrectForElectricalDark(as.integer(sr.index), 
+                                         as.integer(ch.index))
   }
-}

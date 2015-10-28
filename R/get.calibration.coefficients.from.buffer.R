@@ -13,10 +13,10 @@
 #'   coefficients..
 #'   
 #'   
-get_calibration_coefficients_from_buffer <- function(jwrapper, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$getCalibrationCoefficientsFromBuffer(as.integer(sr.index))
-  } else {
-    jwrapper$getCalibrationCoefficientsFromBuffer(as.integer(sr.index), as.integer(ch.index))
+get_calibration_coefficients_from_buffer <-
+  function(jwrapper,
+           sr.index = 0L,
+           ch.index = 0L) {
+    jwrapper$getCalibrationCoefficientsFromBuffer(as.integer(sr.index), 
+                                                  as.integer(ch.index))
   }
-}

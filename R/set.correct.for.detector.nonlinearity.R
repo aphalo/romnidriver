@@ -20,13 +20,8 @@ set_correct_for_detector_nonlinearity <-
   function(jwrapper,
            correct = 0L,
            sr.index = 0L,
-           ch.index = NULL) {
-    if (is.null(ch.index)) {
-      jwrapper$setCorrectForDetectorNonlinearity(as.integer(sr.index), 
-                                                 as.integer(correct))
-    } else {
-      jwrapper$setCorrectForDetectorNonlinearity(as.integer(sr.index),
-                                                 as.integer(ch.index),
-                                                 as.integer(correct))
-    }
+           ch.index = 0L) {
+    jwrapper$setCorrectForDetectorNonlinearity(as.integer(sr.index),
+                                               as.integer(ch.index),
+                                               as.integer(correct))
   }

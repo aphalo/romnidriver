@@ -9,6 +9,6 @@
 #' @return a value
 #' @export
 #'
-get_name <- function(jwrapper, sr.index=0L){
+get_name <- function(jwrapper, sr.index = 0L) {
   jwrapper$getName(as.integer(sr.index))
 }

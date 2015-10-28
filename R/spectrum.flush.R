@@ -8,6 +8,6 @@
 #' @export
 #' @return a numeric value
 #'
-spectrum_flush <- function(jwrapper, sr.index=0L){
+spectrum_flush <- function(jwrapper, sr.index = 0L) {
   jwrapper$flushSpectrum(as.integer(sr.index))
 }

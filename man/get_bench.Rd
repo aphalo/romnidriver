@@ -4,7 +4,7 @@
 \alias{get_bench}
 \title{Get optical properties of optical bench}
 \usage{
-get_bench(jwrapper, sr.index = 0L, ch.index = NULL)
+get_bench(jwrapper, sr.index = 0L, ch.index = 0L)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}

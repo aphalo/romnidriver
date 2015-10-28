@@ -14,6 +14,6 @@
 #' @return an object which provides the desired interface, or null if this
 #'   feature is not available for this spectrometer.
 #'
-get_feature_pixel_binning <- function(jwrapper, sr.index=0L){
+get_feature_pixel_binning <- function(jwrapper, sr.index = 0L) {
   jwrapper$getFeaturePixelBinning(as.integer(sr.index))
 }

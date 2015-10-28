@@ -11,10 +11,8 @@
 #' @export
 #' @return a numeric value
 #'
-is_spectrum_valid <- function(jwrapper, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$isSpectrumValid(as.integer(sr.index))
-  } else {
-    jwrapper$isSpectrumValid(as.integer(sr.index), as.integer(ch.index))
-  }
+is_spectrum_valid <- function(jwrapper,
+                              sr.index = 0L,
+                              ch.index = 0L) {
+  jwrapper$isSpectrumValid(as.integer(sr.index), as.integer(ch.index))
 }

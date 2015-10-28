@@ -8,19 +8,9 @@
 #' @export
 #' @return a numeric value
 #'
-get_spectrum <- function(jwrapper, sr.index = 0L){
-#   spc <- jwrapper$getSpectrum(as.integer(sr.index))
-#   return(as.numeric(spc))
-    spc <- .jcall(jwrapper, "[D", "getSpectrum" , as.integer(sr.index))
-}
-
-get_spectrum <- function(jwrapper, sr.index=0L, ch.index=NULL) {
-  if (is.null(ch.index)) {
-    #   spc <- jwrapper$getSpectrum(as.integer(sr.index))
-    spc <- .jcall(jwrapper, "[D", "getSpectrum" , as.integer(sr.index))
-  } else {
-    #   spc <- jwrapper$getSpectrum(as.integer(sr.index), as.integer(ch.index))
-    spc <- .jcall(jwrapper, "[D", "getSpectrum" , as.integer(sr.index), as.integer(ch.index))
-  }
-  as.numeric(spc)
+get_spectrum <- function(jwrapper,
+                         sr.index = 0L,
+                         ch.index = 0L) {
+  spc <- jwrapper$getSpectrum(as.integer(sr.index), as.integer(ch.index))
+  as.double(spc) # is this needed
 }

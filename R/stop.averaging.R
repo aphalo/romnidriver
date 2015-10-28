@@ -17,10 +17,8 @@
 #'   equivalent, so that as with other functions in the package indexes for
 #'   addressing spectrometer and channel can have default values.
 #'   
-stop_averaging <- function(jwrapper, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$stopAveraging(as.integer(sr.index))
-  } else {
-    jwrapper$stopAveraging(as.integer(sr.index), as.integer(ch.index))
-  }
+stop_averaging <- function(jwrapper,
+                           sr.index = 0L,
+                           ch.index = 0L) {
+  jwrapper$stopAveraging(as.integer(sr.index), as.integer(ch.index))
 }

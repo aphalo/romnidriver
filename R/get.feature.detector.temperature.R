@@ -13,6 +13,7 @@
 #' @return an object which provides the desired interface, or null if this 
 #'   feature is not available for this spectrometer.
 #'
-get_feature_detector_board_temperature <- function(jwrapper, sr.index=0L){
-  jwrapper$getFeatureDetectorTemperature(as.integer(sr.index))
-}
+get_feature_detector_board_temperature <-
+  function(jwrapper, sr.index = 0L) {
+    jwrapper$getFeatureDetectorTemperature(as.integer(sr.index))
+  }

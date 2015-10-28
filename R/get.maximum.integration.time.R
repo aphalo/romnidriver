@@ -9,6 +9,6 @@
 #' @return maximum integration time setting, in units of microseconds.
 #' @export
 #'
-get_maximum_integration_time <- function(jwrapper, sr.index=0L){
+get_maximum_integration_time <- function(jwrapper, sr.index = 0L) {
   jwrapper$getMaximumIntegrationTime(as.integer(sr.index))
 }

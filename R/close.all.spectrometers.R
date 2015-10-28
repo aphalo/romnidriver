@@ -5,7 +5,7 @@
 #' @export
 #' @return a numeric value
 #'
-close_all_spectrometers <- function(jwrapper){
+close_all_spectrometers <- function(jwrapper) {
   jwrapper$closeAllSpectrometers()
 }
 

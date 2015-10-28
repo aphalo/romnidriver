@@ -12,10 +12,9 @@
 #'   provided by this spectrometer, including any dark or bevel (unused) pixels.
 #'
 #'
-get_number_of_dark_pixels <- function(jwrapper, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$getNumberOfDarkPixels(as.integer(sr.index))
-  } else {
+get_number_of_dark_pixels <-
+  function(jwrapper,
+           sr.index = 0L,
+           ch.index = 0L) {
     jwrapper$getNumberOfDarkPixels(as.integer(sr.index), as.integer(ch.index))
   }
-}

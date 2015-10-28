@@ -11,10 +11,9 @@
 #' @return current integration time setting, in units of microseconds.
 #' @export
 #'
-get_integration_time <- function(jwrapper, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$getIntegrationTime(as.integer(sr.index))
-  } else {
+get_integration_time <-
+  function(jwrapper,
+           sr.index = 0L,
+           ch.index = 0L) {
     jwrapper$getIntegrationTime(as.integer(sr.index), as.integer(ch.index))
   }
-}

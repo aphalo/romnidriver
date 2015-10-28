@@ -9,6 +9,6 @@
 #' @return a value
 #' @export
 #'
-get_serial_number <- function(jwrapper, sr.index=0L){
+get_serial_number <- function(jwrapper, sr.index = 0L) {
   jwrapper$getSerialNumber(as.integer(sr.index))
 }

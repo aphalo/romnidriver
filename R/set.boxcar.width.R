@@ -16,10 +16,12 @@
 #'   equivalent, so that as with other functions in the package indexes for
 #'   addressing spectrometer and channel can have default values.
 #'   
-set_boxcar_width <- function(jwrapper, half.width.px=0L, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$setBoxcarWidth(as.integer(sr.index), as.integer(half.width.px))
-  } else {
-    jwrapper$setBoxcarWidth(as.integer(sr.index), as.integer(ch.index), as.integer(half.width.px))
+set_boxcar_width <-
+  function(jwrapper,
+           half.width.px = 0L,
+           sr.index = 0L,
+           ch.index = 0L) {
+    jwrapper$setBoxcarWidth(as.integer(sr.index),
+                            as.integer(ch.index),
+                            as.integer(half.width.px))
   }
-}

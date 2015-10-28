@@ -9,6 +9,6 @@
 #' @return minimum integration time setting, in units of microseconds.
 #' @export
 #'
-get_minimum_integration_time <- function(jwrapper, sr.index=0L){
+get_minimum_integration_time <- function(jwrapper, sr.index = 0L) {
   jwrapper$getMinimumIntegrationTime(as.integer(sr.index))
 }

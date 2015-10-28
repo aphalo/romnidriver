@@ -4,7 +4,7 @@
 \alias{get_spectrum}
 \title{Get a spectrum from the spectrometer}
 \usage{
-get_spectrum(jwrapper, sr.index = 0L, ch.index = NULL)
+get_spectrum(jwrapper, sr.index = 0L, ch.index = 0L)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}

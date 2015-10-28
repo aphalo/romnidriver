@@ -13,10 +13,9 @@
 #'   coefficients..
 #'   
 #'   
-get_calibration_coefficients_from_eeprom <- function(jwrapper, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$getCalibrationCoefficientsFromEEProm(as.integer(sr.index))
-  } else {
+get_calibration_coefficients_from_eeprom <-
+  function(jwrapper,
+           sr.index = 0L,
+           ch.index = 0L) {
     jwrapper$getCalibrationCoefficientsFromEEProm(as.integer(sr.index), as.integer(ch.index))
   }
-}

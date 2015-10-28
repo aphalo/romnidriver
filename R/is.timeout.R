@@ -12,10 +12,8 @@
 #' @export
 #' @return a numeric value
 #'
-is_timeout <- function(jwrapper, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$isTimeout(as.integer(sr.index))
-  } else {
-    jwrapper$isTimeout(as.integer(sr.index), as.integer(ch.index))
-  }
+is_timeout <- function(jwrapper,
+                       sr.index = 0L,
+                       ch.index = 0L) {
+  jwrapper$isTimeout(as.integer(sr.index), as.integer(ch.index))
 }

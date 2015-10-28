@@ -9,8 +9,8 @@
 #' @return a numeric value
 #' @export
 #'
-get_number_of_channels <- function(jwrapper, sr.index=0L){
-  jwrapper$getWrapperExtensions$getNumberOfChannels(as.integer(sr.index))
+get_number_of_channels <- function(jwrapper, sr.index = 0L) {
+  jwrapper$getWrapperExtensions()$getNumberOfChannels(as.integer(sr.index))
 }
 
 #' Get number of enabled channels
@@ -24,8 +24,8 @@ get_number_of_channels <- function(jwrapper, sr.index=0L){
 #' @return a numeric value
 #' @export
 #'
-get_number_of_enabled_channels <- function(jwrapper, sr.index=0L){
-  jwrapper$getWrapperExtensions$getNumberOfEnabledChannels(as.integer(sr.index))
+get_number_of_enabled_channels <- function(jwrapper, sr.index = 0L) {
+  jwrapper$getWrapperExtensions()$getNumberOfEnabledChannels(as.integer(sr.index))
 }
 
 #' Informs whether a channel is enbled or not
@@ -40,6 +40,8 @@ get_number_of_enabled_channels <- function(jwrapper, sr.index=0L){
 #' @export
 #' @return a numeric value
 #'
-is_channel_enabled <- function(jwrapper, sr.index=0L, ch.index=0L){
-  jwrapper$getWrapperExtensions$isChannelEnabled(as.integer(sr.index), as.integer(ch.index))
+is_channel_enabled <- function(jwrapper,
+                               sr.index = 0L,
+                               ch.index = 0L) {
+  jwrapper$getWrapperExtensions()$isChannelEnabled(as.integer(sr.index), as.integer(ch.index))
 }

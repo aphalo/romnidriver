@@ -9,6 +9,6 @@
 #' @return maximum value per pixel, in units of counts???.
 #' @export
 #'
-get_maximum_intensity <- function(jwrapper, sr.index=0L){
+get_maximum_intensity <- function(jwrapper, sr.index = 0L) {
   jwrapper$getMaximumIntensity(as.integer(sr.index))
 }

@@ -4,8 +4,7 @@
 \alias{get_correct_for_detector_nonlineary}
 \title{Get current setting of linearity correction (enabled or not)}
 \usage{
-get_correct_for_detector_nonlineary(jwrapper, sr.index = 0L,
-  ch.index = NULL)
+get_correct_for_detector_nonlineary(jwrapper, sr.index = 0L, ch.index = 0L)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}

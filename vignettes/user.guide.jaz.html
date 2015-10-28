@@ -10,7 +10,7 @@
 
 <meta name="author" content="Pedro J. Aphalo" />
 
-<meta name="date" content="2015-10-28" />
+<meta name="date" content="2015-10-27" />
 
 <title>rOmnidrive: User Guide</title>
 
@@ -72,7 +72,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">rOmnidrive: User Guide</h1>
 <h4 class="author"><em>Pedro J. Aphalo</em></h4>
-<h4 class="date"><em>2015-10-28</em></h4>
+<h4 class="date"><em>2015-10-27</em></h4>
 </div>
 
 
@@ -90,30 +90,46 @@ w &lt;-<span class="st"> </span><span class="kw">init_api</span>()
 <p>The next step is to open connections to all Ocean Optics spectrometers directly connected through USB to the local computer. This function does not ‘see’ spectrometers connected through a LAN. It returns the number of spectrometers found. The spectrometers are accessed through and index (integer number) in the range 0 to <span class="math inline">\(n - 1\)</span> where <span class="math inline">\(n\)</span> is the number of connected spectrometers.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="kw">open_all_spectrometers</span>(w)
 n</code></pre></div>
-<pre><code>## [1] 0</code></pre>
+<pre><code>## [1] 1</code></pre>
 <p>In what follows we will explicitly access the first spectrometer, with index equal 0. We use <code>0L</code> to indicate that we mean a <em>long integer</em>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_name</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)
-<span class="kw">get_serial_number</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_name</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] &quot;Jaz&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_serial_number</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] &quot;JAZA3098&quot;</code></pre>
 <p>As the default for <code>sr.index</code> is <code>0L</code> and arguments can be recognized by position, the code in the next chunk is equivalent to the previous one.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_name</span>(w)
-<span class="kw">get_serial_number</span>(w)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_name</span>(w)</code></pre></div>
+<pre><code>## [1] &quot;Jaz&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_serial_number</span>(w)</code></pre></div>
+<pre><code>## [1] &quot;JAZA3098&quot;</code></pre>
 <p>We can query for a description of the optical bench. In this case after obtaining the object describing the <code>bench</code> we directly use the Java functions defined in OmniDriver Java code. We use <code>$</code> to mean ‘call the Java method’ of this name. As this are the Java methods, their names use camel case.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bench &lt;-<span class="st"> </span><span class="kw">get_bench</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)
-bench$<span class="kw">getGrating</span>()
-bench$<span class="kw">getFilterWavelength</span>()
-bench$<span class="kw">getSlitSize</span>()</code></pre></div>
+bench$<span class="kw">getGrating</span>()</code></pre></div>
+<pre><code>## [1] &quot;02&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bench$<span class="kw">getFilterWavelength</span>()</code></pre></div>
+<pre><code>## [1] &quot;000&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bench$<span class="kw">getSlitSize</span>()</code></pre></div>
+<pre><code>## [1] &quot;050&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n_ch &lt;-<span class="st"> </span><span class="kw">get_number_of_channels</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)
 n_ch</code></pre></div>
+<pre><code>## [1] 2</code></pre>
 <p>We can also query about other characteristics of the spectrometer, including the limits of the range of accepted integration times.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_maximum_integration_time</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)
-<span class="kw">get_minimum_integration_time</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)
-<span class="kw">get_maximum_intensity</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)
-wl &lt;-<span class="st"> </span><span class="kw">get_wavelengths</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)
-<span class="kw">head</span>(wl)
-<span class="kw">get_firmware_model</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L) <span class="co"># API &gt;= 2.40 only</span>
-<span class="kw">get_firmware_version</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)
-<span class="kw">get_number_of_pixels</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)
-<span class="kw">get_number_of_dark_pixels</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_maximum_integration_time</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] 65535000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_minimum_integration_time</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] 1000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_maximum_intensity</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] 65535</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">wl &lt;-<span class="st"> </span><span class="kw">get_wavelengths</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)
+<span class="kw">head</span>(wl)</code></pre></div>
+<pre><code>## [1] 190.3139 190.6955 191.0771 191.4586 191.8402 192.2216</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_firmware_model</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L) <span class="co"># API &gt;= 2.40 only</span></code></pre></div>
+<pre><code>## [1] &quot;Jaz-CPU&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_firmware_version</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] &quot;0.09.0 &quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_number_of_pixels</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] 2048</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_number_of_dark_pixels</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] 24</code></pre>
 <p>Some <em>features</em> are available only in some models of spectrometers. Before using these features it is necessary to check whether they are available or not.</p>
 <p>The first example is a temperature sensor on the controller board. In this case there is only one method available, which returns the board temperature in degrees centigrades.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (<span class="kw">is_feature_supported_board_temperature</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)) {
@@ -123,6 +139,7 @@ wl &lt;-<span class="st"> </span><span class="kw">get_wavelengths</span>(<span c
 } else {
   <span class="kw">print</span>(<span class="st">&quot;feature not supported&quot;</span>)
 }</code></pre></div>
+<pre><code>## [1] &quot;feature not supported&quot;</code></pre>
 <p>The next example, is for a similar temperature sensor in the CCD detector board.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (<span class="kw">is_feature_supported_detector_temperature</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)) {
   detector.board &lt;-<span class="st"> </span>
@@ -131,6 +148,7 @@ wl &lt;-<span class="st"> </span><span class="kw">get_wavelengths</span>(<span c
 } else {
   <span class="kw">print</span>(<span class="st">&quot;feature not supported&quot;</span>)
 }</code></pre></div>
+<pre><code>## [1] &quot;feature not supported&quot;</code></pre>
 <p>Another feature is switching between ‘normal’ and ‘raw’ spectral data. Again we have a single method, but in this case accepting an argument.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (<span class="kw">is_feature_supported_spectrum_type</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)) {
   spectrum.type &lt;-<span class="st"> </span><span class="kw">get_feature_spectrum_type</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)
@@ -139,29 +157,41 @@ wl &lt;-<span class="st"> </span><span class="kw">get_wavelengths</span>(<span c
 } else {
   <span class="kw">print</span>(<span class="st">&quot;feature not supported&quot;</span>)
 }</code></pre></div>
+<pre><code>## [1] &quot;feature not supported&quot;</code></pre>
 <p>The integration is set in microseconds. At least in some spectrometer types, out-of-range values are silently ignored. Use the functions described above to find the valid range, or use <code>get_integration_time()</code> to confirm that the set method has succeeded.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set_integration_time</span>(<span class="dt">jwrapper =</span> w, <span class="dt">time.usec =</span> <span class="fl">5e6</span>, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)
 <span class="kw">get_integration_time</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] 5000000</code></pre>
 <p>Boxcar smoothing is a running averaging along the pixels (wavelengths). It is possible to set the number of pixels as a half width. (Using boxcar smoothing reduces the noise reducing the effective wavelength resolution but maintains the temporal resolution.)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set_boxcar_width</span>(w, <span class="dt">half.width.px =</span> 0L, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)
 <span class="kw">get_boxcar_width</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
 <p>Setting the number of scans to average to a number larger than one results in the pixel-by-pixel averaging of several scans. (Using scan averaging reduces the temporal resolution but maintains the maximum wavelength resolution.)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set_scans_to_avg</span>(<span class="dt">jwrapper =</span> w, <span class="dt">n.scans =</span> 4L, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)
 <span class="kw">get_scans_to_avg</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] 4</code></pre>
 <p>The correction for detector non-linearity can be applied in the spectrometer, but this can also be disabled. (According to Ocean Optics’ literature the in-spectrometer correction is applied based on the mean counts across the whole array, which seems an odd thing to do. This needs checking as it could distort the shape of the spectrum compared to applying the correction pixel by pixel.)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set_correct_for_detector_nonlinearity</span>(<span class="dt">jwrapper =</span> w, <span class="dt">correct =</span> 0L, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)
-<span class="kw">get_correct_for_detector_nonlineary</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set_correct_for_detector_nonlinearity</span>(<span class="dt">jwrapper =</span> w, <span class="dt">correct =</span> 0L, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_correct_for_detector_nonlineary</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
 <p>This is another correction that can be applied in the spectrometer, based on the reading of a small set of array pixels which are always darkened.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set_correct_for_electrical_dark</span>(<span class="dt">jwrapper =</span> w, <span class="dt">enable =</span> 0L, <span class="dt">sr.index =</span> 0L)
 <span class="kw">get_correct_for_electrical_dark</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
 <p>The time out is needed only with external triggering, and is the maximum time to wait for a trigger before unblocking the communication with the computer (the spectrometer becoming responsive to new commands).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set_timeout</span>(<span class="dt">jwrapper =</span> w, <span class="dt">time.millisec =</span> 1000L, <span class="dt">sr.index =</span> 0L)</code></pre></div>
 <p>Finally we acquire a spectrum! Subsequently we query whether it is valid, and whether it is saturated (the sensor is clipping the peaks).</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">raw.spectrum &lt;-<span class="st"> </span><span class="kw">get_spectrum</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)
-<span class="kw">head</span>(raw.spectrum)
-<span class="kw">summary</span>(raw.spectrum)
-<span class="kw">is_spectrum_valid</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)
-<span class="kw">is_saturated</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<span class="kw">head</span>(raw.spectrum)</code></pre></div>
+<pre><code>## [1] -349.34880 -349.34880 -349.34880 -365.16759 -327.31548  -35.79772</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(raw.spectrum)</code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -365.20 -140.90  -71.11  -45.17   13.92 2190.00</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is_spectrum_valid</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is_saturated</span>(<span class="dt">jwrapper =</span> w, <span class="dt">sr.index =</span> 0L, <span class="dt">ch.index =</span> 0L)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
 <p>The last step is always to close the connection to the spectrometers.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">close_all_spectrometers</span>(w)</code></pre></div>
 </div>

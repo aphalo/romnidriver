@@ -73,6 +73,11 @@ bench$getFilterWavelength()
 bench$getSlitSize()
 ```
 
+```{r, eval=n>0L}
+n_ch <- get_number_of_channels(jwrapper = w, sr.index = 0L)
+n_ch
+```
+
 We can also query about other characteristics of the spectrometer, including
 the limits of the range of accepted integration times.
 
@@ -80,12 +85,12 @@ the limits of the range of accepted integration times.
 get_maximum_integration_time(jwrapper = w, sr.index = 0L)
 get_minimum_integration_time(jwrapper = w, sr.index = 0L)
 get_maximum_intensity(jwrapper = w, sr.index = 0L)
-wl <- get_wavelengths(jwrapper = w, sr.index = 0L)
+wl <- get_wavelengths(jwrapper = w, sr.index = 0L, ch.index = 0L)
 head(wl)
 get_firmware_model(jwrapper = w, sr.index = 0L) # API >= 2.40 only
 get_firmware_version(jwrapper = w, sr.index = 0L)
-get_number_of_pixels(jwrapper = w, sr.index = 0L)
-get_number_of_dark_pixels(jwrapper = w, sr.index = 0L)
+get_number_of_pixels(jwrapper = w, sr.index = 0L, ch.index = 0L)
+get_number_of_dark_pixels(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
 
 Some _features_ are available only in some models of spectrometers. Before
@@ -139,8 +144,8 @@ described above to find the valid range, or use `get_integration_time()`
 to confirm that the set method has succeeded.
 
 ```{r, eval=n>0L}
-set_integration_time(jwrapper = w, time.usec = 5e6, sr.index = 0L)
-get_integration_time(jwrapper = w, sr.index = 0L)
+set_integration_time(jwrapper = w, time.usec = 5e6, sr.index = 0L, ch.index = 0L)
+get_integration_time(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
 
 Boxcar smoothing is a running averaging along the pixels (wavelengths). It is
@@ -149,8 +154,8 @@ reduces the noise reducing the effective wavelength resolution but maintains
 the temporal resolution.)
 
 ```{r, eval=n>0L}
-set_boxcar_width(w, half.width.px = 0L, sr.index = 0L)
-get_boxcar_width(jwrapper = w, sr.index = 0L)
+set_boxcar_width(w, half.width.px = 0L, sr.index = 0L, ch.index = 0L)
+get_boxcar_width(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
 
 Setting the number of scans to average to a number larger than one results
@@ -159,8 +164,8 @@ reduces the temporal resolution but maintains the maximum wavelength
 resolution.)
 
 ```{r, eval=n>0L}
-set_scans_to_avg(jwrapper = w, n.scans = 4L, sr.index = 0L)
-get_scans_to_avg(jwrapper = w, sr.index = 0L)
+set_scans_to_avg(jwrapper = w, n.scans = 4L, sr.index = 0L, ch.index = 0L)
+get_scans_to_avg(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
 
 The correction for detector non-linearity can be applied in the spectrometer, 
@@ -171,8 +176,8 @@ could distort the shape of the spectrum compared to applying the correction
 pixel by pixel.)
 
 ```{r, eval=n>0L}
-set_correct_for_detector_nonlinearity(jwrapper = w, correct = 0L, sr.index = 0L)
-get_correct_for_detector_nonlineary(jwrapper = w, sr.index = 0L)
+set_correct_for_detector_nonlinearity(jwrapper = w, correct = 0L, sr.index = 0L, ch.index = 0L)
+get_correct_for_detector_nonlineary(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
 
 This is another correction that can be applied in the spectrometer, based
@@ -195,11 +200,11 @@ Finally we acquire a spectrum! Subsequently we query whether it is valid,
 and whether it is saturated (the sensor is clipping the peaks).
 
 ```{r, eval=n>0L}
-raw.spectrum <- get_spectrum(jwrapper = w, sr.index = 0L)
+raw.spectrum <- get_spectrum(jwrapper = w, sr.index = 0L, ch.index = 0L)
 head(raw.spectrum)
 summary(raw.spectrum)
-is_spectrum_valid(jwrapper = w, sr.index = 0L)
-is_saturated(jwrapper = w, sr.index = 0L)
+is_spectrum_valid(jwrapper = w, sr.index = 0L, ch.index = 0L)
+is_saturated(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
 
 The last step is always to close the connection to the spectrometers.

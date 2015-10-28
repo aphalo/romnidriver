@@ -8,10 +8,10 @@
 #' @export
 #' @return a numeric value
 #'
-get_correct_for_detector_nonlineary <- function(jwrapper, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$getCorrectForDetectorNonlinearity(as.integer(sr.index))
-  } else {
-    jwrapper$getCorrectForDetectorNonlinearity(as.integer(sr.index), as.integer(ch.index))
+get_correct_for_detector_nonlineary <-
+  function(jwrapper,
+           sr.index = 0L,
+           ch.index = 0L) {
+    jwrapper$getCorrectForDetectorNonlinearity(as.integer(sr.index), 
+                                               as.integer(ch.index))
   }
-}

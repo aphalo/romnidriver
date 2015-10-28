@@ -11,10 +11,8 @@
 #' @return A numeric (double) vector with the calculated wavelength at each pixel. 
 #'   
 #'   
-get_wavelengths <- function(jwrapper, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$getWavelengths(as.integer(sr.index))
-  } else {
-    jwrapper$getWavelengths(as.integer(sr.index), as.integer(ch.index))
-  }
+get_wavelengths <- function(jwrapper,
+                            sr.index = 0L,
+                            ch.index = 0L) {
+  jwrapper$getWavelengths(as.integer(sr.index), as.integer(ch.index))
 }

@@ -1,6 +1,6 @@
 #' Set "integration time"
 #' 
-#' Set "integration time" for the addressed spectrometer
+#' Set "integration time" for the addressed spectrometer channel
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param time.usec integartion time in microseconds (an integer)
@@ -15,10 +15,12 @@
 #'   equivalent, so that as with other functions in the package indexes for
 #'   addressing spectrometer and channel can have default values.
 #'   
-set_integration_time <- function(jwrapper, time.usec=100L, sr.index=0L, ch.index=NULL){
-  if (is.null(ch.index)) {
-    jwrapper$setIntegrationTime(as.integer(sr.index), as.integer(time.usec))
-  } else {
-    jwrapper$setIntegrationTime(as.integer(sr.index), as.integer(ch.index), as.integer(time.usec))
+set_integration_time <-
+  function(jwrapper,
+           time.usec = 100L,
+           sr.index = 0L,
+           ch.index = 0L) {
+    jwrapper$setIntegrationTime(as.integer(sr.index),
+                                as.integer(ch.index),
+                                as.integer(time.usec))
   }
-}
