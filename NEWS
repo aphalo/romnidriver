@@ -1,7 +1,9 @@
 rOmniDriver 0.1.8
 =================
 
-Add support for multi-channel spectrometers.
+Add support for multi-channel spectrometers. The changes should not affect any
+existing scripts for single-channel instruments. However, it requires the
+a recent version of the runtime from Ocean Optics (API version 2.40 or newer).
 
 rOmniDriver 0.1.7
 =================
