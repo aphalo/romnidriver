@@ -1,6 +1,6 @@
-#' A package to use OmniDriver (a library from Ocean Optics)
+#' A package to use OmniDriver (a device driver from Ocean Optics)
 #'  
-#' OmniDriver is a propietary library provided by Ocean Optics
+#' OmniDriver is a proprietary library provided by Ocean Optics
 #' to allow the control of the spectrometers they sell
 #' through third party software.
 #' 
@@ -19,12 +19,15 @@
 #' All support requests about this package should be addressed to the maintainer
 #' of the package or public R user forums.
 #' 
-#' @note Many methods in OmniDriver are available in two versions, one for
-#'   multichannel spectrometers and one for single channels ones. In this
-#'   package each such pair of similar methods are wrapped into a single R
-#'   method. The Java methods are dispatched based on the value supplied as
-#'   argument for \code{ch.index} to the R methods. If it is \code{NULL}, the
-#'   default, the single channels version is used.
+#' @note Many methods in OmniDriver are available in two versions, one for 
+#'   multichannel spectrometers and one for single channels ones. In this 
+#'   package each such pair of similar methods are wrapped into a single R 
+#'   method. The default channel index, \code{ch.index}, in the R implementation
+#'   defaults to the first available channel, so it does not need to be
+#'   explicitly supplied for single channel instruments. The spectrometer index,
+#'   \code{sr.index}, in the R implementation defaults to the first available
+#'   spectrometer, so it does not need to be explicitly supplied when a single 
+#'   instrument is connected to the host computer.
 #'   
 #' @section Warning!: 
 #'   We have access to only three spectrometers for testing, a
