@@ -4,15 +4,16 @@
 \name{rOmniDriver-package}
 \alias{rOmniDriver}
 \alias{rOmniDriver-package}
-\title{Use Ocean Optics' Omnidriver in R}
+\title{Omni Driver R wrapper}
 \description{
-A package to use OmniDriver (a device driver from Ocean Optics)
- 
+This package is a wrapper of the OmniDriver java driver for Ocean
+Optics spectrometers.
+}
+\details{
 OmniDriver is a proprietary library provided by Ocean Optics
 to allow the control of the spectrometers they sell
 through third party software.
-}
-\details{
+
 Although this package is under GPL, Omnidriver is
 not, it is copyrighted commercial software from
 Ocean Optics \url{http://www.oceanoptics.com}
@@ -48,9 +49,6 @@ Many methods in OmniDriver are available in two versions, one for
   problems and also if you encounter no problems when using this package.
   Always supply detailed information about the spectrometer used when
   contacting the maintainer of the package.
-}
-\author{
-Pedro J. Aphalo
 }
 \references{
 \url{http://www.oceanoptics.com/Products/omnidriver.asp}

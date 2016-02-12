@@ -1,8 +1,8 @@
 Package: rOmniDriver
 Type: Package
 Title: Omni Driver R wrapper
-Version: 0.1.9
-Date: 2016-01-24
+Version: 0.1.10
+Date: 2016-02-08
 Author: Pedro J. Aphalo
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
 Description: This package is a wrapper of the OmniDriver java driver for Ocean

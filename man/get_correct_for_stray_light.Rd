@@ -4,7 +4,7 @@
 \alias{get_correct_for_stray_light}
 \title{Get current setting of stray light correction}
 \usage{
-get_correct_for_stray_light(jwrapper, sr.index = 0L)
+get_correct_for_stray_light(jwrapper, sr.index = 0L, ch.index = 0L)
 }
 \arguments{
 \item{jwrapper}{an open Wrapper object from Omnidriver}

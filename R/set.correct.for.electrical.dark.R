@@ -17,6 +17,9 @@
 set_correct_for_electrical_dark <-
   function(jwrapper,
            enable = 0L,
-           sr.index = 0L) {
-    jwrapper$setCorrectForElectricalDark(as.integer(sr.index), as.integer(enable))
+           sr.index = 0L,
+           ch.index = 0L) {
+    jwrapper$setCorrectForElectricalDark(as.integer(sr.index),
+                                         as.integer(ch.index), 
+                                         as.integer(enable))
   }

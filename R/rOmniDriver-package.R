@@ -1,6 +1,4 @@
-#' A package to use OmniDriver (a device driver from Ocean Optics)
-#'  
-#' OmniDriver is a proprietary library provided by Ocean Optics
+#' @details OmniDriver is a proprietary library provided by Ocean Optics
 #' to allow the control of the spectrometers they sell
 #' through third party software.
 #' 
@@ -38,15 +36,10 @@
 #'   Always supply detailed information about the spectrometer used when
 #'   contacting the maintainer of the package.
 #'   
-#' @name rOmniDriver-package
-#' @aliases rOmniDriver
-#' @docType package
-#' @title Use Ocean Optics' Omnidriver in R
-#' @author Pedro J. Aphalo
 #' @references 
 #' \url{http://www.oceanoptics.com/Products/omnidriver.asp}
 #' 
 #' \url{http://oceanoptics.com/api/omnidriver/overview-summary.html}
 #' @keywords package
 #' @import rJava
-NULL
+"_PACKAGE"

@@ -1,3 +1,8 @@
+rOmniDriver 0.1.9
+=================
+
+Fix bug: missing formal parameter for ch.index.
+
 rOmniDriver 0.1.8
 =================
 
