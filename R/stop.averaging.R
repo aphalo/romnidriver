@@ -9,7 +9,7 @@
 #' for the time being not exported
 #' @param ch.index an index to address the channel in a spectrometer with more 
 #'   than one channel.
-#' @keywords manip misc
+#'  
 #' @export
 #' @return a numeric value
 #'

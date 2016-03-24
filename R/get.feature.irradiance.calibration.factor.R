@@ -1,11 +1,11 @@
-#' Get feature "pixel binning"
+#' Get feature "controller board temperature"
 #' 
-#' Obtain an inferface to the "pixel binning" function of a spectrometer if
-#' available.
+#' A function to retrieve an interface that allows to query controller board
+#' temperature. 
 #' 
 #' @note Before calling this function you first need to check that the feature
 #'   is supported by the spectrometer in use by calling 
-#'   \code{\link{is_feature_supported_pixel_binning}}.
+#'   \code{\link{is_feature_supported_board_temperature}}.
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
@@ -13,7 +13,8 @@
 #' @export
 #' @return an object which provides the desired interface, or null if this
 #'   feature is not available for this spectrometer.
-#'
-get_feature_pixel_binning <- function(jwrapper, sr.index = 0L) {
-  jwrapper$getFeaturePixelBinning(as.integer(sr.index))
-}
+#'   
+get_feature_irradiance_calibration_factor <-
+  function(jwrapper, sr.index = 0L) {
+    jwrapper$getFeatureControllerIrradianceCalibrationFactor(as.integer(sr.index))
+  }

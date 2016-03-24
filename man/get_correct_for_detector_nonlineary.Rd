@@ -20,6 +20,4 @@ a numeric value
 \description{
 Get current setting of linearity correction (enabled or not)
 }
-\keyword{manip}
-\keyword{misc}
 

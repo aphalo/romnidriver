@@ -4,7 +4,7 @@
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
-#' @keywords manip misc
+#'  
 #' @return A character string value of form "1.01.01" or similar.
 #' @export
 #'

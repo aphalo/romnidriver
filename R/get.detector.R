@@ -4,7 +4,7 @@
 #' @param sr.index an index to address the spectrometer
 #' @param ch.index an index to address the channel in a spectrometer with more
 #'   than one channel.
-#' @keywords manip misc
+#'  
 #' @export
 #' @return a Detector object (Java)
 #' @note This method seems to be only of use for multichannel spectrometers. It 

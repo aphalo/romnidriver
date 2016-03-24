@@ -9,7 +9,7 @@
 #' @param sr.index an index to address the spectrometer
 #' @param ch.index an index to address the channel in a spectrometer with more 
 #'   than one channel.
-#' @keywords manip misc
+#'  
 #' @export
 #' @return a logical value that the user SHOULD test as the method may fail.
 #' @note The signature of this function is different to that of the Java 

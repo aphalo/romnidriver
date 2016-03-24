@@ -1,7 +1,6 @@
 ---
-title: "rOmnidrive: User Guide"
+title: "`rOmnidrive` `r packageVersion('ooacquire')`<br>User Guide"
 author: "Pedro J. Aphalo"
-
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >

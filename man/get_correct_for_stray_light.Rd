@@ -10,6 +10,8 @@ get_correct_for_stray_light(jwrapper, sr.index = 0L, ch.index = 0L)
 \item{jwrapper}{an open Wrapper object from Omnidriver}
 
 \item{sr.index}{an index to address the spectrometer}
+
+\item{ch.index}{an index to address the channel}
 }
 \description{
 Get current setting of stray light correction

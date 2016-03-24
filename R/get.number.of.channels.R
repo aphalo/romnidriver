@@ -5,7 +5,7 @@
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
-#' @keywords manip misc
+#'  
 #' @return a numeric value
 #' @export
 #'
@@ -20,7 +20,7 @@ get_number_of_channels <- function(jwrapper, sr.index = 0L) {
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 
-#' @keywords manip misc
+#'  
 #' @return a numeric value
 #' @export
 #'
@@ -36,7 +36,7 @@ get_number_of_enabled_channels <- function(jwrapper, sr.index = 0L) {
 #' @param sr.index an index to address the spectrometer 
 #' @param ch.index an index to address the channel in a spectrometer with more
 #'   than one channel.
-#' @keywords manip misc
+#'  
 #' @export
 #' @return a numeric value
 #'

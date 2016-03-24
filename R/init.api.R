@@ -6,7 +6,7 @@
 #' You should call this function only once
 #' And cleanup by use of \code{close.srs} before exiting
 #' 
-#' @keywords manip misc
+#'  
 #' @export
 #' @return a wrapper
 init_api <- function(){

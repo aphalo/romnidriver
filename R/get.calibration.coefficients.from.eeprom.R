@@ -7,7 +7,7 @@
 #' @param sr.index an index to address the spectrometer
 #' @param ch.index an index to address the channel in a spectrometer with more
 #'   than one channel.
-#' @keywords manip misc
+#'  
 #' @export
 #' @return A \code{Coefficients} Java object containing all of the calibration
 #'   coefficients..

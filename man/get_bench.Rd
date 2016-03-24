@@ -21,6 +21,4 @@ a value
 A function to query the characteristics of the optical bench
 from a spectrometer.
 }
-\keyword{manip}
-\keyword{misc}
 

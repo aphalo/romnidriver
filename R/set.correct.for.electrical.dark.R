@@ -6,7 +6,9 @@
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param enable integer or logical; 0, FALSE: disable; 1, TRUE: enable.
 #' @param sr.index an index to address the spectrometer 
-#' @keywords manip misc
+#' @param ch.index an index to address the channel in a spectrometer with more 
+#'   than one channel.
+#'  
 #' @export
 #' @return a logical value
 #'

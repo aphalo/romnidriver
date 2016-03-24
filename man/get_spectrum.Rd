@@ -20,6 +20,4 @@ a numeric value
 \description{
 Get a spectrum from the spectrometer
 }
-\keyword{manip}
-\keyword{misc}
 

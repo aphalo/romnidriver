@@ -5,7 +5,7 @@
 #' addressed.
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
-#' @keywords manip misc
+#'  
 #' @export
 #' @return A numeric value giving the number of USB-connected spectrometers.
 #'

@@ -1,7 +1,18 @@
+rOmniDriver 0.1.11
+==================
+
+Add support for retrieval of irradiance calibration factors from instrument
+firmware.
+
+rOmniDriver 0.1.10
+==================
+
+Fix bug: missing formal parameter for ch.index.
+
 rOmniDriver 0.1.9
 =================
 
-Fix bug: missing formal parameter for ch.index.
+Add example scripts to installation.
 
 rOmniDriver 0.1.8
 =================

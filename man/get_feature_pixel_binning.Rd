@@ -24,6 +24,4 @@ Before calling this function you first need to check that the feature
   is supported by the spectrometer in use by calling 
   \code{\link{is_feature_supported_pixel_binning}}.
 }
-\keyword{manip}
-\keyword{misc}
 

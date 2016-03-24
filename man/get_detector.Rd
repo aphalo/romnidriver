@@ -26,6 +26,4 @@ This method seems to be only of use for multichannel spectrometers. It
   extremely terse so it is difficult to know what it does and/or how to use 
   it.
 }
-\keyword{manip}
-\keyword{misc}
 
