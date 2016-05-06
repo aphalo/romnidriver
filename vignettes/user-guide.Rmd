@@ -1,5 +1,5 @@
 ---
-title: "`rOmnidrive` `r packageVersion('ooacquire')`<br>User Guide"
+title: "`rOmnidrive` `r packageVersion('rOmniDriver')`<br>User Guide"
 author: "Pedro J. Aphalo"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -26,6 +26,13 @@ Optionally we can query the API version. Updates to OmniDriver
 report an earlier API version if the interface has not changed.
 
 ```{r}
+library(knitr)
+# To build the User Guide with an instrument connected change to TRUE
+eval_switch <- TRUE
+opts_chunk$set(eval=eval_switch)
+```
+
+```{r}
 library(rOmniDriver)
 w <- init_api()
 get_api_version(w)
@@ -43,10 +50,15 @@ n <- open_all_spectrometers(w)
 n
 ```
 
+```{r}
+eval_switch <- eval_switch && n
+opts_chunk$set(eval=eval_switch)
+```
+
 In what follows we will explicitly access the first spectrometer, with
 index equal 0. We use `0L` to indicate that we mean a _long integer_.
 
-```{r, eval=n>0L}
+```{r}
 get_name(jwrapper = w, sr.index = 0L)
 get_serial_number(jwrapper = w, sr.index = 0L)
 ```
@@ -54,7 +66,7 @@ get_serial_number(jwrapper = w, sr.index = 0L)
 As the default for `sr.index` is `0L` and arguments can be recognized by
 position, the code in the next chunk is equivalent to the previous one.
 
-```{r, eval=n>0L}
+```{r}
 get_name(w)
 get_serial_number(w)
 ```
@@ -65,14 +77,14 @@ functions defined in OmniDriver Java code. We use `$` to mean 'call the
 Java method' of this name. As this are the Java methods, their names use
 camel case.
 
-```{r, eval=n>0L}
+```{r}
 bench <- get_bench(jwrapper = w, sr.index = 0L)
 bench$getGrating()
 bench$getFilterWavelength()
 bench$getSlitSize()
 ```
 
-```{r, eval=n>0L}
+```{r}
 n_ch <- get_number_of_channels(jwrapper = w, sr.index = 0L)
 n_ch
 ```
@@ -80,7 +92,7 @@ n_ch
 We can also query about other characteristics of the spectrometer, including
 the limits of the range of accepted integration times.
 
-```{r, eval=n>0L}
+```{r}
 get_maximum_integration_time(jwrapper = w, sr.index = 0L)
 get_minimum_integration_time(jwrapper = w, sr.index = 0L)
 get_maximum_intensity(jwrapper = w, sr.index = 0L)
@@ -100,7 +112,7 @@ The first example is a temperature sensor on the controller board. In this
 case there is only one method available, which returns the board temperature
 in degrees centigrades.
 
-```{r, eval=n>0L}
+```{r}
 if (is_feature_supported_board_temperature(jwrapper = w, sr.index = 0L)) {
   controller.board <- 
     get_feature_controller_board_temperature(jwrapper = w, sr.index = 0L)
@@ -114,7 +126,7 @@ if (is_feature_supported_board_temperature(jwrapper = w, sr.index = 0L)) {
 The next example, is for a similar temperature sensor in the CCD detector
 board. 
 
-```{r, eval=n>0L}
+```{r}
 if (is_feature_supported_detector_temperature(jwrapper = w, sr.index = 0L)) {
   detector.board <- 
     get_feature_detector_board_temperature(jwrapper = w, sr.index = 0L)
@@ -127,7 +139,7 @@ if (is_feature_supported_detector_temperature(jwrapper = w, sr.index = 0L)) {
 Another feature is switching between 'normal' and 'raw' spectral data. Again
 we have a single method, but in this case accepting an argument.
 
-```{r, eval=n>0L}
+```{r}
 if (is_feature_supported_spectrum_type(jwrapper = w, sr.index = 0L)) {
   spectrum.type <- get_feature_spectrum_type(jwrapper = w, sr.index = 0L)
   spectrum.type$setSpectrumType(1L) # raw
@@ -142,7 +154,7 @@ types, out-of-range values are silently ignored. Use the functions
 described above to find the valid range, or use `get_integration_time()`
 to confirm that the set method has succeeded.
 
-```{r, eval=n>0L}
+```{r}
 set_integration_time(jwrapper = w, time.usec = 5e6, sr.index = 0L, ch.index = 0L)
 get_integration_time(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
@@ -152,7 +164,7 @@ possible to set the number of pixels as a half width. (Using boxcar smoothing
 reduces the noise reducing the effective wavelength resolution but maintains
 the temporal resolution.)
 
-```{r, eval=n>0L}
+```{r}
 set_boxcar_width(w, half.width.px = 0L, sr.index = 0L, ch.index = 0L)
 get_boxcar_width(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
@@ -162,7 +174,7 @@ in the pixel-by-pixel averaging of several scans. (Using scan averaging
 reduces the temporal resolution but maintains the maximum wavelength
 resolution.)
 
-```{r, eval=n>0L}
+```{r}
 set_scans_to_avg(jwrapper = w, n.scans = 4L, sr.index = 0L, ch.index = 0L)
 get_scans_to_avg(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
@@ -174,7 +186,7 @@ whole array, which seems an odd thing to do. This needs checking as it
 could distort the shape of the spectrum compared to applying the correction
 pixel by pixel.)
 
-```{r, eval=n>0L}
+```{r}
 set_correct_for_detector_nonlinearity(jwrapper = w, correct = 0L, sr.index = 0L, ch.index = 0L)
 get_correct_for_detector_nonlineary(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
@@ -182,7 +194,7 @@ get_correct_for_detector_nonlineary(jwrapper = w, sr.index = 0L, ch.index = 0L)
 This is another correction that can be applied in the spectrometer, based
 on the reading of a small set of array pixels which are always darkened.
 
-```{r, eval=n>0L}
+```{r}
 set_correct_for_electrical_dark(jwrapper = w, enable = 0L, sr.index = 0L)
 get_correct_for_electrical_dark(jwrapper = w, sr.index = 0L)
 ```
@@ -191,14 +203,14 @@ The time out is needed only with external triggering, and is the maximum
 time to wait for a trigger before unblocking the communication with the
 computer (the spectrometer becoming responsive to new commands).
 
-```{r, eval=n>0L}
+```{r}
 set_timeout(jwrapper = w, time.millisec = 1000L, sr.index = 0L)
 ```
 
 Finally we acquire a spectrum! Subsequently we query whether it is valid,
 and whether it is saturated (the sensor is clipping the peaks).
 
-```{r, eval=n>0L}
+```{r}
 raw.spectrum <- get_spectrum(jwrapper = w, sr.index = 0L, ch.index = 0L)
 head(raw.spectrum)
 summary(raw.spectrum)
@@ -208,7 +220,7 @@ is_saturated(jwrapper = w, sr.index = 0L, ch.index = 0L)
 
 The last step is always to close the connection to the spectrometers.
 
-```{r, eval=n>0L}
+```{r}
 close_all_spectrometers(w)
 ```
 
