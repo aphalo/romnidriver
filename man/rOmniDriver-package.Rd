@@ -4,7 +4,7 @@
 \name{rOmniDriver-package}
 \alias{rOmniDriver}
 \alias{rOmniDriver-package}
-\title{Omni Driver R wrapper}
+\title{rOmniDriver: Omni Driver R wrapper}
 \description{
 This package is a wrapper of the OmniDriver java driver for Ocean
 Optics spectrometers.
@@ -50,10 +50,19 @@ Many methods in OmniDriver are available in two versions, one for
   Always supply detailed information about the spectrometer used when
   contacting the maintainer of the package.
 }
+
 \references{
 \url{http://www.oceanoptics.com/Products/omnidriver.asp}
 
 \url{http://oceanoptics.com/api/omnidriver/overview-summary.html}
 }
-\keyword{package}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://www.r4photobiology.info}
+  \item \url{https://bitbucket.org/aphalo/romnidriver}
+  \item Report bugs at \url{https://bitbucket.org/aphalo/romnidriver}
+}
 
+}
+\keyword{package}

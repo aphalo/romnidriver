@@ -16,4 +16,3 @@ get_correct_for_stray_light(jwrapper, sr.index = 0L, ch.index = 0L)
 \description{
 Get current setting of stray light correction
 }
-

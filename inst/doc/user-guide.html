@@ -12,9 +12,9 @@
 
 <meta name="author" content="Pedro J. Aphalo" />
 
-<meta name="date" content="2016-04-26" />
+<meta name="date" content="2016-12-29" />
 
-<title>rOmnidrive 0.1.11 User Guide</title>
+<title>rOmnidrive 0.1.11.9000 User Guide</title>
 
 
 
@@ -68,9 +68,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<h1 class="title"><code>rOmnidrive</code> 0.1.11<br>User Guide</h1>
+<h1 class="title toc-ignore"><code>rOmnidrive</code> 0.1.11.9000<br>User Guide</h1>
 <h4 class="author"><em>Pedro J. Aphalo</em></h4>
-<h4 class="date"><em>2016-04-26</em></h4>
+<h4 class="date"><em>2016-12-29</em></h4>
 
 
 
@@ -83,14 +83,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>The first step is to load the package, which automatically loads the OminiDriver Java library if it is installed in the computer. We need then to initialize the API by creating a wrapper object in Java. Optionally we can query the API version. Updates to OmniDriver report an earlier API version if the interface has not changed.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
 <span class="co"># To build the User Guide with an instrument connected change to TRUE</span>
-eval_switch &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+eval_switch &lt;-<span class="st"> </span><span class="ot">TRUE</span>
 opts_chunk$<span class="kw">set</span>(<span class="dt">eval=</span>eval_switch)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rOmniDriver)
 w &lt;-<span class="st"> </span><span class="kw">init_api</span>()
 <span class="kw">get_api_version</span>(w)</code></pre></div>
+<pre><code>## [1] &quot;2.43&quot;</code></pre>
 <p>The next step is to open connections to all Ocean Optics spectrometers directly connected through USB to the local computer. This function does not ‘see’ spectrometers connected through a LAN. It returns the number of spectrometers found. The spectrometers are accessed through and index (integer number) in the range 0 to <span class="math inline">\(n - 1\)</span> where <span class="math inline">\(n\)</span> is the number of connected spectrometers.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="kw">open_all_spectrometers</span>(w)
 n</code></pre></div>
+<pre><code>## [1] 0</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">eval_switch &lt;-<span class="st"> </span>eval_switch &amp;&amp;<span class="st"> </span>n
 opts_chunk$<span class="kw">set</span>(<span class="dt">eval=</span>eval_switch)</code></pre></div>
 <p>In what follows we will explicitly access the first spectrometer, with index equal 0. We use <code>0L</code> to indicate that we mean a <em>long integer</em>.</p>

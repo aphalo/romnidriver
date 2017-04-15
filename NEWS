@@ -1,7 +1,7 @@
 rOmniDriver 0.1.12
 ==================
 
-Add support for feature "internal trigger".
+Add support for features "internal trigger" and method "getLastException".
 
 rOmniDriver 0.1.11
 ==================

@@ -1,3 +1,18 @@
+#' Is feature "pixel binning" supported?
+#' 
+#' Checks whether feature "pixel binning" is available
+#' in the spectrometer addressed.
+#' 
+#' @param jwrapper an open Wrapper object from Omnidriver
+#' @param sr.index an index to address the spectrometer 
+#'  
+#' @export
+#' @return a numeric value
+#'
+is_feature_supported_pixel_binning <- function(jwrapper, sr.index=0L){
+  jwrapper$isFeatureSupportedPixelBinning(as.integer(sr.index))
+}
+
 #' Get feature "pixel binning"
 #' 
 #' Obtain an inferface to the "pixel binning" function of a spectrometer if

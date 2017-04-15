@@ -20,4 +20,3 @@ a numeric value
 \description{
 Get current setting for electrical dark correction
 }
-

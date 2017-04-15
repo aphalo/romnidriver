@@ -21,4 +21,3 @@ a numeric value
 Function to query the boxcar width being used
 (the number of pixels averaged).
 }
-

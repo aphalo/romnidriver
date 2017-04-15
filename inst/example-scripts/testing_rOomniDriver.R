@@ -32,6 +32,15 @@ set_boxcar_width(w,2,0)
 get_boxcar_width(w,0)
 set_boxcar_width(w,0,0)
 get_boxcar_width(w,0)
+
+is_feature_supported_internal_trigger(w)
+trg <- get_feature_controller_internal_trigger(w)
+get_trigger_period_valid_range(trg)
+set_trigger_source(trg, 3)
+get_trigger_source(trg, char.out = TRUE)
+set_trigger_period(trg, 0.1)
+get_trigger_period(trg)
+
 spc <- get_spectrum(w,0)
 is_saturated(w,0)
 is_spectrum_valid(w,0)
@@ -41,5 +50,6 @@ spc <- get_spectrum(w)
 is_saturated(w,0)
 is_spectrum_valid(w,0)
 spc
+max(spc)
 
 srs_close(w)
