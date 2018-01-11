@@ -21,7 +21,7 @@
     )
     return()
   }
-  ooi_path <- paste(ooi_home, "\\OmniDriver.jar", sep = "")
+  ooi_path <- paste(ooi_home, "/OmniDriver.jar", sep = "")
   rJava::.jpackage(pkgname,
                    lib.loc = c(libname, ooi_home),
                    morePaths = ooi_path)
