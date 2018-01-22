@@ -2,7 +2,7 @@
 #' 
 #' @param libname name of library (automatically supplied)
 #' @param pkgname name of the package (automatically supplied)
-#' @seealso see also \code{\link[rJava]{.jpackage}}.
+#' @seealso see also \code{\link[rJava]{jpackage}}.
 #' @keywords internal
 #' @return a numeric value
 #' 
