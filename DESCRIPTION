@@ -1,16 +1,19 @@
 Package: rOmniDriver
 Type: Package
 Title: Omni Driver R wrapper
-Version: 0.1.12.9000
-Date: 2018-01-11
-Author: Pedro J. Aphalo
+Version: 0.1.12.9001
+Date: 2018-01-22
+Authors@R:
+   c(
+    person("Pedro J.", "Aphalo", email = "pedro.aphalo@helsinki.fi", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0003-3385-972X"))
+    )
 Maintainer: Pedro J. Aphalo <pedro.aphalo@helsinki.fi>
 Description: This package is a wrapper of the OmniDriver java driver for Ocean
     Optics spectrometers.
 License: GPL (>= 2)
 Depends:
-    R (>= 3.3.0),
-    rJava (>= 0.9-8)
+    R (>= 3.4.0),
+    rJava (>= 0.9-9)
 SystemRequirements: Java JDK (>= 1.8), OmniDriver (>= 2.43)
 Suggests:
     knitr  (>= 1.15.1),

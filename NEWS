@@ -1,7 +1,9 @@
 rOmniDriver 0.1.13
 ==================
 
-Fix bug affecting OS X.
+Fix bug affecting OS X and Linux.
+Improve on-load diagnosis and messages.
+Tested good with OmniDriver 2.46.
 
 rOmniDriver 0.1.12
 ==================

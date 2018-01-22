@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^\.git/*
 ^rubbish$
+^docs$
+^_pkgdown\.yml$

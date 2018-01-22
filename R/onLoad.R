@@ -10,7 +10,11 @@
 #'
 .onLoad <- function(libname, pkgname) {
   ooi_home <- Sys.getenv("OOI_HOME")
+  ooi_diag <- as.logical(Sys.getenv("OOI_DIAG"))
+  if (is.na(ooi_diag)) ooi_diag <- FALSE
+  
   if (is.null(ooi_home)) {
+    ooi_diag <- TRUE
     message <-
       paste(
         "rOmniDriver\n  Path to OmniDriver runtime not found.",
@@ -32,6 +36,7 @@
                        "\n  Path: ", ooi_path,
                        sep = "")
     } else {
+      ooi_diag <- TRUE
       message <- paste("rOmniDriver\n  OmniDriver initialization FAILED",
                        "\n  OOI_HOME: ", ooi_home,
                        "\n  Path: ", ooi_path,
@@ -39,7 +44,9 @@
     }
     
   }
-  packageStartupMessage(message)
+  if (ooi_diag) {
+    packageStartupMessage(message)
+  }
 }
 
 .onAttach <- function(libname, pkgname) {

@@ -65,4 +65,8 @@ Useful links:
 }
 
 }
+\author{
+\strong{Maintainer}: Pedro J. Aphalo \email{pedro.aphalo@helsinki.fi} (https://orcid.org/0000-0003-3385-972X)
+
+}
 \keyword{package}

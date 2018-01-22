@@ -8,4 +8,6 @@ Package **ooacquire** provides a high level set of functions for spectral data a
 
 For the package to function the free OmniDriver run-time driver, which can be downloaded from the Ocean Optics web site should also installed, as well as Java, a requirement of the driver itself. There is no other set up needed, just plug your spectrometer to an USB port. The first time you connect an instrument the operating system will install the drivers as they are made available by the OmniDriver installation.
 
+The documentation for the OmniDriver API is available at (http://oceanoptics.com/api/omnidriver/).
+
 This package does NOT require _OceanView_ or _SpectraSuite_ to be installed. It does not require the purchase of software from Ocean Optics, but it is not supported by Ocean Optics, unless you acquire a licence to the SDP.
