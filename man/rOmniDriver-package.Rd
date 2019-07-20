@@ -7,7 +7,7 @@
 \title{rOmniDriver: Omni Driver R wrapper}
 \description{
 This package is a wrapper of the OmniDriver java driver for Ocean
-Optics spectrometers.
+    Optics spectrometers.
 }
 \details{
 OmniDriver is a proprietary library provided by Ocean Optics
