@@ -1,6 +1,7 @@
 rOmniDriver 0.1.13
 ==================
 
+Add brief installation instructions to README.
 Fix bug affecting OS X and Linux.
 Improve on-load diagnosis and messages.
 Tested good with OmniDriver 2.46.

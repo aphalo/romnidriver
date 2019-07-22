@@ -1,0 +1,34 @@
+destination: ../rOmniDriver-docs
+
+home:
+  strip_header: true
+  links:
+  - text: Photobiology packages
+    href: https://www.r4photobiology.info/
+  - text: Ocean Insight (formerly Ocean Optics)
+    href: https://oceanoptics.com/
+
+reference:
+  - title: Package overview
+    contents:
+    - '`rOmniDriver-package`'
+  - title: OmniDriver API wrappers
+    desc: >
+      R functions for accessing the OmniDriver SDP Java API. Help pages are
+      concise. Details available in the API documentation at
+      (http://oceanoptics.com/api/omnidriver/).
+    contents:
+    - matches("init_api")
+    - starts_with("open")
+    - starts_with("close")
+    - starts_with("get_")
+    - starts_with("set_")
+    - starts_with("is_")
+    - starts_with("spectrum_")
+    - starts_with("stop_")
+
+articles:
+  - title: User Guide
+    contents:
+    - 'user-guide'
+

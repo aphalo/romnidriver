@@ -1,10 +1,11 @@
 ---
-title: "`rOmnidrive` `r packageVersion('rOmniDriver')`<br>User Guide"
+title: "User Guide"
+subtitle: "Package 'rOmnidriver' `r packageVersion('rOmniDriver')` "
 author: "Pedro J. Aphalo"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
-    toc: no
+    toc: yes
 vignette: >
   %\VignetteIndexEntry{User Guide}
   %\VignetteEngine{knitr::rmarkdown}

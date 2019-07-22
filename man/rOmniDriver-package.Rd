@@ -61,7 +61,7 @@ Useful links:
 \itemize{
   \item \url{http://www.r4photobiology.info}
   \item \url{https://bitbucket.org/aphalo/romnidriver}
-  \item Report bugs at \url{https://bitbucket.org/aphalo/romnidriver}
+  \item Report bugs at \url{https://bitbucket.org/aphalo/romnidriver/issues}
 }
 
 }
