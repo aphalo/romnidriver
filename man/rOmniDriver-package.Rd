@@ -6,6 +6,8 @@
 \alias{rOmniDriver-package}
 \title{rOmniDriver: Omni Driver R wrapper}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 This package is a wrapper of the OmniDriver java driver for Ocean
     Optics spectrometers.
 }
@@ -60,8 +62,8 @@ Many methods in OmniDriver are available in two versions, one for
 Useful links:
 \itemize{
   \item \url{http://www.r4photobiology.info}
-  \item \url{https://bitbucket.org/aphalo/romnidriver}
-  \item Report bugs at \url{https://bitbucket.org/aphalo/romnidriver/issues}
+  \item \url{https://github.com/aphalo/romnidriver}
+  \item Report bugs at \url{https://github.com/aphalo/romnidriver/issues}
 }
 
 }

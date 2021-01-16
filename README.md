@@ -1,11 +1,7 @@
 
-# rOmniDriver’
+# rOmniDriver <img src="man/figures/logo.png" align="right" width="120" />
 
-[![](http://www.r-pkg.org/badges/version/rOmniDriver)](https://cran.r-project.org/package=rOmniDriver)
-[![](http://cranlogs.r-pkg.org/badges/rOmniDriver)](http://cran.rstudio.com/web/packages/rOmniDriver/index.html)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/rOmniDriver)](http://cran.rstudio.com/web/packages/rOmniDriver/index.html)
-
-## Introduction
+## Purpose
 
 The package **rOmniDriver** makes available in R the functions in
 OmniDriver SDP from Ocean Optics. OmniDriver allows to change settings
@@ -19,7 +15,7 @@ implemented as they require a secret key for activation, and in addition
 their use without risk requires a profound understanding of the
 instruments’ hardware and firmware). In addition most functions specific
 to spectrometer models we do not have access to are not implemented, as
-we would be unable to test them. As currently the API docummentation is
+we would be unable to test them. As currently the API documentation is
 freely available at Ocean Optics’ support page, adding additional
 functions using the source code of the functions included in our package
 as examples is almost trivial. *If you do add new functions, please,
@@ -34,7 +30,7 @@ spectral data acquisition built using this package as a base.
 OmniDriver from Ocean Optics (now Ocean Insight) is written in Java. To
 access the functions in this driver from R, we need to a bridge between
 both languages, given by package ‘rJava’ available in CRAN. The
-requirement is not only Java JRE, the runtime environment, but aslo Java
+requirement is not only Java JRE, the runtime environment, but also Java
 JDK, the development kit to be installed. Java 8 is known to work. On
 computers with processors that support two command sets, for 32 bits and
 64 bits, the version of Java and R should match. On Windows, by default
@@ -53,7 +49,7 @@ combined dowload is overkill.
 
 At this point open an R session, or restart an already open one. I
 recommend installing first package ‘rJava’ from CRAN. This installation
-may fail if the path to the Java instalaltion is not found. Depending on
+may fail if the path to the Java installation is not found. Depending on
 the operating system setting the environment variable “JAVA\_HOME” may
 be necessary.
 
@@ -61,9 +57,9 @@ be necessary.
 install.packages("rJava")
 ```
 
-Once this installation has suceeded, we can install package
-‘rOmniDriver’ from the Git repository at Bitbucket. For this we use
-package ‘devtools’ that needs to be installed unless it has been already
+Once this installation has succeeded, we can install package
+‘rOmniDriver’ from the Git repository at GitHub For this we use package
+‘devtools’ that needs to be installed unless it has been already
 installed.
 
 ``` r
@@ -71,7 +67,7 @@ install.packages("devtools")
 ```
 
 ``` r
-devtools::install_bitbucket("aphalo/romnidriver")
+devtools::install_github("aphalo/romnidriver")
 ```
 
 The most frequent resean why installation, or functioning of the package
@@ -100,9 +96,9 @@ to the use of any software to control the spectrometer.
 
 ## Documentation
 
-The inplemented wrapper functions respect the names of the functions as
+The implemented wrapper functions respect the names of the functions as
 they appear in the OmniDriver documentation. For a couple of function
-with very long names, synonims are defined in addition to the original
+with very long names, synonyms are defined in addition to the original
 names. The documentation for the OmniDriver API is available at
 (<http://oceanoptics.com/api/omnidriver/>).
 
@@ -115,30 +111,30 @@ at (<https://docs.r4photobiology.info/rOmniDriver/>).
 
 The functions in the OmniDriver SDP are “bare bones” building blocks
 that can be used to write scripts directly, e.g. to acquire one scan
-every few seconds, or used to create more sofisticated functions for
+every few seconds, or used to create more sophisticated functions for
 specific protocols and applications, of which several examples are
-provided in package ‘ooacquire’, whose on-line documentation is
-avaialble at (<https://docs.r4photobiology.info/ooacquire/>). It can be
+provided in package
+[‘ooacquire’](https://docs.r4photobiology.info/ooacquire/). It can be
 installed with this statement.
 
 ``` r
-devtools::install_bitbucket("aphalo/ooacquire")
+devtools::install_github("aphalo/ooacquire")
 ```
 
-## Status of this package and OmniDriver
+## Status of this package and *OmniDriver*
 
 Package ‘rOmniDriver’ does NOT require *OceanView* or *SpectraSuite*,
 the commercial software from Ocean Optics to be installed, only the free
 run-time of OmniDriver. Consequently, it does not require the purchase
 of software from Ocean Optics, but users of the driver OmniDriver
 run-time are not guaranteed support by Ocean Optics, unless they acquire
-a licence to the OmniDriver SDP. OmniDriver is proprietary, closed
+a license to the OmniDriver SDP. OmniDriver is proprietary, closed
 source, software. The R package itself is released under GPL.
 
 ## In case of problems
 
 The source code of the package is open, and available through Bitbucket.
 Please report any problems or bugs by creating a new issue at
-(<https://bitbucket.org/aphalo/photobiology/issues>). Contributions and
+(<https://github.com/aphalo/photobiology/issues>). Contributions and
 reports of compatibility or lack of it with different spectrometers and
 operating systems are very welcome.
