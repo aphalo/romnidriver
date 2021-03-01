@@ -10,7 +10,7 @@
 #' @export
 #' @return a wrapper
 init_api <- function(){
-  return(.jnew("com/oceanoptics/omnidriver/api/wrapper/Wrapper"))
+  return(rJava::.jnew("com/oceanoptics/omnidriver/api/wrapper/Wrapper"))
 }
 
 #' @export
@@ -18,3 +18,33 @@ init_api <- function(){
 #' @rdname init_api
 #' 
 init_srs  <- init_api
+
+#' Check if names are available through the Java wrapper
+#' 
+#' OmniDriver shows some variation with respect to the methods it exposes
+#' through the wrapper. This test makes it possible to avoid Java errors
+#' and possibly use an alternative method.
+#' 
+#' @param jwrapper jobjRef An open Wrapper object from OmniDriver.
+#' @param method.name character vector The name of the method(s) to search for.
+#' @param value logical If \code{TRUE} names are returned as character strings,
+#'   otherwise numeric indexes into the matching names in \code{method.name}. 
+#' 
+#' @return A character vector, containing the methods from \code{method.names}
+#'   that are available.
+#' 
+#' @keywords internal
+#' 
+oo_method_exists <- function(jwrapper, method.name, value = TRUE) {
+  if (is.null(jwrapper)) {
+    selector <- FALSE
+  } else {
+    jwrapper.names <- unique(gsub("\\(|\\)", "", names(jwrapper)))
+    selector <- method.name %in% jwrapper.names 
+  }
+  if (value)
+    method.name[selector]
+  else
+    which(selector)
+}
+
