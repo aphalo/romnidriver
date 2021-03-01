@@ -13,7 +13,12 @@
 #' @return a numeric value
 #'
 is_timeout <- function(jwrapper,
-                       sr.index = 0L,
-                       ch.index = 0L) {
-  jwrapper$isTimeout(as.integer(sr.index), as.integer(ch.index))
+                       sr.index = 0L) {
+  switch(oo_method_exists(jwrapper, c("isTimeout", "isUSBTimeout")),
+         isTimeout = 
+           jwrapper$isTimeout(as.integer(sr.index)),
+         setUSBTimeout = 
+           {message("Checking USB time out.");
+             jwrapper$isUSBTimeout(as.integer(sr.index))},
+         warning("No method to check time out found"))
 }

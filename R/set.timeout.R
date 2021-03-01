@@ -16,5 +16,13 @@
 set_timeout <- function(jwrapper,
                         time.millisec = 1000L,
                         sr.index = 0L) {
-  jwrapper$setCorrectForElectricalDark(as.integer(sr.index), as.integer(time.millisec))
+  switch(oo_method_exists(jwrapper, c("setTimeout", "setUSBTimeout")),
+         setTimeout = 
+           jwrapper$setTimeout(as.integer(sr.index), 
+                               as.integer(time.millisec)),
+         setUSBTimeout = 
+           {message("Setting USB time out.");
+             jwrapper$setUSBTimeout(as.integer(sr.index), 
+                                    as.integer(time.millisec))},
+         warning("No method to set time out found"))
 }

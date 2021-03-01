@@ -4,9 +4,17 @@ editor_options:
     wrap: 72
 ---
 
-# rOmniDriver 0.1.13-1
+# rOmniDriver 0.1.14
 
+-   Add `set_USB_timeout()` and `is_USB_timeout()`.
+-   Edit `set_timeout()` and `is_timeout()` as 'OmniDriver' does not
+    always provide the Java methods `setTimeout` and `isTimeout`.
 -   Move repository from BitBucket to GitHub.
+-   Test with USB2000 (under Windows 10, FX/2 firmware updated to
+    2.51.0).
+-   Test good with OmniDriver 2.56.
+-   **TODO:** Update documentation to reflect *Ocean Optics* rename to
+    *Ocean Insight*.
 
 # rOmniDriver 0.1.13
 
@@ -48,11 +56,11 @@ editor_options:
 
 # rOmniDriver 0.1.6
 
--   Added function \`get_integration_time().
+-   Added function `get_integration_time()`.
 
 # rOmniDriver 0.1.5
 
--   Added functions get_name and `get_serial_number()`.
+-   Added functions `get_name()` and `get_serial_number()`.
 
 # rOmniDriver 0.1.4
 
@@ -72,4 +80,4 @@ editor_options:
 # rOmniDriver 0.1.2
 
 Working in some simple tests with the Maya2000Pro in the prototype of
-MayaControl.
+'MayaControl'.

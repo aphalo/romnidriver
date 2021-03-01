@@ -26,7 +26,7 @@
     if (!.Platform$OS.type == "windows") {
       ooi_diag <- TRUE
       message <- paste("Package well tested only under Windows 10\n",
-                       "Please report any problems under your OS at 'https://bitbucket.org/aphalo/romnidriver/issues'")
+                       "Please report any problems under your OS at 'https://github.com/aphalo/romnidriver/issues'")
     }
     ooi_path <- paste(ooi_home, "/OmniDriver.jar", sep = "")
     
