@@ -10,10 +10,12 @@ NumSpacesForTab: 2
 Encoding: UTF-8
 
 RnwWeave: knitr
-LaTeX: pdfLaTeX
+LaTeX: XeLaTeX
 
 BuildType: Package
 PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch
 PackageCheckArgs: --as-cran
 PackageRoxygenize: rd,namespace,vignette
+
+SpellingDictionary: en_GB

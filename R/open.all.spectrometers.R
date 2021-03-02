@@ -1,6 +1,6 @@
 #' Opens connections to all spectrometers
 #' 
-#' Opens connections to communicate with all Ocean Optics spectrometers
+#' Opens connections to communicate with all Ocean Insight spectrometers
 #' connected through USB and returns the number of spectrometers that can be
 #' addressed.
 #' 

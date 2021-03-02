@@ -1,18 +1,18 @@
-#' @details OmniDriver is a proprietary library provided by Ocean Optics
+#' @details OmniDriver is a proprietary library provided by Ocean Insight
 #' to allow the control of the spectrometers they sell
 #' through third party software.
 #' 
 #' Although this package is under GPL, Omnidriver is
 #' not, it is copyrighted commercial software from
-#' Ocean Optics \url{http://www.oceanoptics.com}
+#' Ocean Insight \url{http://www.oceanoptics.com}
 #'  
-#' Ocean optics distributes the OmniDriver runtime free of charge. This
-#' can be downloaded from Ocean Optics web site. It can be used only
-#' with spectrometers sold by Ocean Optics. Ocean Optics has supported
+#' Ocean Insight distributes the OmniDriver runtime free of charge. This
+#' can be downloaded from Ocean Insight web site. It can be used only
+#' with spectrometers sold by Ocean Insight. Ocean Insight has supported
 #' the development of this R package by providing a free licence to
 #' the OmniDriver SDP, which gave me access to documentation.
 #' 
-#' Ocean Optics will not provide support for the use of this package, unless the
+#' Ocean Insight will not provide support for the use of this package, unless the
 #' user buys a licence for OmniDriver SDP (spectroscopy development plattform).
 #' All support requests about this package should be addressed to the maintainer
 #' of the package or public R user forums.

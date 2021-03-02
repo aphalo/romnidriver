@@ -1,10 +1,10 @@
 #' Feature "detector temperature"
 #' 
 #' Check whether feature "detector temperature" is available in the spectrometer
-#' addressed. Retrieve an interface that allows to query board temperature. Get
-#' detector temperature.
+#' addressed. Construct a wrapper on the Java controller for the feature. Use a
+#' wrapped controller to query the detector temperature.
 #' 
-#' @param jwrapper an open Wrapper object from Omnidriver
+#' @param jwrapper an open Wrapper object from OmniDriver
 #' @param sr.index an index to address the spectrometer 
 #'  
 #' @export

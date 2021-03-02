@@ -14,9 +14,9 @@ vignette: >
 
 ## Introduction
 
-This package provides a wrapper on the OmniDriver from Ocean Optics. The 
+This package provides a wrapper on the OmniDriver from Ocean Insight. The 
 runtime can be downloaded and installed for free. Please, use the Java
-documentation provided by Ocean Optics. The names of all functions are
+documentation provided by Ocean Insight. The names of all functions are
 preserved but change from camel case as in `getApiVersion()` to a style
 easier to read and more usual in R. For this example `get_api_version()`.
 
@@ -41,7 +41,7 @@ w <- init_api()
 get_api_version(w)
 ```
 
-The next step is to open connections to all Ocean Optics spectrometers
+The next step is to open connections to all Ocean Insight spectrometers
 directly connected through USB to the local computer. This function does
 not 'see' spectrometers connected through a LAN. It returns the number of
 spectrometers found. The spectrometers are accessed through and index 
@@ -158,7 +158,7 @@ described above to find the valid range, or use `get_integration_time()`
 to confirm that the set method has succeeded.
 
 ```{r}
-set_integration_time(jwrapper = w, time.usec = 5e6, sr.index = 0L, ch.index = 0L)
+set_integration_time(jwrapper = w, time.usec = 1e6, sr.index = 0L, ch.index = 0L)
 get_integration_time(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
 
@@ -183,7 +183,7 @@ get_scans_to_avg(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
 
 The correction for detector non-linearity can be applied in the spectrometer, 
-but this can also be disabled. (According to Ocean Optics' literature the
+but this can also be disabled. (According to Ocean Insight' literature the
 in-spectrometer correction is applied based on the mean counts across the
 whole array, which seems an odd thing to do. This needs checking as it
 could distort the shape of the spectrum compared to applying the correction
@@ -208,6 +208,13 @@ computer (the spectrometer becoming responsive to new commands).
 
 ```{r}
 set_timeout(jwrapper = w, time.millisec = 1000L, sr.index = 0L)
+```
+USB time out can be also sometimes needed in with other commands that may
+not return. This seems to have replaced set timeout in the current version
+of the API at least for some spectrometers.
+
+```{r}
+set_USB_timeout(jwrapper = w, time.millisec = 2000L, sr.index = 0L)
 ```
 
 Finally we acquire a spectrum! Subsequently we query whether it is valid,

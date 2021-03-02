@@ -1,8 +1,8 @@
 Package: rOmniDriver
 Type: Package
 Title: Omni Driver R wrapper
-Version: 0.1.13.9999
-Date: 2021-03-01
+Version: 0.1.14
+Date: 2021-03-02
 Authors@R:
    c(
     person("Pedro J.", "Aphalo", email = "pedro.aphalo@helsinki.fi", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0003-3385-972X"))

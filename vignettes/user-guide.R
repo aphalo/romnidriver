@@ -74,7 +74,7 @@ if (is_feature_supported_spectrum_type(jwrapper = w, sr.index = 0L)) {
 }
 
 ## -----------------------------------------------------------------------------
-set_integration_time(jwrapper = w, time.usec = 5e6, sr.index = 0L, ch.index = 0L)
+set_integration_time(jwrapper = w, time.usec = 1e6, sr.index = 0L, ch.index = 0L)
 get_integration_time(jwrapper = w, sr.index = 0L, ch.index = 0L)
 
 ## -----------------------------------------------------------------------------
@@ -95,6 +95,9 @@ get_correct_for_electrical_dark(jwrapper = w, sr.index = 0L)
 
 ## -----------------------------------------------------------------------------
 set_timeout(jwrapper = w, time.millisec = 1000L, sr.index = 0L)
+
+## -----------------------------------------------------------------------------
+set_USB_timeout(jwrapper = w, time.millisec = 2000L, sr.index = 0L)
 
 ## -----------------------------------------------------------------------------
 raw.spectrum <- get_spectrum(jwrapper = w, sr.index = 0L, ch.index = 0L)

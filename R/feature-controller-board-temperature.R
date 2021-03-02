@@ -1,8 +1,8 @@
-#' Feature "controller board temperature"
+#' Feature "Board temperature"
 #' 
-#' Check whether feature "controller board temperature" is available
-#' in the spectrometer addressed. Gets the controller and queries the
-#' temperature.
+#' Check whether feature "board temperature" is available in the spectrometer
+#' addressed. Construct a wrapper on the Java controller for the feature. Use a
+#' wrapped controller to query the temperature.
 #' 
 #' @param jwrapper an open Wrapper object from Omnidriver
 #' @param sr.index an index to address the spectrometer 

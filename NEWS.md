@@ -13,8 +13,8 @@ editor_options:
 -   Test with USB2000 (under Windows 10, FX/2 firmware updated to
     2.51.0).
 -   Test good with OmniDriver 2.56.
--   **TODO:** Update documentation to reflect *Ocean Optics* rename to
-    *Ocean Insight*.
+-   Update documentation to reflect that the company *Ocean Optics* has
+    been renamed *Ocean Insight*.
 
 # rOmniDriver 0.1.13
 
