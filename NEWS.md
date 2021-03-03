@@ -9,10 +9,16 @@ editor_options:
 -   Add `set_USB_timeout()` and `is_USB_timeout()`.
 -   Edit `set_timeout()` and `is_timeout()` as 'OmniDriver' does not
     always provide the Java methods `setTimeout` and `isTimeout`.
+-   Add function `is_api_enabled()`.
+-   Add check for success of API initialization in function
+    `init_api()`.
+-   Add preliminary (untested) support for I2C and SPI buses.
 -   Move repository from BitBucket to GitHub.
 -   Test with USB2000 (under Windows 10, FX/2 firmware updated to
     2.51.0).
 -   Test good with OmniDriver 2.56.
+-   Update README to better explain all the steps needed to install the
+    this package as well as OmniDriver.
 -   Update documentation to reflect that the company *Ocean Optics* has
     been renamed *Ocean Insight*.
 
