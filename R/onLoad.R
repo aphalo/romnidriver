@@ -30,6 +30,7 @@
   
   if (is.null(ooi_home) || ooi_home == "") {
     ooi_diag <- TRUE
+    init.successful <- FALSE
     message <-
       paste(
         "rOmniDriver:\nEnvironment variable OOI_HOME is not set to a path.\n",
@@ -44,6 +45,8 @@
         paste("rOmniDriver:\nPackage is well tested only under Windows 10.\n",
               "Please report any problems under your OS at",
               "'https://github.com/aphalo/romnidriver/issues'")
+    } else {
+      message <- character(0)
     }
     ooi_path <- paste(ooi_home, "/OmniDriver.jar", sep = "")
     
@@ -59,17 +62,19 @@
                        sep = "")
     } else {
       ooi_diag <- TRUE
-      message <- paste("rOmniDriver:\n  OmniDriver initialization FAILED",
-                       "\n  OOI_HOME: ", ooi_home,
-                       "\n  Path: ", ooi_path,
-                       sep = "")
+      message <- paste(message, 
+                       "rOmniDriver:\n  OmniDriver initialization FAILED",
+                       "  OOI_HOME: ", ooi_home,
+                       "  Path: ", ooi_path,
+                       sep = "\n")
     }
     
   }
-  # This triggers a note but is needed to report failure to find driver
-  if (ooi_diag) {
+  # This triggers a note but is needed to report failure to find the driver
+  if (ooi_diag || getOption("verbose", default = FALSE)) {
     packageStartupMessage(message)
   }
+  options(OminiDriver.available = init.successful)
 }
 
 .onAttach <- function(libname, pkgname) {

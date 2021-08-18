@@ -15,6 +15,7 @@ LaTeX: XeLaTeX
 BuildType: Package
 PackageUseDevtools: Yes
 PackageInstallArgs: --no-multiarch
+PackageBuildBinaryArgs: --no-multiarch
 PackageCheckArgs: --as-cran
 PackageRoxygenize: rd,namespace,vignette
 

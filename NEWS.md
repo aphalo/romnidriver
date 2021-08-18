@@ -4,6 +4,11 @@ editor_options:
     wrap: 72
 ---
 
+# rOmniDriver 0.1.15
+
+-   Tweak messages emitted when loading the package.
+-   Set R option "OmniDriver.avilable" to reflect success or failure.
+    
 # rOmniDriver 0.1.14
 
 -   Add `set_USB_timeout()` and `is_USB_timeout()`.

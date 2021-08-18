@@ -102,16 +102,18 @@ variable reliably under Windows but unreliably under Apple’s OS X (Unix)
 and possibly Linux. If the variable is undefined or contains an invalid
 path the user can set or edit it at the shell prompt or in a shell
 script run on system startup to point to the correct folder. Otherwise
-from it can be set within an R script using function
+it can be set within an R script using function
 `Sys.setenv(OOI_HOME = <path-to-folder>)` replacing `<path-to-folder>`
-with corresponding path.
+with corresponding path. Obviosuly the variable should be set before
+loading ‘rOmniDriver’.
 
 If problems are encountered during package load a diagnosis message is
 displayed. Printing of a diagnosis message in the absence of problems
-can be forced by setting `Sys.setenv(OOI_DIAG = "TRUE")` before loading
-the package. This will show the location of the `.jar` file loaded and
-the values of the environment variables `OOI_HOME` and the path to the
-OmniDriver `.jar` file.
+can be forced by setting `OOI_DIAG = "TRUE"` in the operating syatem
+before starting R or by setting R option verbose with
+`options(verbose = TRUE)` before loading the package. This will show the
+location of the `.jar` file loaded and the values of the environment
+variables `OOI_HOME` and the path to the OmniDriver `.jar` file.
 
 There is no other set up needed after installation, just plug your
 spectrometer to a USB port. The first time you connect an instrument

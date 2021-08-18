@@ -20,6 +20,10 @@ documentation provided by Ocean Insight. The names of all functions are
 preserved but change from camel case as in `getApiVersion()` to a style
 easier to read and more usual in R. For this example `get_api_version()`.
 
+## Instalaltion
+
+Please, see the README file of the package.
+
 ## Using rOmniDriver
 
 The first step is to load the package, which automatically loads the 
@@ -35,8 +39,25 @@ eval_switch <- TRUE
 opts_chunk$set(eval=eval_switch)
 ```
 
+Optionally one force the printing of a diagnosys message in the abscence even
+for a sucesful loading of the package. We do it here to illustrate the location
+of the driver and Java.
+
+```{r}
+old.verbose <- options(verbose = TRUE)
+```
+
+We then load the package. It depends on package 'rJava' which is also loaded.
+
 ```{r}
 library(rOmniDriver)
+```
+
+```{r}
+options(old.verbose)
+```
+
+```{r}
 w <- init_api()
 get_api_version(w)
 ```
