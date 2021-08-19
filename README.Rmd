@@ -38,16 +38,26 @@ acquisition built using this package as a base.
 
 ## Installation
 
-OmniDriver from Ocean Insight is written in Java. To access the functions in
-this driver from R, we need to a bridge between both languages, given by package
-'rJava' available in CRAN. The requirement is not only Java JRE, the runtime
-environment, but also Java JDK, the development kit to be installed. Java 8 is
-known to work. The 'rJava' package sometimes fails to work with the most recent
-version of the Java JDK. On computers with processors that support two command
-sets, for 32 bits and 64 bits, the version of Java and R should match. Getting
-'rJava' working is not always straightforward, so one needs to make sure 'rJava'
-is correctly installed and functional before attempting to install
-`rOmniDriver`.
+OmniDriver from Ocean Insight is written in the computer language Java. To
+access the functions in this driver from R, we need to use a bridge between the
+two computer languages, which is provided by R package 'rJava' available from
+CRAN. 'rJava' requires that the Java JDK, the development kit, is installed.
+Installed only Java JRE runtime is not enough in this case, although it is for
+many other programs written in Java.
+
+Of the different Java implementations, **Oralcle's Java 8 is known to work with
+'rJava' and OmniDriver**. The 'rJava' package sometimes fails to work with the
+most recent version of the Java JDK, as its updates may lag slightly behind. On
+computers with processors and operationg systems like Windows that support two
+command sets, 32 bits and 64 bits, and two versions of R are available, the
+version of Java installed and the R version used should match, being both of
+them 32 bits or 64 bits. As the 32 bit version of R is soon reaching its
+end-of-life, sticking to the 64 bit vesrions is a good idea.
+
+Getting R package 'rJava' working is not always straightforward, so one needs to
+make sure 'rJava' is correctly installed and functional before attempting to
+install `rOmniDriver`. This is important, in case problems occur. Sometimes a
+restart of the operating system can help.
 
 On Windows, by default R installs packages for both 64-bit and 32-bit
 architectures, which means that using the default R installation and settings
@@ -55,21 +65,39 @@ one may need to install also both versions of the JDK. The examples and
 documentation for the JDK are not needed to use 'rOmniDriver'. Under Windows, if
 the Java installation fails, uninstall and reinstall as administrator.
 
+Depending on the operating system, manually setting the environment variable `"JAVA_HOME"` may be necessary. We can check if this variable is set either at the operating system command prompt or from R, as shown here. Windows uses a "registery" to keep track of the location of programs so even if this variable is not set, 'rJava' will find the Java JDK under Windows. 
+
+```{r, eval=FALSE}
+Sys.getenv("JAVA_HOME")
+```
+
+----
+At the OS terminal (such as RStudio's Terminal window) we can check the
+currently intalled version of the JDK with `javac -version`. Be aware that
+`javac` is used for the _JDK_ and `java` for the _JRE_ and for this to work
+`javac` must be not only installed, but also in the `path`.
+
+```{bash, eval=FALSE}
+javac -version
+```
+----
+
 Once Java is installed and tested working, the next step is to install
-OmniDriver using the installer downloaded from Ocean Insight's downloads web
+'OmniDriver' using the installer downloaded from Ocean Insight's downloads web
 page corresponding to the operating system you are using. The OmniDriver
-installer offers a choice between installing the free runtime and the
-development version. The runtime is free, and is all what is needed by
-'rOmniDriver'. Under recent Windows versions I have done all testing with the 64
-bit version. SPAM is not needed either, so the combined download from Ocean
-Insight is overkill.
+installer offers a choice between installing the runtime and the development
+version. The runtime is free, and is all what is needed to use R package
+'rOmniDriver'. When there is a choice of 32 bit and 64 bit versions, OmniDriver
+should match Java and R in this respect. I have done all testing with the 64 bit
+version of OmniDriver, together with the 64 bit Java 8 JDK and 64 bit R under
+Windows 10. (SPAM is not needed either, so the combined download from Ocean
+Insight is overkill.)
 
 After the installation of 'Java' and 'OmniDriver' is done, we are ready for the
 installation of the R packages. At this point open a _new R session_, or
-_restart an already open one_. I recommend installing first package 'rJava' from
-CRAN. This installation may fail if the path (folder on disk) to the Java
-installation is not found. Depending on the operating system, manually setting
-the environment variable "JAVA_HOME" may be necessary.
+_restart an already open R session_. I recommend installing first package
+'rJava' from CRAN. This installation may fail if the path (folder on disk) to
+the Java installation is not found.
 
 ```{r, eval=FALSE}
 install.packages("rJava")
@@ -80,8 +108,12 @@ can install package 'rOmniDriver'. This package is not available through CRAN as
 it is a wrapper based on proprietary software from Ocean Insight with no source
 code freely available. 'rOmniDriver' can be installed from sources directly from
 the Git repository at Github. For this we use package 'remotes' that needs to be
-first installed unless it has been already installed. (Under MS-Windows
-installation from sources is possible only after installing Rtools.)
+first installed unless it has been previously installed. (Under MS-Windows
+installation from sources is possible only after installing Rtools from CRAN.
+Under Linux operating systems the requirements for installing R packages from
+source are usually but not always met by default. Under OS-X compilers may need
+to be installed. This requirements are the same as for installing any R
+packages from sources.)
 
 ```{r, eval=FALSE}
 install.packages("remotes")
@@ -105,22 +137,22 @@ The R statement above should show the path to the folder where OmniDriver is
 installed. The OmniDriver installer seems to set this variable reliably under
 Windows but unreliably under Apple's OS X (Unix) and possibly Linux. If the
 variable is undefined or contains an invalid path the user can set or edit it at
-the shell prompt or in a shell script run on system startup to point to the
+the shell prompt or in a shell script run on system start up to point to the
 correct folder. Otherwise it can be set within an R script using function
 `Sys.setenv(OOI_HOME = <path-to-folder>)` replacing `<path-to-folder>` with
 corresponding path. Obviosuly the variable should be set before loading 
-'rOmniDriver'.
+'rOmniDriver'. 
 
-If problems are encountered during package load a diagnosis message is
-displayed. Printing of a diagnosis message in the absence of problems can be
-forced by setting `OOI_DIAG = "TRUE"` in the operating syatem before starting R
+If problems are encountered during loading of 'rOmniDriver' a diagnosis message is
+displayed. Display of a diagnosis message in the absence of problems can be
+forced by setting `OOI_DIAG = "TRUE"` in the operating system before starting R
 or by setting R option verbose with `options(verbose = TRUE)` before loading the
 package. This will show the location of the `.jar` file loaded and the values of
 the environment variables `OOI_HOME` and the path to the OmniDriver `.jar` file.
 
 There is no other set up needed after installation, just plug your spectrometer
 to a USB port. The first time you connect an instrument most operating systems
-will install the drivers automatically, as they are made available by the
+will install the USB drivers automatically, as they are made available by the
 'OmniDriver' installation. If this step fails there are different possibilities:
 1) the account you are logged-in does not have the permissions needed to install
 the driver, 2) the user has no permission to write to the USB port through Java,
@@ -130,7 +162,9 @@ versions newer than 7). These problems are operating-system specific and do also
 affect the vendor supplied software to control the spectrometer. If you can
 control the spectrometer using the 'OceanView' program from Ocean Insight, then
 Java and the spectrometer drivers should have been installed and working
-correctly.
+correctly. **On the other hand, there is no need for 'OceanView' to be installed
+in a computer to be able to use R package 'rOmniDriver' to communicate and
+control Ocean Optics/Ocean Insight spectrometers.**
 
 ## Documentation
 
