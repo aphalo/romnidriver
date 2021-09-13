@@ -25,4 +25,4 @@ Encoding: UTF-8
 URL: http://www.r4photobiology.info,
     https://github.com/aphalo/romnidriver
 BugReports: https://github.com/aphalo/romnidriver/issues
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
