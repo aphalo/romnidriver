@@ -1,0 +1,53 @@
+# -----------------------------------------------------------
+# CITATION file created with {cffr} R package, v0.1.1
+# See also: https://docs.ropensci.org/cffr/
+# -----------------------------------------------------------
+ 
+cff-version: 1.2.0
+message: 'To cite package "rOmniDriver" in publications use:'
+type: software
+license: GPL-2.0-or-later
+title: 'rOmniDriver: Omni Driver R wrapper'
+version: 0.1.15
+abstract: This package is a wrapper of the OmniDriver java driver for Ocean Optics
+  spectrometers.
+authors:
+- family-names: Aphalo
+  given-names: Pedro J.
+  email: pedro.aphalo@helsinki.fi
+  orcid: https://orcid.org/0000-0003-3385-972X
+preferred-citation:
+  type: manual
+  title: 'rOmniDriver: Omni Driver R wrapper'
+  authors:
+  - family-names: Aphalo
+    given-names: Pedro J.
+    email: pedro.aphalo@helsinki.fi
+    orcid: https://orcid.org/0000-0003-3385-972X
+  version: 0.1.15
+  abstract: This package is a wrapper of the OmniDriver java driver for Ocean Optics
+    spectrometers.
+  repository-code: https://github.com/aphalo/romnidriver
+  url: http://www.r4photobiology.info
+  date-released: '2021-08-18'
+  contact:
+  - family-names: Aphalo
+    given-names: Pedro J.
+    email: pedro.aphalo@helsinki.fi
+    orcid: https://orcid.org/0000-0003-3385-972X
+  keywords:
+  - data-acquisition
+  - spectroscopy
+  license: GPL-2.0-or-later
+  year: '2021'
+repository-code: https://github.com/aphalo/romnidriver
+url: http://www.r4photobiology.info
+date-released: '2021-08-18'
+contact:
+- family-names: Aphalo
+  given-names: Pedro J.
+  email: pedro.aphalo@helsinki.fi
+  orcid: https://orcid.org/0000-0003-3385-972X
+keywords:
+- data-acquisition
+- spectroscopy

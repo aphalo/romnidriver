@@ -4,3 +4,5 @@
 ^rubbish$
 ^_pkgdown\.yml$
 .*\.sh$
+^CITATION\.cff$
+^\.github$
