@@ -24,6 +24,13 @@
 #' @name onLoad
 #'
 .onLoad <- function(libname, pkgname) {
+  if (getRversion() == "4.2.0" && 
+      R.version$os == "mingw32" &&
+      R.version$status != "Patched") {
+    warning("The initial release of R 4.2.0 is not compatible with 'rJava'. ",
+         "R 4.2.0 patched or versions <= 4.1.3 or versions >= 4.2.1 do work")
+  }
+  
   ooi_home <- Sys.getenv("OOI_HOME")
   ooi_diag <- as.logical(Sys.getenv("OOI_DIAG"))
   if (is.na(ooi_diag)) ooi_diag <- FALSE

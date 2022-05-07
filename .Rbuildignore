@@ -6,3 +6,4 @@
 .*\.sh$
 ^CITATION\.cff$
 ^\.github$
+^pkgdown
