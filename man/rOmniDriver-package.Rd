@@ -6,10 +6,9 @@
 \alias{rOmniDriver-package}
 \title{rOmniDriver: Omni Driver R wrapper}
 \description{
-\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-This package is a wrapper of the OmniDriver java driver for Ocean
-    Optics spectrometers.
+This package is a wrapper of the OmniDriver java driver for Ocean Optics spectrometers.
 }
 \details{
 OmniDriver is a proprietary library provided by Ocean Insight

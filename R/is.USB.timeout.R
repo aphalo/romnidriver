@@ -13,6 +13,7 @@
 #' @return a numeric value
 #'
 is_USB_timeout <- function(jwrapper,
-                           sr.index = 0L) {
+                           sr.index = 0L,
+                           ch.index = 0L) {
   jwrapper$isUSBTimeout(as.integer(sr.index), as.integer(ch.index))
 }

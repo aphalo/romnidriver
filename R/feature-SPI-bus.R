@@ -56,7 +56,7 @@ get_feature_SPI_bus <- function(jwrapper, sr.index = 0L) {
 #'   
 #' @family Spectrometer I2C- and SPI-bus functions.
 #'
-get_SPI_bytes <- function(SPI.bus.wrapper, message) {
+get_SPI_bytes <- function(SPI.bus.wrapper, message, num.bytes) {
   stopifnot(num.bytes >= 1 & num.bytes <= 62)
   SPI.bus.wrapper$getSPIBytes(message = message, 
                               length = as.integer(num.bytes))

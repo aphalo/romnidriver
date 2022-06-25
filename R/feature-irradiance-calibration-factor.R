@@ -31,6 +31,8 @@ get_feature_irradiance_calibration_factor <-
 
 #' @rdname is_feature_supported_irradiance_calibration_factor
 #' 
+#' @param irrad.cal.wrapper An open wrapper for the feature object.
+#' 
 #' @export
 #' @return A numeric vector of calibration factors, as returned by the
 #'   spectrometer.

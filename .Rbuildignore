@@ -7,3 +7,4 @@
 ^CITATION\.cff$
 ^\.github$
 ^pkgdown
+README.Rmd
