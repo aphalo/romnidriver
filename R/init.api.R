@@ -15,9 +15,14 @@
 #' @export
 #' 
 #' @return a wrapper to an instance of a Java object of class "wrapper"
-#'   ()
 #' 
-init_api <- function(){
+init_api <- function() {
+  if (getOption("rOmnDriver.offline", TRUE)) {
+    warning("rOmniDriver off-line: API not initialised",
+            call. = FALSE, 
+            immediate. = TRUE)
+    return(NULL)
+  }
   jwrapper <- rJava::.jnew("com/oceanoptics/omnidriver/api/wrapper/Wrapper")
   if (!is_api_enabled(jwrapper)) {
     warning("OmniDriver API initialization failed.",

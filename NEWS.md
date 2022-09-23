@@ -7,7 +7,7 @@ editor_options:
 # rOmniDriver 0.1.15
 
 -   Tweak messages emitted when loading the package.
--   Set R option "OmniDriver.available" to reflect success or failure.
+-   Set R option "OmniDriver.offline" to reflect success or failure.
     
 # rOmniDriver 0.1.14
 

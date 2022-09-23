@@ -24,67 +24,80 @@
 #' @name onLoad
 #'
 .onLoad <- function(libname, pkgname) {
+  # on-line/off-line mode depends on availability of package rJava
+  rJava_available <- TRUE # it is in depends:
+  # a compatible version of R is also needed
   if (getRversion() == "4.2.0" && 
       R.version$os == "mingw32" &&
       R.version$status != "Patched") {
-    warning("The initial release of R 4.2.0 is not compatible with 'rJava'. ",
-         "R 4.2.0 patched or versions <= 4.1.3 or versions >= 4.2.1 do work")
+    warning("rOmniDriver off-line: The initial release of R 4.2.0 is not compatible with 'rJava'. ",
+            "R 4.2.0 patched or versions <= 4.1.3 or versions >= 4.2.1 do work")
+    rJava_available <- FALSE
   }
   
-  ooi_home <- Sys.getenv("OOI_HOME")
-  ooi_diag <- as.logical(Sys.getenv("OOI_DIAG"))
-  if (is.na(ooi_diag)) ooi_diag <- FALSE
+  init.successful <- FALSE
   
-  if (is.null(ooi_home) || ooi_home == "") {
-    ooi_diag <- TRUE
-    init.successful <- FALSE
-    message <-
-      paste(
-        "rOmniDriver:\nEnvironment variable OOI_HOME is not set to a path.\n",
-        "Please, make sure that the OmniDriver driver is installed and ",
-        "that the environment variable OOI_HOME is set to its path.",
-        sep = ""
-      )
-  } else {
-    if (!.Platform$OS.type == "windows") {
+  if (rJava_available) {
+    # we look for the Omni Driver Java installation
+    # and initialize it
+    
+    ooi_home <- Sys.getenv("OOI_HOME")
+    ooi_diag <- as.logical(Sys.getenv("OOI_DIAG"))
+    if (is.na(ooi_diag)) ooi_diag <- FALSE
+    
+    if (is.null(ooi_home) || ooi_home == "") {
       ooi_diag <- TRUE
-      message <- 
-        paste("rOmniDriver:\nPackage is well tested only under Windows 10.\n",
-              "Please report any problems under your OS at",
-              "'https://github.com/aphalo/romnidriver/issues'")
+      message <-
+        paste(
+          "rOmniDriver:\nEnvironment variable OOI_HOME is not set to a path.\n",
+          "Please, make sure that the OmniDriver driver is installed and ",
+          "that the environment variable OOI_HOME is set to its path.",
+          sep = ""
+        )
     } else {
-      message <- character(0)
+      if (!.Platform$OS.type == "windows") {
+        ooi_diag <- TRUE
+        message <- 
+          paste("rOmniDriver:\nPackage is well tested only under Windows 10.\n",
+                "Please report any problems under your OS at",
+                "'https://github.com/aphalo/romnidriver/issues'")
+      } else {
+        message <- character(0)
+      }
+      ooi_path <- paste(ooi_home, "/OmniDriver.jar", sep = "")
+      
+      init.successful <-
+        rJava::.jpackage(pkgname,
+                         lib.loc = c(libname, ooi_home),
+                         morePaths = ooi_path)
+      
+      if (init.successful) {
+        message <- paste("rOmniDriver:\n  OmniDriver initialization SUCCEEDED",
+                         "\n  OI_HOME: ", ooi_home,
+                         "\n  Path: ", ooi_path,
+                         sep = "")
+      } else {
+        ooi_diag <- TRUE
+        message <- paste(message, 
+                         "rOmniDriver:\n  OmniDriver initialization FAILED",
+                         "  OOI_HOME: ", ooi_home,
+                         "  Path: ", ooi_path,
+                         sep = "\n")
+      }
+      
     }
-    ooi_path <- paste(ooi_home, "/OmniDriver.jar", sep = "")
-    
-    init.successful <-
-      rJava::.jpackage(pkgname,
-                       lib.loc = c(libname, ooi_home),
-                       morePaths = ooi_path)
-    
-    if (init.successful) {
-      message <- paste("rOmniDriver:\n  OmniDriver initialization SUCCEEDED",
-                       "\n  OI_HOME: ", ooi_home,
-                       "\n  Path: ", ooi_path,
-                       sep = "")
-    } else {
-      ooi_diag <- TRUE
-      message <- paste(message, 
-                       "rOmniDriver:\n  OmniDriver initialization FAILED",
-                       "  OOI_HOME: ", ooi_home,
-                       "  Path: ", ooi_path,
-                       sep = "\n")
+    # This triggers a note but is needed to report failure to find the driver
+    if (ooi_diag || getOption("verbose", default = FALSE)) {
+      packageStartupMessage(message)
     }
-    
   }
-  # This triggers a note but is needed to report failure to find the driver
-  if (ooi_diag || getOption("verbose", default = FALSE)) {
-    packageStartupMessage(message)
-  }
-  options(OminiDriver.available = init.successful)
+
+  options(rOmniDriver.offline = !init.successful)
 }
 
 .onAttach <- function(libname, pkgname) {
-  packageStartupMessage("For news about '", pkgname, 
-                        "', please, see http://www.r4photobiology.info/")
+  if (getOption("rOmniDriver.offline", TRUE)) {
+    packageStartupMessage("rOmniDriver is off-line")
+  }
 }
+

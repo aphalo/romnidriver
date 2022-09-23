@@ -34,14 +34,11 @@ report an earlier API version if the interface has not changed.
 
 ```{r}
 library(knitr)
-# To build the User Guide with an instrument connected change to TRUE
-eval_switch <- TRUE
-opts_chunk$set(eval=eval_switch)
 ```
 
-Optionally one force the printing of a diagnosys message in the abscence even
-for a sucesful loading of the package. We do it here to illustrate the location
-of the driver and Java.
+Optionally force the printing of a diagnostic message even for a successful
+loading of the package. We do it here to illustrate the location of the driver
+and Java.
 
 ```{r}
 old.verbose <- options(verbose = TRUE)
@@ -55,6 +52,13 @@ library(rOmniDriver)
 
 ```{r}
 options(old.verbose)
+```
+
+```{r}
+# Evaluation of chunks is disabled if package initialization has failed
+# Java and/or OmniDriver installations not found or incompatible 
+eval_switch <- !getOption("rOmniDriver.offline", TRUE)
+opts_chunk$set(eval=eval_switch)
 ```
 
 ```{r}
@@ -75,6 +79,7 @@ n
 ```
 
 ```{r}
+# if no spectrometer is attached, evaluation of later chunks is disabled
 eval_switch <- eval_switch && n
 opts_chunk$set(eval=eval_switch)
 ```
