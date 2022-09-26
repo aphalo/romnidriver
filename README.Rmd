@@ -38,12 +38,23 @@ acquisition built using this package as a base.
 
 ## Installation
 
+In package 'rOmniDriver' (>= 0.1.16), when initialization fails during loading,
+option `"rOmniDriver.offline"` is set to `TRUE` so that packages that include
+this package in their `Suggests:` can detect whether the connection to Java and
+the OmniDriver driver are active or not. This makes it possible to disable
+specific functions rather than the dependent package failing to load. The
+instructions below are to be followed when on-line access to spectrometers is
+needed. If this is not the case, Java and OmniDriver do not need to be
+installed, and in some cases not even this package needs to be installed.
+
 OmniDriver from Ocean Insight is written in the computer language Java. To
 access the functions in this driver from R, we need to use a bridge between the
 two computer languages, which is provided by R package 'rJava' available from
-CRAN. 'rJava' requires that the Java JDK, the development kit, is installed.
-Installed only Java JRE runtime is not enough in this case, although it is for
-many other programs written in Java.
+CRAN. 'rJava' requires that the Java JDK, the Java development kit, is
+installed. Installing only the Java JRE, the Java runtime environment, is not
+enough in this case, although it is for many other programs written in Java. In
+other words being able to run other Java programs does not ensure that the
+needed JDK is already installed.
 
 Of the different Java implementations, **Oralcle's Java 8 is known to work with
 'rJava' and OmniDriver**. The 'rJava' package sometimes fails to work with the
@@ -59,13 +70,19 @@ make sure 'rJava' is correctly installed and functional before attempting to
 install `rOmniDriver`. This is important, in case problems occur. Sometimes a
 restart of the operating system can help.
 
-On Windows, by default R installs packages for both 64-bit and 32-bit
-architectures, which means that using the default R installation and settings
-one may need to install also both versions of the JDK. The examples and
+On Windows, the R distribution (>= 4.2.0) includes only binary packages and R
+binary for the 64-bit architecture and the Java JDK 64 bit is needed. In
+contrast, earlier versions of R (<= 4.2.0) installs packages for both 64-bit and
+32-bit architectures, which means that using the default R installation and
+settings one may need to install also both versions of the JDK. The examples and
 documentation for the JDK are not needed to use 'rOmniDriver'. Under Windows, if
 the Java installation fails, uninstall and reinstall as administrator.
 
-Depending on the operating system, manually setting the environment variable `"JAVA_HOME"` may be necessary. We can check if this variable is set either at the operating system command prompt or from R, as shown here. Windows uses a "registery" to keep track of the location of programs so even if this variable is not set, 'rJava' will find the Java JDK under Windows. 
+Depending on the operating system, manually setting the environment variable
+`"JAVA_HOME"` may be necessary. We can check if this variable is set either at
+the operating system command prompt or from R, as shown here. Windows uses a
+"registery" to keep track of the location of programs so even if this variable
+is not set, 'rJava' will find the Java JDK under Windows.
 
 ```{r, eval=FALSE}
 Sys.getenv("JAVA_HOME")

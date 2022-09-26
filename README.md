@@ -28,13 +28,25 @@ spectral data acquisition built using this package as a base.
 
 ## Installation
 
+In package ‘rOmniDriver’ (\>= 0.1.16), when initialization fails during
+loading, option `"rOmniDriver.offline"` is set to `TRUE` so that
+packages that include this package in their `Suggests:` can detect
+whether the connection to Java and the OmniDriver driver are active or
+not. This makes it possible to disable specific functions rather than
+the dependent package failing to load. The instructions below are to be
+followed when on-line access to spectrometers is needed. If this is not
+the case, Java and OmniDriver do not need to be installed, and in some
+cases not even this package needs to be installed.
+
 OmniDriver from Ocean Insight is written in the computer language Java.
 To access the functions in this driver from R, we need to use a bridge
 between the two computer languages, which is provided by R package
 ‘rJava’ available from CRAN. ‘rJava’ requires that the Java JDK, the
-development kit, is installed. Installed only Java JRE runtime is not
-enough in this case, although it is for many other programs written in
-Java.
+Java development kit, is installed. Installing only the Java JRE, the
+Java runtime environment, is not enough in this case, although it is for
+many other programs written in Java. In other words being able to run
+other Java programs does not ensure that the needed JDK is already
+installed.
 
 Of the different Java implementations, **Oralcle’s Java 8 is known to
 work with ‘rJava’ and OmniDriver**. The ‘rJava’ package sometimes fails
@@ -51,12 +63,14 @@ needs to make sure ‘rJava’ is correctly installed and functional before
 attempting to install `rOmniDriver`. This is important, in case problems
 occur. Sometimes a restart of the operating system can help.
 
-On Windows, by default R installs packages for both 64-bit and 32-bit
-architectures, which means that using the default R installation and
-settings one may need to install also both versions of the JDK. The
-examples and documentation for the JDK are not needed to use
-‘rOmniDriver’. Under Windows, if the Java installation fails, uninstall
-and reinstall as administrator.
+On Windows, the R distribution (\>= 4.2.0) includes only binary packages
+and R binary for the 64-bit architecture and the Java JDK 64 bit is
+needed. In contrast, earlier versions of R (\<= 4.2.0) installs packages
+for both 64-bit and 32-bit architectures, which means that using the
+default R installation and settings one may need to install also both
+versions of the JDK. The examples and documentation for the JDK are not
+needed to use ‘rOmniDriver’. Under Windows, if the Java installation
+fails, uninstall and reinstall as administrator.
 
 Depending on the operating system, manually setting the environment
 variable `"JAVA_HOME"` may be necessary. We can check if this variable
@@ -120,7 +134,7 @@ The most frequent reason why installation, or functioning of the
 ‘rOmniDriver’ package fails is not finding the path to the installation
 of OmniDriver. The ‘OmniDriver’ installer from Ocean Insight is expected
 to save this path in an environment variable (in the operating system)
-called “OOI\_HOME”, but it not always does. If necessary we can inspect
+called “OOI_HOME”, but it not always does. If necessary we can inspect
 this variable from within R.
 
 ``` r
@@ -168,7 +182,7 @@ Optics/Ocean Insight spectrometers.**
 
 The implemented wrapper functions respect the names of the functions as
 they appear in the OmniDriver documentation but replacing “camelCase”
-with “snake\_case”. For a couple of function with very long names,
+with “snake_case”. For a couple of function with very long names,
 synonyms are defined in addition to the original names. The
 documentation for the OmniDriver API is currently available at
 (<https://www.oceaninsight.com/globalassets/catalog-blocks-and-images/software-downloads-installers/javadocs-api/omnidriver/index.html>).

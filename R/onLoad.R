@@ -34,7 +34,7 @@
             "R 4.2.0 patched or versions <= 4.1.3 or versions >= 4.2.1 do work")
     rJava_available <- FALSE
   }
-  
+
   init.successful <- FALSE
   
   if (rJava_available) {
@@ -47,7 +47,7 @@
     
     if (is.null(ooi_home) || ooi_home == "") {
       ooi_diag <- TRUE
-      message <-
+      message.txt <-
         paste(
           "rOmniDriver:\nEnvironment variable OOI_HOME is not set to a path.\n",
           "Please, make sure that the OmniDriver driver is installed and ",
@@ -57,12 +57,12 @@
     } else {
       if (!.Platform$OS.type == "windows") {
         ooi_diag <- TRUE
-        message <- 
+        message.txt <- 
           paste("rOmniDriver:\nPackage is well tested only under Windows 10.\n",
                 "Please report any problems under your OS at",
                 "'https://github.com/aphalo/romnidriver/issues'")
       } else {
-        message <- character(0)
+        message.txt <- character(0)
       }
       ooi_path <- paste(ooi_home, "/OmniDriver.jar", sep = "")
       
@@ -72,13 +72,13 @@
                          morePaths = ooi_path)
       
       if (init.successful) {
-        message <- paste("rOmniDriver:\n  OmniDriver initialization SUCCEEDED",
+        message.txt <- paste("rOmniDriver:\n  OmniDriver initialization SUCCEEDED",
                          "\n  OI_HOME: ", ooi_home,
                          "\n  Path: ", ooi_path,
                          sep = "")
       } else {
         ooi_diag <- TRUE
-        message <- paste(message, 
+        message.txt <- paste(message.txt, 
                          "rOmniDriver:\n  OmniDriver initialization FAILED",
                          "  OOI_HOME: ", ooi_home,
                          "  Path: ", ooi_path,
@@ -88,7 +88,7 @@
     }
     # This triggers a note but is needed to report failure to find the driver
     if (ooi_diag || getOption("verbose", default = FALSE)) {
-      packageStartupMessage(message)
+      packageStartupMessage(message.txt)
     }
   }
 
