@@ -17,7 +17,7 @@
 #' @return a wrapper to an instance of a Java object of class "wrapper"
 #' 
 init_api <- function() {
-  if (getOption("rOmnDriver.offline", TRUE)) {
+  if (getOption("rOmniDriver.offline", TRUE)) {
     warning("rOmniDriver off-line: API not initialised",
             call. = FALSE, 
             immediate. = TRUE)
