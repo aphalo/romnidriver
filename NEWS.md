@@ -4,6 +4,10 @@ editor_options:
     wrap: 72
 ---
 
+# rOmniDriver 0.1.16
+
+-   Handle changes in OmniDriver 2.70.
+
 # rOmniDriver 0.1.15
 
 -   Tweak messages emitted when loading the package.

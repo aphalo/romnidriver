@@ -1,7 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.git/*
-^rubbish$
+^inst-not$
 ^_pkgdown\.yml$
 .*\.sh$
 ^CITATION\.cff$

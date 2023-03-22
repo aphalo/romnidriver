@@ -14,5 +14,10 @@
 get_bench <- function(jwrapper,
                       sr.index = 0L,
                       ch.index = 0L) {
-  jwrapper$getBench(as.integer(sr.index), as.integer(ch.index))
+  if ("getBench(" %in% names(jwrapper)) {
+    # function removed in OmniDriver 2.7
+    jwrapper$getBench(as.integer(sr.index), as.integer(ch.index))
+  } else {
+    NA
+  }
 }
