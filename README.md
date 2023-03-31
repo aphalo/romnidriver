@@ -217,6 +217,16 @@ they acquire a license to the OmniDriver SDP. OmniDriver is proprietary,
 closed source, software. The R package itself is open source and
 released under GPL.
 
+**Recent versions of *OmniDriver* (2.70.0, 2.71.0) lack some functions
+in the API that were included up to version 2.56.0. These newer versions
+of OmniDriver no longer recognize the *USB2000* spectrometer. As
+documentation is scant, I do not know if support for some other old
+models like *USB4000* has been also removed.**
+
+Both this package and ‘rOmniDriver’ have been development with the
+agreement of Ocean Optics on the condition of they being open source and
+free.
+
 ## In case of problems
 
 The source code of the package is open and available at GitHub. Please

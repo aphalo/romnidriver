@@ -10,7 +10,12 @@
 #' @return a logical value
 #'
 is_feature_supported_spectrum_type <- function(jwrapper, sr.index=0L){
-  jwrapper$isFeatureSupportedSpectrumType(as.integer(sr.index))
+  if ("isFeatureSupportedSpectrumType(" %in% names(jwrapper)) {
+    # function removed in OmniDriver >= 2.70
+    jwrapper$isFeatureSupportedSpectrumType(as.integer(sr.index))
+  } else {
+    NA
+  }
 }
 
 #' Get feature "spectrum type"

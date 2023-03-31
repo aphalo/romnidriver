@@ -4,9 +4,13 @@ editor_options:
     wrap: 72
 ---
 
+# rOmniDriver 0.1.17
+
+-   Address API changes in OmniDriver >= 2.70/2.71.
+
 # rOmniDriver 0.1.16
 
--   Handle changes in OmniDriver 2.70.
+-   Address API changes in OmniDriver >= 2.70.
 
 # rOmniDriver 0.1.15
 

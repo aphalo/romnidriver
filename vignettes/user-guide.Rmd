@@ -108,9 +108,12 @@ camel case.
 
 ```{r}
 bench <- get_bench(jwrapper = w, sr.index = 0L)
-bench$getGrating()
-bench$getFilterWavelength()
-bench$getSlitSize()
+if (!is.na(bench)) {
+  # Function removed from OmniDriver >= 2.70
+  bench$getGrating()
+  bench$getFilterWavelength()
+  bench$getSlitSize()
+}
 ```
 
 ```{r}
@@ -169,12 +172,16 @@ Another feature is switching between 'normal' and 'raw' spectral data. Again
 we have a single method, but in this case accepting an argument.
 
 ```{r}
-if (is_feature_supported_spectrum_type(jwrapper = w, sr.index = 0L)) {
+spectemtrum.type.flag <- 
+  is_feature_supported_spectrum_type(jwrapper = w, sr.index = 0L)
+if (is.na(spectemtrum.type.flag)) { 
+  print("feature no supported by driver")
+  } else if (spectemtrum.type.flag) {
   spectrum.type <- get_feature_spectrum_type(jwrapper = w, sr.index = 0L)
   spectrum.type$setSpectrumType(1L) # raw
   spectrum.type$setSpectrumType(0L) # normal
 } else {
-  print("feature not supported")
+  print("feature not supported by spectrometer")
 }
 ```
 
