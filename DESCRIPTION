@@ -12,8 +12,8 @@ Description: This package is a wrapper of the OmniDriver java driver for Ocean
     Optics spectrometers.
 License: GPL (>= 2)
 Depends:
-    R (>= 4.0.0),
-    rJava (>= 1.0-4)
+    R (>= 4.2.0),
+    rJava (>= 1.0-6)
 SystemRequirements: Java JDK (>= 1.8), OmniDriver (>= 2.43)
 Suggests:
     knitr  (>= 1.33),
