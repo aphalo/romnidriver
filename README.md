@@ -231,6 +231,6 @@ free.
 
 The source code of the package is open and available at GitHub. Please
 report any problems or bugs by creating a new issue at
-(<https://github.com/aphalo/photobiology/issues>). Contributions and
+(<https://github.com/aphalo/romnidriver/issues>). Contributions and
 reports of compatibility or lack of it with different spectrometers and
 operating systems are very welcome.
