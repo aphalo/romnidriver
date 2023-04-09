@@ -9,6 +9,8 @@ editor_options:
 -   Add support for high speed acquisition: wrapper functions 
     `highSpdAcq_allocate_buffer`, `highSpdAcq_start_acquisition()`,
     `highSpdAcq_get_spectrum()` and `highSpdAcq_get_time_stamp()`.
+_   Add support for handling of high resolution time stamps and time
+    differences based on them.
     
 # rOmniDriver 0.1.17
 

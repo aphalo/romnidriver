@@ -108,11 +108,11 @@ camel case.
 
 ```{r}
 bench <- get_bench(jwrapper = w, sr.index = 0L)
-if (!is.na(bench)) {
+if (class(bench)[1] == "jobjRef") {
   # Function removed from OmniDriver >= 2.70
-  bench$getGrating()
-  bench$getFilterWavelength()
-  bench$getSlitSize()
+  print(bench$getGrating())
+  print(bench$getFilterWavelength())
+  print(bench$getSlitSize())
 }
 ```
 
@@ -259,6 +259,36 @@ head(raw.spectrum)
 summary(raw.spectrum)
 is_spectrum_valid(jwrapper = w, sr.index = 0L, ch.index = 0L)
 is_saturated(jwrapper = w, sr.index = 0L, ch.index = 0L)
+```
+
+## High speed acquisition
+
+### High resolution time stamps
+
+```{r}
+oo_timestamp_now <- high_res_time_stamp(jwrapper = w)
+```
+
+```{r}
+highSpdAcq_allocate_buffer(jwrapper = w, number.of.spectra = 10L)
+```
+
+```{r}
+highSpdAcq_start_acquisition(jwrapper = w)
+```
+
+```{r}
+counts <- highSpdAcq_get_spectrum(jwrapper = w, spectrum.number = 1L)
+head(counts)
+```
+
+```{r}
+acq.time1 <- highSpdAcq_get_time_stamp(jwrapper = w, spectrum.number = 1L)
+acq.time2 <- highSpdAcq_get_time_stamp(jwrapper = w, spectrum.number = 2L)
+
+print(acq.time1)
+print(acq.time2)
+get_seconds_time_delta(jwrapper = w, acq.time1, acq.time2)
 ```
 
 The last step is always to close the connection to the spectrometers.

@@ -85,4 +85,79 @@ is_api_enabled <- function(jwrapper) {
     !inherits(try(get_api_version(jwrapper)), "try-error")
 }
 
+#' @rdname init_api
+#' 
+#' @description Function \code{init_api_extensions()} enables API extensions
+#'   and returns a wrapper that makes it possible to call additional
+#'   functions.
+#' 
+#' @export
+#' 
+init_extended_api <- function() {
+  jextwrapper <- rJava::.jnew("com/oceanoptics/omnidriver/api/wrapper/WrapperExtensions")
+  if (!class(jextwrapper) == "jobjRef") {
+    warning("OmniDriver API initialization failed.",
+            call. = FALSE, 
+            immediate. = TRUE)
+  }
+  jextwrapper
+}
 
+#' @rdname init_api
+#' 
+#' @description Function \code{is_extended_api_enabled()} tests if the argument passed to 
+#' \code{jwrapperext} has been initialized and if it is connected to an active
+#' instance of the Java wrapper class.
+#' 
+#' @param jwrapperext jobjRef An "extension" Java Wrapper object from OmniDriver API.
+#' 
+#' @return logical
+#' 
+#' @export
+#' 
+is_extended_api_enabled <- function(jwrapperext) {
+  !is.null(jwrapperext) &&
+    inherits(jwrapperext, "jobjRef")
+}
+
+#' @rdname init_api
+#' 
+#' @description Function \code{init_api_extensions()} enables API extensions
+#'   and returns a wrapper that makes it possible to call additional
+#'   functions.
+#' 
+#' @export
+#' 
+init_highres_time_api <- function() {
+  if (!exists("HSTimeJavaWrapper", jwrappersEnv)) {
+    jhstimewrapper <- rJava::.jnew("com/oceanoptics/highrestiming/HighResTimeStamp")
+    if (!class(jhstimewrapper) == "jobjRef") {
+      warning("OmniDriver API initialization failed.",
+              call. = FALSE, 
+              immediate. = TRUE)
+    } else {
+      assign("HSTimeJavaWrapper", jhstimewrapper, pos = jwrappersEnv)
+    }
+  }
+}
+
+#' @rdname init_api
+#' 
+#' @description Function \code{is_extended_api_enabled()} tests if the argument passed to 
+#' \code{jhstimewrapper} has been initialized and if it is connected to an active
+#' instance of the Java wrapper class.
+#' 
+#' @param jhstimewrapper jobjRef An "HighResTimeStamp" Java Wrapper object from API.
+#' 
+#' @return logical
+#' 
+#' @export
+#' 
+is_highres_time_api_enabled <- function(jhstimewrapper) {
+  exists("HSTimeJavaWrapper", jwrappersEnv)
+}
+
+### environment defined to hold Java Wrappers to Java packages that are independent
+#   of the spectrometer model used
+
+jwrappersEnv <- new.env()
