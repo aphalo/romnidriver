@@ -23,8 +23,6 @@ get_seconds_time_delta_since <- function(then) {
 #' 
 #' @export
 #' 
-#' @family high speed acquisition functions
-#'
 get_nano_time_delta_since <- function(then) {
   jwrappersEnv$HSTimeJavaWrapper$getNanoTimeDeltaSince(then)
 }
@@ -33,8 +31,6 @@ get_nano_time_delta_since <- function(then) {
 #' 
 #' @export
 #' 
-#' @family high speed acquisition functions
-#'
 get_micro_time_delta_since <- function(then) {
   jwrappersEnv$HSTimeJavaWrapper$getMicroTimeDeltaSince(then)
 }
@@ -43,8 +39,6 @@ get_micro_time_delta_since <- function(then) {
 #' 
 #' @export
 #' 
-#' @family high speed acquisition functions
-#'
 get_milli_time_delta_since <- function(then) {
   jwrappersEnv$HSTimeJavaWrapper$getMilliTimeDeltaSince(then)
 }
