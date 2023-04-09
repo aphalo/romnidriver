@@ -4,6 +4,14 @@ editor_options:
     wrap: 72
 ---
 
+# rOmniDriver 0.1.18
+
+-   Add support for high speed acquisition: wrapper functions 
+    `highSpdAcq_allocate_buffer`, `highSpdAcq_start_acquisition()`,
+    `highSpdAcq_get_spectrum()` and `highSpdAcq_get_time_stamp()`.
+_   Add support for handling of high resolution time stamps and time
+    differences based on them.
+    
 # rOmniDriver 0.1.17
 
 -   Address API changes in OmniDriver >= 2.70/2.71.

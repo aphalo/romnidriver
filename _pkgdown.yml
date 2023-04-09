@@ -5,11 +5,11 @@ reference:
   - title: Package overview
     contents:
     - '`rOmniDriver-package`'
-  - title: OmniDriver API wrappers
+  - title: wrapper functions
     desc: >
       R functions for accessing the OmniDriver SDP Java API. Help pages are
-      concise. Details available in the API documentation at
-      (http://oceaninsight.com/api/omnidriver/).
+      concise. Details available in the Java API documentation and a manual at
+      (http://oceaninsight.com/).
     contents:
     - matches("init_api")
     - starts_with("open")
@@ -19,6 +19,7 @@ reference:
     - starts_with("is_")
     - starts_with("spectrum_")
     - starts_with("stop_")
+    - starts_with("highSpdAcq_")
 
 navbar:
   structure:
