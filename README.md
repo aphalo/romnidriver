@@ -223,14 +223,54 @@ of OmniDriver no longer recognize the *USB2000* spectrometer. As
 documentation is scant, I do not know if support for some other old
 models like *USB4000* has been also removed.**
 
-Both this package and ‘rOmniDriver’ have been development with the
-agreement of Ocean Optics on the condition of they being open source and
-free.
+Packages ‘rOmniDriver’ and ‘ooacquire’ have been developed with the
+agreement of Ocean Optics on the condition of they remaining open source
+and free to use. The GPL ensures that any derivative works also respect
+this agreement.
 
-## In case of problems
+## News
 
-The source code of the package is open and available at GitHub. Please
-report any problems or bugs by creating a new issue at
-(<https://github.com/aphalo/romnidriver/issues>). Contributions and
-reports of compatibility or lack of it with different spectrometers and
-operating systems are very welcome.
+News about updates are regularly posted at
+(<https://www.r4photobiology.info/>).
+
+## Contributing
+
+The source code of the package is open and available at GitHub.
+Contributions and reports of compatibility or lack of it with different
+spectrometers and operating systems are very welcome.
+
+Please report bugs and request new features at
+(<https://github.com/aphalo/ooacquire/issues>). Pull requests are
+welcome at (<https://github.com/aphalo/ooacquire>).
+
+## Citation
+
+If you use ‘ooacquire’ to produce scientific or commercial publications,
+acknowledge this by citing the package according to:
+
+``` r
+citation("ooacquire")
+#> 
+#> To cite package 'ooacquire' in publications use:
+#> 
+#>   Aphalo P, Ylianttila L (2023). _ooacquire: Acquire Data from OO
+#>   Spectrometers_. https://docs.r4photobiology.info/ooacquire/,
+#>   https://github.com/aphalo/ooacquire.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {ooacquire: Acquire Data from OO Spectrometers},
+#>     author = {Pedro J. Aphalo and Lasse Ylianttila},
+#>     year = {2023},
+#>     note = {https://docs.r4photobiology.info/ooacquire/,
+#> https://github.com/aphalo/ooacquire},
+#>   }
+```
+
+## License
+
+© 2013-2023 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>) for the code.
+Lasse Ylianttila developed the majority of the algorithms used. Released
+under the GPL, version 2 or greater. This software carries no warranty
+of any kind.

@@ -226,14 +226,38 @@ no longer recognize the _USB2000_ spectrometer. As documentation is scant, I do
 not know if support for some other old models like _USB4000_ has been also
 removed.**
 
-Both this package and 'rOmniDriver' have been development with the agreement
-of Ocean Optics on the condition of they being open source and free. 
+Packages 'rOmniDriver' and 'ooacquire' have been developed with the agreement
+of Ocean Optics on the condition of they remaining open source and free to use. 
+The GPL ensures that any derivative works also respect this agreement.
 
-## In case of problems
+## News
 
-The source code of the package is open and available at GitHub. Please
-report any problems or bugs by creating a new issue at
-(https://github.com/aphalo/romnidriver/issues). Contributions and reports of
-compatibility or lack of it with different spectrometers and operating systems
-are very welcome.
+News about updates are regularly posted at
+(<https://www.r4photobiology.info/>).
 
+## Contributing
+
+The source code of the package is open and available at GitHub. Contributions
+and reports of compatibility or lack of it with different spectrometers and
+operating systems are very welcome.
+
+Please report bugs and request new features at
+(<https://github.com/aphalo/romnidriver/issues>). Pull requests are
+welcome at (<https://github.com/aphalo/romnidriver>).
+
+## Citation
+
+If you use 'ooacquire' to produce scientific or commercial publications,
+acknowledge this by citing the package according to:
+
+```{r}
+citation("rOmniDriver")
+```
+
+## License
+
+© 2013-2023 Pedro J. Aphalo
+([pedro.aphalo\@helsinki.fi](mailto:pedro.aphalo@helsinki.fi)) for the
+code. Lasse Ylianttila developed the majority of the algorithms used.
+Released under the GPL, version 2 or greater. This software carries no
+warranty of any kind.
