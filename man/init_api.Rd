@@ -22,14 +22,12 @@ is_extended_api_enabled(jwrapperext)
 
 init_highres_time_api()
 
-is_highres_time_api_enabled(jhstimewrapper)
+is_highres_time_api_enabled()
 }
 \arguments{
 \item{jwrapper}{jobjRef A Java Wrapper object from OmniDriver.}
 
 \item{jwrapperext}{jobjRef An "extension" Java Wrapper object from OmniDriver API.}
-
-\item{jhstimewrapper}{jobjRef An "HighResTimeStamp" Java Wrapper object from API.}
 }
 \value{
 a wrapper to an instance of a Java object of class "wrapper"
@@ -67,7 +65,7 @@ Function \code{init_api_extensions()} enables API extensions
   and returns a wrapper that makes it possible to call additional
   functions.
 
-Function \code{is_extended_api_enabled()} tests if the argument passed to 
-\code{jhstimewrapper} has been initialized and if it is connected to an active
-instance of the Java wrapper class.
+Function \code{is_highres_time_api_enabled()} tests if  
+wrapper has been initialized and saved to a private environment of the
+package.
 }

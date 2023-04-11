@@ -95,8 +95,8 @@ is_api_enabled <- function(jwrapper) {
 #' 
 init_extended_api <- function() {
   jextwrapper <- rJava::.jnew("com/oceanoptics/omnidriver/api/wrapper/WrapperExtensions")
-  if (!class(jextwrapper) == "jobjRef") {
-    warning("OmniDriver API initialization failed.",
+  if (!is.null(jextwrapper) && inherits(jextwrapper, "jobjRef")) {
+    warning("OmniDriver API initialization failed or has not been done.",
             call. = FALSE, 
             immediate. = TRUE)
   }
@@ -116,8 +116,7 @@ init_extended_api <- function() {
 #' @export
 #' 
 is_extended_api_enabled <- function(jwrapperext) {
-  !is.null(jwrapperext) &&
-    inherits(jwrapperext, "jobjRef")
+  !is.null(jwrapperext) && inherits(jwrapperext, "jobjRef")
 }
 
 #' @rdname init_api
@@ -131,7 +130,7 @@ is_extended_api_enabled <- function(jwrapperext) {
 init_highres_time_api <- function() {
   if (!exists("HSTimeJavaWrapper", jwrappersEnv)) {
     jhstimewrapper <- rJava::.jnew("com/oceanoptics/highrestiming/HighResTimeStamp")
-    if (!class(jhstimewrapper) == "jobjRef") {
+    if (!is.null(jhstimewrapper) && inherits(jhstimewrapper, "jobjRef")) {
       warning("OmniDriver API initialization failed.",
               call. = FALSE, 
               immediate. = TRUE)
@@ -143,17 +142,15 @@ init_highres_time_api <- function() {
 
 #' @rdname init_api
 #' 
-#' @description Function \code{is_extended_api_enabled()} tests if the argument passed to 
-#' \code{jhstimewrapper} has been initialized and if it is connected to an active
-#' instance of the Java wrapper class.
-#' 
-#' @param jhstimewrapper jobjRef An "HighResTimeStamp" Java Wrapper object from API.
+#' @description Function \code{is_highres_time_api_enabled()} tests if  
+#' wrapper has been initialized and saved to a private environment of the
+#' package.
 #' 
 #' @return logical
 #' 
 #' @export
 #' 
-is_highres_time_api_enabled <- function(jhstimewrapper) {
+is_highres_time_api_enabled <- function() {
   exists("HSTimeJavaWrapper", jwrappersEnv)
 }
 
