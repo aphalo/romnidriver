@@ -20,6 +20,7 @@ reference:
     - starts_with("spectrum_")
     - starts_with("stop_")
     - starts_with("highSpdAcq_")
+    - oo_timestamp_to_string
 
 navbar:
   structure:

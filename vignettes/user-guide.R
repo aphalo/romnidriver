@@ -1,8 +1,5 @@
 ## -----------------------------------------------------------------------------
 library(knitr)
-# To build the User Guide with an instrument connected change to TRUE
-eval_switch <- TRUE
-opts_chunk$set(eval=eval_switch)
 
 ## -----------------------------------------------------------------------------
 old.verbose <- options(verbose = TRUE)
@@ -14,6 +11,12 @@ library(rOmniDriver)
 options(old.verbose)
 
 ## -----------------------------------------------------------------------------
+# Evaluation of chunks is disabled if package initialization has failed
+# Java and/or OmniDriver installations not found or incompatible 
+eval_switch <- !getOption("rOmniDriver.offline", TRUE)
+opts_chunk$set(eval=eval_switch)
+
+## -----------------------------------------------------------------------------
 w <- init_api()
 get_api_version(w)
 
@@ -22,6 +25,7 @@ n <- open_all_spectrometers(w)
 n
 
 ## -----------------------------------------------------------------------------
+# if no spectrometer is attached, evaluation of later chunks is disabled
 eval_switch <- eval_switch && n
 opts_chunk$set(eval=eval_switch)
 
@@ -35,9 +39,12 @@ opts_chunk$set(eval=eval_switch)
 
 ## -----------------------------------------------------------------------------
 #  bench <- get_bench(jwrapper = w, sr.index = 0L)
-#  bench$getGrating()
-#  bench$getFilterWavelength()
-#  bench$getSlitSize()
+#  if (class(bench)[1] == "jobjRef") {
+#    # Function removed from OmniDriver >= 2.70
+#    print(bench$getGrating())
+#    print(bench$getFilterWavelength())
+#    print(bench$getSlitSize())
+#  }
 
 ## -----------------------------------------------------------------------------
 #  n_ch <- get_number_of_channels(jwrapper = w, sr.index = 0L)
@@ -73,12 +80,16 @@ opts_chunk$set(eval=eval_switch)
 #  }
 
 ## -----------------------------------------------------------------------------
-#  if (is_feature_supported_spectrum_type(jwrapper = w, sr.index = 0L)) {
+#  spectemtrum.type.flag <-
+#    is_feature_supported_spectrum_type(jwrapper = w, sr.index = 0L)
+#  if (is.na(spectemtrum.type.flag)) {
+#    print("feature no supported by driver")
+#    } else if (spectemtrum.type.flag) {
 #    spectrum.type <- get_feature_spectrum_type(jwrapper = w, sr.index = 0L)
 #    spectrum.type$setSpectrumType(1L) # raw
 #    spectrum.type$setSpectrumType(0L) # normal
 #  } else {
-#    print("feature not supported")
+#    print("feature not supported by spectrometer")
 #  }
 
 ## -----------------------------------------------------------------------------
@@ -113,6 +124,27 @@ opts_chunk$set(eval=eval_switch)
 #  summary(raw.spectrum)
 #  is_spectrum_valid(jwrapper = w, sr.index = 0L, ch.index = 0L)
 #  is_saturated(jwrapper = w, sr.index = 0L, ch.index = 0L)
+
+## -----------------------------------------------------------------------------
+#  oo_timestamp_now <- high_res_time_stamp(jwrapper = w)
+
+## -----------------------------------------------------------------------------
+#  highSpdAcq_allocate_buffer(jwrapper = w, number.of.spectra = 10L)
+
+## -----------------------------------------------------------------------------
+#  highSpdAcq_start_acquisition(jwrapper = w)
+
+## -----------------------------------------------------------------------------
+#  counts <- highSpdAcq_get_spectrum(jwrapper = w, spectrum.number = 1L)
+#  head(counts)
+
+## -----------------------------------------------------------------------------
+#  acq.time1 <- highSpdAcq_get_time_stamp(jwrapper = w, spectrum.number = 1L)
+#  acq.time2 <- highSpdAcq_get_time_stamp(jwrapper = w, spectrum.number = 2L)
+#  
+#  print(acq.time1)
+#  print(acq.time2)
+#  get_seconds_time_delta(jwrapper = w, acq.time1, acq.time2)
 
 ## -----------------------------------------------------------------------------
 #  close_all_spectrometers(w)
