@@ -130,14 +130,19 @@ is_extended_api_enabled <- function(jwrapperext) {
 init_highres_time_api <- function() {
   if (!exists("HSTimeJavaWrapper", jwrappersEnv)) {
     jhstimewrapper <- rJava::.jnew("com/oceanoptics/highrestiming/HighResTimeStamp")
-    if (!is.null(jhstimewrapper) && inherits(jhstimewrapper, "jobjRef")) {
+    if (is.null(jhstimewrapper) || !inherits(jhstimewrapper, "jobjRef")) {
       warning("OmniDriver API initialization failed.",
               call. = FALSE, 
               immediate. = TRUE)
+      initialized <- FALSE
     } else {
       assign("HSTimeJavaWrapper", jhstimewrapper, pos = jwrappersEnv)
+      initialized <- TRUE
     }
+  } else {
+    initialized <- TRUE
   }
+  initialized
 }
 
 #' @rdname init_api

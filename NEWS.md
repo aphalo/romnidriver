@@ -4,6 +4,11 @@ editor_options:
     wrap: 72
 ---
 
+# rOmniDriver 0.1.19
+
+-   Fix bug behind failure to initialize the high-resolution-time API wrapper
+    in the Ocean Optics Java code.
+
 # rOmniDriver 0.1.18
 
 -   Add support for high speed acquisition: wrapper functions 

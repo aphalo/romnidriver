@@ -1,7 +1,7 @@
 Package: rOmniDriver
 Type: Package
 Title: Omni Driver R wrapper
-Version: 0.1.18-1
+Version: 0.1.19
 Date: 2023-04-19
 Authors@R:
    c(

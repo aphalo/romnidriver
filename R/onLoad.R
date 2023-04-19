@@ -34,7 +34,7 @@
             "R 4.2.0 patched or versions <= 4.1.3 or versions >= 4.2.1 do work")
     rJava_available <- FALSE
   }
-
+  
   init.successful <- FALSE
   
   if (rJava_available) {
@@ -73,25 +73,32 @@
       
       if (init.successful) {
         message.txt <- paste("rOmniDriver:\n  OmniDriver initialization SUCCEEDED",
-                         "\n  OI_HOME: ", ooi_home,
-                         "\n  Path: ", ooi_path,
-                         sep = "")
+                             "\n  OI_HOME: ", ooi_home,
+                             "\n  Path: ", ooi_path,
+                             sep = "")
       } else {
         ooi_diag <- TRUE
         message.txt <- paste(message.txt, 
-                         "rOmniDriver:\n  OmniDriver initialization FAILED",
-                         "  OOI_HOME: ", ooi_home,
-                         "  Path: ", ooi_path,
-                         sep = "\n")
+                             "rOmniDriver:\n  OmniDriver initialization FAILED",
+                             "  OOI_HOME: ", ooi_home,
+                             "  Path: ", ooi_path,
+                             sep = "\n")
       }
       
+      if (init.successful) {
+        if (!init_highres_time_api()) {
+          paste(message.txt,
+                "'High resolution time API' initialization failed.")
+        }
+      }
     }
     # This triggers a note but is needed to report failure to find the driver
     if (ooi_diag || getOption("verbose", default = FALSE)) {
       packageStartupMessage(message.txt)
     }
+    
   }
-
+  
   options(rOmniDriver.offline = !init.successful)
 }
 
