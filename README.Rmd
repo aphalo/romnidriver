@@ -62,7 +62,7 @@ needed JDK is already installed.
 
 #### Java
 
-Of the different Java implementations, **Oralcle's Java 8 JDK** and 
+Of the different Java implementations, **Oracle's Java 8 JDK** and 
 **Temurin 8 OpenJDK** 
 ([download](https://adoptium.net/en-GB/temurin/releases/?version=8)) are known
 to work with
@@ -74,7 +74,7 @@ version of Java installed and the R version used should match, being both of
 them 32 bits or 64 bits. As the 32 bit version of R is soon reaching its
 end-of-life, sticking to the 64 bit versions is a good idea.
 
-**Security updates to Oralcle's Java 8 JDK are available only through support
+**Security updates to Oracle's Java 8 JDK are available only through support
 contracts. The JDK is free only for personal use, under frequently changing
 licence terms.** **Temurin 8 OpenJDK is free for commercial and non-commercial
 uses and regularly receives security updates. The OpenJDK is recommended for
