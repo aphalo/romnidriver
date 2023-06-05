@@ -294,7 +294,6 @@ acknowledge this by citing the package according to:
 
 ``` r
 citation("rOmniDriver")
-#> 
 #> To cite package 'rOmniDriver' in publications use:
 #> 
 #>   Aphalo P (2023). _rOmniDriver: Omni Driver R wrapper_.

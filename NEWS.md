@@ -4,6 +4,10 @@ editor_options:
     wrap: 72
 ---
 
+# rOmniDriver 0.1.20
+
+-   Check that we pass only finite values to OmniDriver functions for integration time and at least 1 as number of scans. This change only triggers a more informative error message.
+
 # rOmniDriver 0.1.19
 
 -   Fix bug behind failure to initialize the high-resolution-time API wrapper

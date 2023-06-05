@@ -17,7 +17,8 @@ set_scans_to_average <-
   function(jwrapper,
            n.scans = 1L,
            sr.index = 0L,
-           ch.index = 0L) {
+           ch.index = 0L) {   
+    stopifnot(is.finite(n.scans) && length(n.scans == 1L) && n.scans >= 1L)
     jwrapper$setScansToAverage(as.integer(sr.index),
                                as.integer(ch.index),
                                as.integer(n.scans))

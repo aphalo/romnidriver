@@ -20,6 +20,7 @@ set_integration_time <-
            time.usec = 100L,
            sr.index = 0L,
            ch.index = 0L) {
+    stopifnot(is.finite(time.usec))
     jwrapper$setIntegrationTime(as.integer(sr.index),
                                 as.integer(ch.index),
                                 as.integer(time.usec))
