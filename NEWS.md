@@ -7,6 +7,7 @@ editor_options:
 # rOmniDriver 0.1.20
 
 -   Check that we pass only finite values to OmniDriver functions for integration time and at least 1 as number of scans. This change only triggers a more informative error message.
+-   Revise start up messages for clarity in the case when the lack of an OmniDriver instalaltion is fine: when using 'ooacquire' to do computations on previously acquired raw counts data. 
 
 # rOmniDriver 0.1.19
 

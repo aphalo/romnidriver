@@ -17,17 +17,17 @@ eval_switch <- !getOption("rOmniDriver.offline", TRUE)
 opts_chunk$set(eval=eval_switch)
 
 ## -----------------------------------------------------------------------------
-w <- init_api()
-get_api_version(w)
+#  w <- init_api()
+#  get_api_version(w)
 
 ## -----------------------------------------------------------------------------
-n <- open_all_spectrometers(w)
-n
+#  n <- open_all_spectrometers(w)
+#  n
 
 ## -----------------------------------------------------------------------------
-# if no spectrometer is attached, evaluation of later chunks is disabled
-eval_switch <- eval_switch && n
-opts_chunk$set(eval=eval_switch)
+#  # if no spectrometer is attached, evaluation of later chunks is disabled
+#  eval_switch <- eval_switch && n
+#  opts_chunk$set(eval=eval_switch)
 
 ## -----------------------------------------------------------------------------
 #  get_name(jwrapper = w, sr.index = 0L)

@@ -49,8 +49,9 @@
       ooi_diag <- TRUE
       message.txt <-
         paste(
-          "rOmniDriver:\nEnvironment variable OOI_HOME is not set to a path.\n",
-          "Please, make sure that the OmniDriver driver is installed and ",
+          "'rOmniDriver': Communication with spectrometers is disabled because ",
+          "environment variable OOI_HOME is not set to a path.\n",
+          "To acquire new data, please, make sure that the OmniDriver driver is installed and ",
           "that the environment variable OOI_HOME is set to its path.",
           sep = ""
         )
@@ -73,9 +74,9 @@
       
       if (init.successful) {
         message.txt <- paste("rOmniDriver:\n  OmniDriver initialization SUCCEEDED",
-                             "\n  OI_HOME: ", ooi_home,
-                             "\n  Path: ", ooi_path,
-                             sep = "")
+                             "  OI_HOME: ", ooi_home,
+                             "  Path: ", ooi_path,
+                             sep = "\n")
       } else {
         ooi_diag <- TRUE
         message.txt <- paste(message.txt, 
@@ -88,7 +89,10 @@
       if (init.successful) {
         if (!init_highres_time_api()) {
           paste(message.txt,
-                "'High resolution time API' initialization failed.")
+                "'High resolution time API' initialization failed.",
+                "Possibly not supported by spectrometer model/firmware or",
+                "by 'OmniDriver' version installed.",
+                sep = "\n")
         }
       }
     }
