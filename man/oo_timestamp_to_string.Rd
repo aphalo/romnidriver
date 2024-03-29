@@ -25,8 +25,8 @@ Nanosecond timing and normal timing are not coincident.
 }
 \seealso{
 Other high speed acquisition functions: 
-\code{\link{get_seconds_time_delta_since}()},
 \code{\link{get_seconds_time_delta}()},
+\code{\link{get_seconds_time_delta_since}()},
 \code{\link{highSpdAcq_allocate_buffer}()},
 \code{\link{highSpdAcq_get_number_of_spectra_acquired}()},
 \code{\link{highSpdAcq_get_spectrum}()},

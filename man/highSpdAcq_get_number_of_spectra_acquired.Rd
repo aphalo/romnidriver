@@ -20,8 +20,8 @@ after a call to \code{highSpdAcq_start_acquisition()} returns.
 }
 \seealso{
 Other high speed acquisition functions: 
-\code{\link{get_seconds_time_delta_since}()},
 \code{\link{get_seconds_time_delta}()},
+\code{\link{get_seconds_time_delta_since}()},
 \code{\link{highSpdAcq_allocate_buffer}()},
 \code{\link{highSpdAcq_get_spectrum}()},
 \code{\link{highSpdAcq_get_time_stamp}()},

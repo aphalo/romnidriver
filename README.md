@@ -1,29 +1,36 @@
 
 # rOmniDriver <img src="man/figures/logo.png" align="right" width="120" />
 
+[![rOmniDriver status
+badge](https://aphalo.r-universe.dev/badges/rOmniDriver)](https://aphalo.r-universe.dev/rOmniDriver)
+
 ## Purpose
 
 The package **rOmniDriver** makes available in R the functions in
 OmniDriver SDP from *Ocean Insight* (formerly *Ocean Optics*).
 OmniDriver allows to change settings and acquire spectra using any Ocean
 Insight USB-connected spectrometer. It has been tested with *USB2000*,
-*Maya2000Pro*, *Flame* and *Jaz* instruments under MS-windows 7 and
-MS-Windows 10, but should also work with any other modern spectrometer
-from Ocean Insight, and also under OS X, and Linux. However, only a
-subset of all OmniDriver exported functions are implemented (those
-functions that write to the instrument EEPROM are not implemented as
-they require a secret key for activation, and in addition their use
-without risk requires a profound understanding of the instruments’
-hardware and firmware). In addition most functions specific to
-spectrometer models we do not have access to are not implemented, as we
-would be unable to test them. As currently the API documentation is
-freely available at Ocean Insight’ support page, adding additional
-functions using the source code of the functions included in our package
-as examples is almost trivial. *If you do add new functions, please,
-make a pull request and I will add your contributed code to the package,
-and your name as contributor to the package in its DESCRIPTION.*
+*Maya2000Pro*, *Flame* and *Jaz* instruments under MS-windows 7,
+MS-Windows 10, and MS-Windows 11. It is known to also work under OS-X,
+and should also work under OS X, and Linux. All modern spectrometers
+from Ocean Insight are supported by OmniDriver and can be expected to
+also work with this package.
 
-Package **ooacquire** provides a high level set of functions for
+R wrappers are implemented for a large subset of the functions exported
+by OmniDriver. However, functions that write to the instrument EEPROM
+are not implemented as they require a secret key for activation, and, in
+addition, their use without risk requires a profound understanding of
+the instruments’ hardware and firmware. In addition, most functions
+specific to spectrometer models we do not have access to are not
+implemented, as we would be unable to test them. As currently the API
+documentation is freely available at Ocean Insight’ support page, adding
+additional functions using the source code of the functions included in
+our package as example is almost trivial. *If you do add new functions,
+please, make a pull request and I will add your contributed code to the
+package, and your name as contributor to the package in its
+DESCRIPTION.*
+
+Our R package ‘ooacquire’ provides a high level set of functions for
 spectral data acquisition built using this package as a base.
 
 ## Installation
@@ -37,20 +44,25 @@ whether the connection to Java and the OmniDriver driver are active or
 not. This makes it possible to disable specific functions rather than
 the dependent package failing to load. The instructions below are to be
 followed when on-line access to spectrometers is needed. If this is not
-the case, Java and OmniDriver do not need to be installed, and in some
-cases not even this package needs to be installed.
+the case, Java and OmniDriver do not need to be installed, and in the
+case of ‘ooacquire’, ‘rOmniDriver’ does not need to be installed to use
+functions that do not depend on an active conection to a spectrometer.
 
 ### Requirements
 
 OmniDriver from Ocean Insight is written in the computer language Java.
 To access the functions in this driver from R, we need to use a bridge
 between the two computer languages, which is provided by R package
-‘rJava’ available from CRAN. ‘rJava’ requires that the Java OpenJDK or
-Java JDK, the Java development kit, is installed. Installing only the
-Java JRE, the Java runtime environment, is not enough in this case,
-although it is for many other programs written in Java. In other words
-being able to run other Java programs does not ensure that the needed
-JDK is already installed.
+‘rJava’ available from CRAN. ‘rJava’ requires the Java development kit
+to be installed. installed. Distributions **Temurin 8 OpenJDK**,
+**Corretto 8 OpenJDK**, or **Java 8 JDK** (Java Open development kit)
+are know to work. Temurin OpenJDK and Corretto OpenJDK are free
+distributions, in contrast to Oracle’s Java 8, which has some
+restrictions and is less frequently updated.
+
+*The Java run-time is not enough!* Thus, being able to run other Java
+programs does not ensure that the needed JDK is already installed as
+needed.
 
 #### Java
 
@@ -148,20 +160,48 @@ repository or from sources directly from the Git repository at Github.
 
 #### Installation of a released version
 
-*In the first case, see the installation instructions for package
-‘ooacquire’ as these will install ‘ooacquire’ and its dependencies,
-including ‘rOmniDriver’ from CRAN and the CRAN-like repository.*
+The “CRAN-like” repository is hosted by the R-Universe. It serves source
+packages as well as Windows, OS X (Apple Mac) and Ubuntu binaries.
+
+In recent versions of R, an option can be set to make this repository
+visible to R before installing packages as usual. The code below adds
+this repository to those already selected.
+
+``` r
+repos <- getOption("repos", default = list())
+repos[["r4photobiology"]] <- "https://aphalo.r-universe.dev'"
+options(repos = repos)
+```
+
+``` r
+install.packages("rOmniDriver")
+```
+
+Without setting the option, it is also possible to pass the URL in the
+call to `install.packages()`. It is important to also include the URL to
+CRAN or one of its mirrors to ensure that dependencies are installed
+automatically.
+
+``` r
+install.packages('rOmniDriver', 
+                 repos = c('https://aphalo.r-universe.dev', 
+                           'https://cloud.r-project.org'))
+```
 
 #### Installation of the development version
 
-**Danger!!** To install the, *possibly buggy*, development version we
-use package ‘remotes’ that needs to be first installed if bot yet
-installed. (Under MS-Windows installation from sources is possible only
-after installing Rtools from CRAN. Under Linux operating systems the
-requirements for installing R packages from source are usually but not
-always met by default. Under OS-X compilers may need to be installed.
-This requirements are the same as for installing any R packages from
-sources.)
+The `main` branch of the Git repository at GitHub is automatically
+retireved by the R-Universe builder. It is possible to also install the
+package from sources directly from GitHub, but there is no need for this
+unless a different branch from `main` is to be installed. **Such
+branches are likely to be incomplete or to contain bugs.**
+
+Under MS-Windows installation from sources is possible only after
+installation from CRAN of a version of Rtools matching the R version in
+use. Under Linux operating systems the requirements for installing R
+packages from source are usually but not always met by default. Under
+OS-X compilers may need to be installed. This requirements are the same
+as for installing any other R packages from sources.
 
 ``` r
 install.packages("remotes")
@@ -171,9 +211,8 @@ install.packages("remotes")
 remotes::install_github("aphalo/romnidriver")
 ```
 
-This completes the installation. Use of the package after a successful
-installation consists in connecting the spectrometer through USB and
-loading the package.
+Use of the package after a successful installation consists in
+connecting the spectrometer through USB and loading the package.
 
 ### If problems arise
 
@@ -261,11 +300,11 @@ they acquire a license to the OmniDriver SDP. OmniDriver is proprietary,
 closed source, software. The R package itself is open source and
 released under GPL.
 
-**Recent versions of *OmniDriver* (2.70.0, 2.71.0) lack some functions
-in the API that were included up to version 2.56.0. These newer versions
-of OmniDriver no longer recognize the *USB2000* spectrometer. As
-documentation is scant, I do not know if support for some other old
-models like *USB4000* has been also removed.**
+**Recent versions of *OmniDriver* (2.70.0, 2.71.0, 2.72.0) lack some
+functions in the API that were included up to version 2.56.0. These
+newer versions of OmniDriver no longer recognize the *USB2000*
+spectrometer. As documentation is scant, I do not know if support for
+some other old models like *USB4000* has been also removed.**
 
 Packages ‘rOmniDriver’ and ‘ooacquire’ have been developed with the
 agreement of Ocean Optics on the condition of they remaining open source
@@ -296,9 +335,9 @@ acknowledge this by citing the package according to:
 citation("rOmniDriver")
 #> To cite package 'rOmniDriver' in publications use:
 #> 
-#>   Aphalo P (2023). _rOmniDriver: Omni Driver R wrapper_.
-#>   http://www.r4photobiology.info,
-#>   https://github.com/aphalo/romnidriver.
+#>   Aphalo P (2023). _rOmniDriver: Omni Driver R wrapper_. R package
+#>   version 0.1.20, https://github.com/aphalo/romnidriver,
+#>   <http://www.r4photobiology.info>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -306,14 +345,15 @@ citation("rOmniDriver")
 #>     title = {rOmniDriver: Omni Driver R wrapper},
 #>     author = {Pedro J. Aphalo},
 #>     year = {2023},
-#>     note = {http://www.r4photobiology.info,
+#>     note = {R package version 0.1.20, 
 #> https://github.com/aphalo/romnidriver},
+#>     url = {http://www.r4photobiology.info},
 #>   }
 ```
 
 ## License
 
-© 2013-2023 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>) for the code.
+© 2013-2024 Pedro J. Aphalo (<pedro.aphalo@helsinki.fi>) for the code.
 Lasse Ylianttila developed the majority of the algorithms used. Released
 under the GPL, version 2 or greater. This software carries no warranty
 of any kind.

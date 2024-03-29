@@ -4,10 +4,16 @@ editor_options:
     wrap: 72
 ---
 
-# rOmniDriver 0.1.20
+# rOmniDriver 0.1.20 (2024-03-29)
 
--   Check that we pass only finite values to OmniDriver functions for integration time and at least 1 as number of scans. This change only triggers a more informative error message.
--   Revise start up messages for clarity in the case when the lack of an OmniDriver instalaltion is fine: when using 'ooacquire' to do computations on previously acquired raw counts data. 
+-   Check that we pass only finite values to OmniDriver functions for 
+    integration time and at least 1 as number of scans. This change only 
+    triggers a more informative error message.
+-   Revise start up messages for clarity as the lack of an OmniDriver 
+    installation is not a problem when using 'ooacquire' to do computations on 
+    previously acquired raw counts data.
+-   Tested good with OmniDriver 2.72.
+-   Update installation instructions, adding the R-Universe repository.
 
 # rOmniDriver 0.1.19
 
