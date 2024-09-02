@@ -267,8 +267,7 @@ The implemented wrapper functions respect the names of the functions as they
 appear in the OmniDriver documentation but replacing "camelCase" with
 "snake_case". For a couple of function with very long names, synonyms are
 defined in addition to the original names. The documentation for the OmniDriver
-API is currently available at
-(https://www.oceaninsight.com/globalassets/catalog-blocks-and-images/software-downloads-installers/javadocs-api/omnidriver/index.html).
+API is no longer available at the [Ocean Optics web site](https://www.ocaenoptics.com).
 
 This package has a vignette, that can be alternatively built with full output
 with a spectrometer connected, or in simplified form with the instrument

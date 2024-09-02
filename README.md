@@ -269,8 +269,8 @@ The implemented wrapper functions respect the names of the functions as
 they appear in the OmniDriver documentation but replacing “camelCase”
 with “snake_case”. For a couple of function with very long names,
 synonyms are defined in addition to the original names. The
-documentation for the OmniDriver API is currently available at
-(<https://www.oceaninsight.com/globalassets/catalog-blocks-and-images/software-downloads-installers/javadocs-api/omnidriver/index.html>).
+documentation for the OmniDriver API is no longer available at the
+[Ocean Optics web site](https://www.ocaenoptics.com).
 
 This package has a vignette, that can be alternatively built with full
 output with a spectrometer connected, or in simplified form with the
@@ -335,7 +335,7 @@ acknowledge this by citing the package according to:
 citation("rOmniDriver")
 #> To cite package 'rOmniDriver' in publications use:
 #> 
-#>   Aphalo P (2023). _rOmniDriver: Omni Driver R wrapper_. R package
+#>   Aphalo P (2024). _rOmniDriver: Omni Driver R wrapper_. R package
 #>   version 0.1.20, https://github.com/aphalo/romnidriver,
 #>   <http://www.r4photobiology.info>.
 #> 
@@ -344,9 +344,8 @@ citation("rOmniDriver")
 #>   @Manual{,
 #>     title = {rOmniDriver: Omni Driver R wrapper},
 #>     author = {Pedro J. Aphalo},
-#>     year = {2023},
-#>     note = {R package version 0.1.20, 
-#> https://github.com/aphalo/romnidriver},
+#>     year = {2024},
+#>     note = {R package version 0.1.20, https://github.com/aphalo/romnidriver},
 #>     url = {http://www.r4photobiology.info},
 #>   }
 ```
