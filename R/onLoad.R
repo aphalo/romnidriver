@@ -59,7 +59,7 @@
       if (!.Platform$OS.type == "windows") {
         ooi_diag <- TRUE
         message.txt <- 
-          paste("rOmniDriver:\nPackage is well tested only under Windows 10.\n",
+          paste("rOmniDriver:\nPackage is well tested only under Windows 10 and 11.\n",
                 "Please report any problems under your OS at",
                 "'https://github.com/aphalo/romnidriver/issues'")
       } else {
