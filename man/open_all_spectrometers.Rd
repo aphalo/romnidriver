@@ -16,7 +16,7 @@ number_srs(jwrapper)
 A numeric value giving the number of USB-connected spectrometers.
 }
 \description{
-Opens connections to communicate with all Ocean Insight spectrometers
+Opens connections to communicate with all Ocean Optics spectrometers
 connected through USB and returns the number of spectrometers that can be
 addressed.
 }

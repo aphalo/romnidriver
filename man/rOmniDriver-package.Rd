@@ -11,21 +11,21 @@
 This package is a wrapper of the OmniDriver java driver for Ocean Optics spectrometers.
 }
 \details{
-OmniDriver is a proprietary library provided by Ocean Insight
+OmniDriver is a proprietary library provided by Ocean Optics
 to allow the control of the spectrometers they sell
 through third party software.
 
 Although this package is under GPL, Omnidriver is
 not, it is copyrighted commercial software from
-Ocean Insight \url{http://www.oceanoptics.com}
+Ocean Optics \url{http://www.oceanoptics.com}
  
-Ocean Insight distributes the OmniDriver runtime free of charge. This
-can be downloaded from Ocean Insight web site. It can be used only
-with spectrometers sold by Ocean Insight. Ocean Insight has supported
+Ocean Optics distributes the OmniDriver runtime free of charge. This
+can be downloaded from Ocean Optics web site. It can be used only
+with spectrometers sold by Ocean Optics. Ocean Optics has supported
 the development of this R package by providing a free licence to
 the OmniDriver SDP, which gave me access to documentation.
 
-Ocean Insight will not provide support for the use of this package, unless the
+Ocean Optics will not provide support for the use of this package, unless the
 user buys a licence for OmniDriver SDP (spectroscopy development plattform).
 All support requests about this package should be addressed to the maintainer
 of the package or public R user forums.
@@ -60,7 +60,7 @@ Many methods in OmniDriver are available in two versions, one for
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://www.r4photobiology.info}
+  \item \url{https://docs.r4photobiology.info/rOmniDriver}
   \item \url{https://github.com/aphalo/romnidriver}
   \item Report bugs at \url{https://github.com/aphalo/romnidriver/issues}
 }

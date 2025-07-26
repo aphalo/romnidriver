@@ -1,6 +1,10 @@
 destination: ../docs/rOmniDriver
 url: https://docs.r4photobiology.info/rOmniDriver/
 
+template:
+  bootstrap: 5
+  math-rendering: katex
+
 reference:
   - title: Package overview
     contents:
@@ -36,6 +40,7 @@ navbar:
     home:
       icon: fas fa-home fa-lg
       href: index.html
+      aria-label: Home
     reference:
       text: Reference
       href: reference/index.html

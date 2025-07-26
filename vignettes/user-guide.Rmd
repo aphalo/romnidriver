@@ -14,9 +14,9 @@ vignette: >
 
 ## Introduction
 
-This package provides a wrapper on the OmniDriver from Ocean Insight. The 
+This package provides a wrapper on the OmniDriver from Ocean Optics. The 
 runtime can be downloaded and installed for free. Please, use the Java
-documentation provided by Ocean Insight. The names of all functions are
+documentation provided by Ocean Optics. The names of all functions are
 preserved but change from camel case as in `getApiVersion()` to a style
 easier to read and more usual in R. For this example `get_api_version()`.
 
@@ -66,7 +66,7 @@ w <- init_api()
 get_api_version(w)
 ```
 
-The next step is to open connections to all Ocean Insight spectrometers
+The next step is to open connections to all Ocean Optics spectrometers
 directly connected through USB to the local computer. This function does
 not 'see' spectrometers connected through a LAN. It returns the number of
 spectrometers found. The spectrometers are accessed through and index 
@@ -216,7 +216,7 @@ get_scans_to_avg(jwrapper = w, sr.index = 0L, ch.index = 0L)
 ```
 
 The correction for detector non-linearity can be applied in the spectrometer, 
-but this can also be disabled. (According to Ocean Insight' literature the
+but this can also be disabled. (According to Ocean Optics' literature the
 in-spectrometer correction is applied based on the mean counts across the
 whole array, which seems an odd thing to do. This needs checking as it
 could distort the shape of the spectrum compared to applying the correction
