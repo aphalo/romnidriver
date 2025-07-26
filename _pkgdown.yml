@@ -28,16 +28,10 @@ reference:
 
 navbar:
   structure:
-    left:
-    - home
-    - intro
-    - reference
-    - articles
-    - tutorials
-    - news
-    right: github
+    left:  [intro, reference, articles, tutorials, news]
+    right: [search, github]
   components:
-    home:
+    intro:
       icon: fas fa-home fa-lg
       href: index.html
       aria-label: Home
@@ -48,14 +42,23 @@ navbar:
       text: Changelog
       href: news/index.html
     articles:
-      text: 'User Guide'
-      href: articles/user-guide.html
+      text: User Guide
+      menu:
+      - text: 'The R for Photobiology Suite'
+        href: articles/r4p-introduction.html
+      - text: 'User Guide'
+        href: articles/user-guide.html
     tutorials:
       text: Resources
       menu:
-      - text: R for Photobiology packages
+      - text: R for Photobiology web site
         href: https://www.r4photobiology.info/
-      - text: Ocean Insight (ex. Ocean Optics)
-        href: https://www.oceaninsight.com/
+      - text: R for Photobiology Suite CRAN releases
+        href: https://www.r4photobiology.info/pages/CRAN-activity.html
+      - text: ------
+      - text: Ocean Optics
+        href: https://www.oceanoptics.com/
       - text: A handbook of methods
         href: https://doi.org/10.31885/9789521083631
+      - text: Book 'Learn R - As a Language'
+        href: https://www.learnr-book.info/

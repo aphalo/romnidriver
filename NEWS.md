@@ -4,6 +4,10 @@ editor_options:
     wrap: 72
 ---
 
+# rOmniDriver 0.1.20-2 (2025-07-26)
+
+-   Documentation update. No change to R code.
+
 # rOmniDriver 0.1.20 (2024-03-29)
 
 -   Check that we pass only finite values to OmniDriver functions for 
